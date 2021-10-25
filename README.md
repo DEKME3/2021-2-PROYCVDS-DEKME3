@@ -1,13 +1,34 @@
 # 2021-2-PROYCVDS-DEKME3
 
 ## Nombre del proyecto
+### _**2021-2-PROYCVDS-DEKME3**_
 
-## Período académico, nombre del curso, nombre de los integrantes, nombre del profesor, roles asignados (no olvidar que el profesor tuvo el rol de 'dueño de producto').
+## Período académico
+### _2021-2_
+## Nombre del curso
+### _CVDS-2_
+## Nombre de los integrantes
+* ### DEIVID SEBASTIAN MEDINA RATIVA
+* ### EDUARDO OSPINA MEJIA
+* ### KRISTHIAN DAVID SEGURA GUATIBONZA
+* ### MARÍA JOSÉ TORRES NIEVES
+## Nombre del profesor
+### OSCAR DAVID OSPINA RODRIGUEZ
+## Roles asignados
+* ### DEIVID SEBASTIAN MEDINA RATIVA: ***UX***
+* ### EDUARDO OSPINA MEJIA: ***Back***
+* ### KRISTHIAN DAVID SEGURA GUATIBONZA: ***Back***
+* ### MARÍA JOSÉ TORRES NIEVES: ***Front***
+* ### OSCAR DAVID OSPINA RODRIGUEZ: ***Dueño del producto***
 
 ## Descripción del producto.
-1. Descripción general.
-2. Manual de usuario.
-3. Imágenes y descripción de las funcionalidades más importantes.
+**1. Descripción general:**
+
+La Plataforma Solidaridad Escuela, es una herramienta para generar un entorno de comunicación y ayuda dentro de la comunidad de la Escuela Colombiana de Ingeniería Julio Garavito. El sistema permite que los estudiantes puedan expresar las necesidades que puedan tener de algún elemento para poder desarrollar sus actividades de forma correcta, y que los demás miembros de la comunidad puedan facilitar estos elementos a quienes lo necesitan. De igual manera los miembros de la comunidad pueden ofrecer diferentes elementos que sean de interés para los estudiantes sin que exista alguna solicitud específica. Adicionalmente el sistema cuenta con diferentes funcionalidades de reportería y administración que permite llevar un control del funcionamiento de la plataforma y del alcance que se está logrando.
+
+**2. Manual de usuario.**
+
+**3. Imágenes y descripción de las funcionalidades más importantes.**
 
 ## Arquitectura y Diseño detallado:
 1. Modelo E-R.
