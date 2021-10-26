@@ -1,6 +1,9 @@
 package edu.eci.cvds.dao.mybatis.mappers;
 
-import edu.eci.cvds.entities.Usuario;
+import java.util.List;
+
+import edu.eci.cvds.entities.User;
+import edu.eci.cvds.entities.UserType;
 
 public interface UserTypeMapper {
 

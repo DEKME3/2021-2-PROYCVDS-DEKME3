@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UsuarioMapper">
+<mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UserMapper">
       <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
         SELECT 
         i.id ,
@@ -12,22 +12,22 @@
         i.email ,
         i.status  ,
         i.userType  ,  
-        from Usuarios as i 
+        from Users as i 
     </select>
 
     <insert id="insertarUsuario" parameterType="map">
-        INSERT INTO Usuarios
+        INSERT INTO Users
         VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
     </insert>
 
-    <resultMap type='Usuario' id='UsuarioResult'>
+    <resultMap type='User' id='UsuarioResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>
         <result property='password' column='password'/>
         <result property='email' column='email'/>
         <result property='status' column='status'/>
         <result property='userType' column='userType'/> 
-        <association property='Usuario' javaType = 'TipoUsuario' resultMap='edu.eci.cvds.dao.mybatis.mappers.UsuarioMapper.consultarUsuario' columnPrefix='tipoUsuario_'></association>
+        <association property='User' javaType = 'TipoUsuario' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserMapper.consultarUsuario' columnPrefix='tipoUsuario_'></association>
     </resultMap>
           	
 </mapper>

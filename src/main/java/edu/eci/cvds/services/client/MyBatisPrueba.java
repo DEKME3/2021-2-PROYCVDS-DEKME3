@@ -9,8 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import edu.eci.cvds.dao.mybatis.mappers.UsuarioMapper;
 import edu.eci.cvds.entities.UserType;
+import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
 import edu.eci.cvds.entities.User;
 
 public class MyBatisPrueba {
@@ -47,7 +47,7 @@ public class MyBatisPrueba {
 
         
         //Crear el mapper y usarlo: 
-        UsuarioMapper um = sqlss.getMapper(UsuarioMapper.class);
+        UserMapper um = sqlss.getMapper(UserMapper.class);
         UserType ut = new UserType(1, "Administrador", "");
         um.InsertarUsuario(new User(ut, "kristhian", "1234", "kristhian@gmail.com", true));
         
