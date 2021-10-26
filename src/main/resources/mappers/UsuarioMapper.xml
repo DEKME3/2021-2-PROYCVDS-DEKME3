@@ -17,7 +17,7 @@
 
     <insert id="insertarUsuario" parameterType="map">
         INSERT INTO Usuarios
-        VALUES( #{id},#{name},#{password},#{email},#{status},#{userType}) ;
+        VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
     </insert>
 
     <resultMap type='Usuario' id='UsuarioResult'>
