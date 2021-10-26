@@ -16,7 +16,7 @@
     </select>
 
     <insert id="insertarUsuario" parameterType="map">
-        INSERT INTO Users
+        INSERT INTO Users (name, password, email, status, userType)
         VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
     </insert>
 
@@ -26,7 +26,7 @@
         <result property='password' column='password'/>
         <result property='email' column='email'/>
         <result property='status' column='status'/>
-        <association property='userType' javaType = 'UserType' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserMapper.consultarUsuario' columnPrefix='userType_'></association>
+        <association property='userType' javaType = 'UserType'></association>
     </resultMap>
           	
 </mapper>

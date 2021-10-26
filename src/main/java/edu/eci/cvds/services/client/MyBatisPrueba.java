@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
+import org.apache.ibatis.binding.MapperRegistry;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,8 +44,8 @@ public class MyBatisPrueba {
     public static void main(String args[]) throws SQLException {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
 
+        sessionfact.getConfiguration().addMapper(UserMapper.class);
         SqlSession sqlss = sessionfact.openSession();
-
         
         //Crear el mapper y usarlo: 
         UserMapper um = sqlss.getMapper(UserMapper.class);
