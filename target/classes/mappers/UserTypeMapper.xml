@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UserTypeMapper">
-      <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
+      <select parameterType="map" id="consultarUserType" resultMap="UserTypeResult">
         SELECT 
         i.id ,
         i.name ,
@@ -13,11 +13,10 @@
     </select>
 
 
-    <resultMap type='Usuario' id='UsuarioResult'>
+    <resultMap type='User' id='UserTypeResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>
         <result property='descripcion' column='descripcion'/>
-        <association property='UserType' javaType = 'TipoUserType' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper.consultarUserType' columnPrefix='tipoUserType_'></association>
     </resultMap>
           	
 </mapper>

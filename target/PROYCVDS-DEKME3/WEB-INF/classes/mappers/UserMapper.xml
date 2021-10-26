@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UserMapper">
+      <select parameterType="map" id="consultarUsuario" resultMap="UserResult">
+        SELECT 
+        i.id ,
+        i.name ,
+        i.password,
+        i.email ,
+        i.status  ,
+        i.userType  ,  
+        from Users as i 
+    </select>
+
+    <insert id="insertarUsuario" parameterType="map">
+        INSERT INTO Users
+        VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
+    </insert>
+
+    <resultMap type='User' id='UserResult'>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property='password' column='password'/>
+        <result property='email' column='email'/>
+        <result property='status' column='status'/>
+        <association property='userType' javaType = 'UserType' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserMapper.consultarUsuario' columnPrefix='userType_'></association>
+    </resultMap>
+          	
+</mapper>

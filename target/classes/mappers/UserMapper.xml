@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UserMapper">
-      <select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
+      <select parameterType="map" id="consultarUsuario" resultMap="UserResult">
         SELECT 
         i.id ,
         i.name ,
@@ -20,14 +20,13 @@
         VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
     </insert>
 
-    <resultMap type='User' id='UsuarioResult'>
+    <resultMap type='User' id='UserResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>
         <result property='password' column='password'/>
         <result property='email' column='email'/>
         <result property='status' column='status'/>
-        <result property='userType' column='userType'/> 
-        <association property='User' javaType = 'TipoUsuario' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserMapper.consultarUsuario' columnPrefix='tipoUsuario_'></association>
+        <association property='userType' javaType = 'UserType' resultMap='edu.eci.cvds.dao.mybatis.mappers.UserMapper.consultarUsuario' columnPrefix='userType_'></association>
     </resultMap>
           	
 </mapper>

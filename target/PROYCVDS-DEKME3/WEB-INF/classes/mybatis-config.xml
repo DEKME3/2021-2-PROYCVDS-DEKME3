@@ -7,8 +7,14 @@
         <setting name="logImpl" value="LOG4J"/>        
     </settings>-->
     
+    
     <properties resource="config.properties">
-    </properties>	
+    </properties>
+    
+    <typeAliases>
+        <typeAlias type="edu.eci.cvds.entities.User" alias="User"/>
+        <typeAlias type="edu.eci.cvds.entities.UserType" alias="UserType"/>
+    </typeAliases>
 
     <environments default="development">
         <environment id="development">
@@ -22,5 +28,10 @@
             </dataSource>
         </environment>
     </environments>
+
+    <mappers>
+        <mapper resource="mappers/UserMapper.xml"></mapper>
+        <mapper resource="mappers/UserTypeMapper.xml"></mapper>    
+    </mappers> 
               
 </configuration>
