@@ -33,6 +33,10 @@ La Plataforma Solidaridad Escuela, es una herramienta para generar un entorno de
 ## Arquitectura y Diseño detallado:
 1. Modelo E-R.
 2. Diagrama de clases (hacerlo mediante ingeniería inversa)
+
+##### Diagrama version 001.
+![Diagrama-Version-001.png](https://i.postimg.cc/66ncdHZ5/Diagrama-Version-001.png)
+
 3. Descripción de la arquitectura (capas) y del Stack de tecnologías utilizado (PrimeFaces, Guice, QuickTheories, PostgreSQL).
 4. Enlace a la aplicación en Heroku.
 5. Enlace al sistema de integración continua.
