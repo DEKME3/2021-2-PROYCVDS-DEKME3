@@ -3,8 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.cvds..dao.mybatis.mappers.UserMapper">
-      <select parameterType="map" id="consultarUsuario" resultMap="UserResult">
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserMapper">
+
+    <select parameterType="map" id="consultarUsuario" resultMap="UserResult">
         SELECT 
         i.id ,
         i.name ,
@@ -15,9 +16,15 @@
         from Users as i 
     </select>
 
-    <insert id="insertarUsuario" parameterType="map">
-        INSERT INTO Users (name, password, email, status, userType)
-        VALUES(#{name},#{password},#{email},#{status},#{userType}) ;
+    <insert parameterType="map" id="InsertarUsuario" >
+        INSERT INTO users
+        VALUES(
+          #{user.id},
+          #{user.name},
+          #{user.password},
+          #{user.email},
+          #{user.status},
+          #{user.userType.id}) ;
     </insert>
 
     <resultMap type='User' id='UserResult'>

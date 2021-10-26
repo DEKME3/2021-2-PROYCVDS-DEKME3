@@ -44,13 +44,13 @@ public class MyBatisPrueba {
     public static void main(String args[]) throws SQLException {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
 
-        sessionfact.getConfiguration().addMapper(UserMapper.class);
+        //sessionfact.getConfiguration().addMapper(UserMapper.class);
         SqlSession sqlss = sessionfact.openSession();
         
         //Crear el mapper y usarlo: 
         UserMapper um = sqlss.getMapper(UserMapper.class);
         UserType ut = new UserType(1, "Administrador", "");
-        um.InsertarUsuario(new User(ut, "kristhian", "1234", "kristhian@gmail.com", true));
+        um.InsertarUsuario(new User(1, "kristhian", "1234", "kristhian@gmail.com", true, ut));
         
         sqlss.commit();
         

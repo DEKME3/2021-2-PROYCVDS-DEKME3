@@ -10,11 +10,62 @@ public class User implements Serializable{
     private boolean status;
     private UserType userType;
 
-    public User(UserType userType, String name, String password, String email, boolean status){
+    public User(int id, String name, String password, String email, boolean status, UserType userType){
+        this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
         this.status = status;
         this.userType = userType;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    
 }
