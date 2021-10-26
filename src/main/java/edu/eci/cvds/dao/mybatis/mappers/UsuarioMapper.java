@@ -1,5 +1,9 @@
 package edu.eci.cvds.dao.mybatis.mappers;
 
-public class UsuarioMapper {
+import edu.eci.cvds.entities.Usuario;
+
+public interface UsuarioMapper {
+
+    public void InsertarUsuario (Usuario usuario);
     
 }
