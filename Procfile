@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar target/PROYCVDS-DEKME3/index.jsp --port $PORT target/*.war
+web:    java $JAVA_OPTS -jar target/PROYCVDS-DEKME3/SolidadEscuela.xhtml --port $PORT target/*.war
