@@ -10,8 +10,7 @@ public class User implements Serializable{
     private boolean status;
     private UserType userType;
 
-    public User(int id, String name, String password, String email, boolean status, UserType userType){
-        this.id = id;
+    public User(String name, String password, String email, boolean status, UserType userType){
         this.name = name;
         this.password = password;
         this.email = email;
@@ -67,5 +66,8 @@ public class User implements Serializable{
         return userType;
     }
 
-    
+    @Override
+    public String toString() {
+        return "User{id=" + id + " name=" + name + " password=" + password + " email=" + email + " status=" + status + "usertype= " + userType.toString() + " }";
+    }
 }

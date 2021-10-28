@@ -37,4 +37,9 @@ public class UserType implements Serializable{
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return "UserType{id=" + id + " name=" + name + " description=" + description + " }";
+    }
 }
