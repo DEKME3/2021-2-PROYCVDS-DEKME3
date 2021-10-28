@@ -21,8 +21,7 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}" />
-                <property name="url" value="jdbc:postgresql://ec2-52-0-234-93.compute-1.amazonaws.com:5432/
-                ddo6g7hcj912sc?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/> 
+                <property name="url" value="jdbc:postgresql://ec2-52-0-234-93.compute-1.amazonaws.com:5432/ddo6g7hcj912sc?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/> 
                 <property name="username" value="${username}"/>
                 <property name="password" value="${password}"/>
             </dataSource>
