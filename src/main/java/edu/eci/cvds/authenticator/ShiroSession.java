@@ -26,11 +26,11 @@ public class ShiroSession implements SessionLogger{
 	public void login(String nombre, String clave) throws excepciones {
         try{
 
-            Subject currentUser = SecurityUtils.getSubject();
+            Subject currentUser = SecurityUtils.getSubject(); //Esta función devuelve el nombre de usuario actual.
 
             UsernamePasswordToken token = new UsernamePasswordToken(nombre,new Sha256Hash(clave).toHex());
 
-            currentUser.getSession().setAttribute("Correo",nombre);
+            currentUser.getSession().setAttribute("Nombre",nombre);//Establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado.
 
             currentUser.login( token );
             
