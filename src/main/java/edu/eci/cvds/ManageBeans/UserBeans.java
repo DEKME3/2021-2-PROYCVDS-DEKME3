@@ -12,11 +12,6 @@ import java.io.IOException;
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "UserBeans")
 @SessionScoped
-<<<<<<< HEAD
-
-public class UserBeans {
-=======
->>>>>>> a3c82fce1e432bc93f8a367628ac927f4818d00d
 
 public class UserBeans {
 	
@@ -24,8 +19,6 @@ public class UserBeans {
     private String name;
     private String password;
 
-<<<<<<< HEAD
-=======
 
     public void logIn() throws excepciones{
         try{
@@ -41,6 +34,4 @@ public class UserBeans {
         }
     }
 
-
->>>>>>> a3c82fce1e432bc93f8a367628ac927f4818d00d
 }
