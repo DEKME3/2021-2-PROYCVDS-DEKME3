@@ -34,21 +34,12 @@ public class ServicesFactory {
        optInjector = Optional.empty();
    }
 
-//    public ServiciosAlquiler getServiciosAlquiler(){
-//        if (!optInjector.isPresent()) {
-//            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
-//        }
-//        return optInjector.get().getInstance(ServiciosAlquiler.class);
-//    }
-
-
-//    public ServiciosAlquiler getServiciosAlquilerTesting(){
-//        if (!optInjector.isPresent()) {
-//            optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml"));
-//        }
-//        return optInjector.get().getInstance(ServiciosAlquiler.class);
-//    }
-
+   public UserServices getUserServices(){
+       if (!optInjector.isPresent()) {
+           optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+       }
+       return optInjector.get().getInstance(UserServices.class);
+   }
 
    public static ServicesFactory getInstance(){
        return instance;
