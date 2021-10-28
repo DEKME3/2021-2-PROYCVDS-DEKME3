@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
-import org.apache.ibatis.binding.MapperRegistry;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
+import edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper;
 import edu.eci.cvds.entities.User;
 
 public class MyBatisPrueba {
@@ -43,14 +43,21 @@ public class MyBatisPrueba {
      */
     public static void main(String args[]) throws SQLException {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
-
-        //sessionfact.getConfiguration().addMapper(UserMapper.class);
         SqlSession sqlss = sessionfact.openSession();
         
-        //Crear el mapper y usarlo: 
-        UserMapper um = sqlss.getMapper(UserMapper.class);
-        UserType ut = new UserType(1, "Administrador", "");
-        um.InsertarUsuario(new User(1, "kristhian", "1234", "kristhian@gmail.com", true, ut));
+        // Crear el mapper y usarlo: 
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
+
+        // Imprimir usertype OK
+        //System.out.println(userTypeMapper.getUserType(2).toString());
+
+        // Imprimir user OK
+        System.out.println(userMapper.getUser(1).toString());
+
+        // Insertar user OK
+        //UserType ut = userTypeMapper.getUserType(1);
+        //userMapper.InsertarUsuario(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
         
         sqlss.commit();
         

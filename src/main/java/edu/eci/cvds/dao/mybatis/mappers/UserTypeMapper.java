@@ -1,14 +1,13 @@
 package edu.eci.cvds.dao.mybatis.mappers;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
-import edu.eci.cvds.entities.User;
 import edu.eci.cvds.entities.UserType;
 
 public interface UserTypeMapper {
 
 
-    public List<UserType> consultarUserType();
+    public UserType getUserType(@Param("id") int id);
 
     
 }
