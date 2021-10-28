@@ -10,12 +10,10 @@ import java.util.Map;
 
 @ManagedBean(name = "UserBeans")
 @SessionScoped
+
 public class UserBeans {
 
     private String name;
     private String password;
-
-
-
 
 }
