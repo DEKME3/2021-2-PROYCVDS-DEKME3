@@ -1,4 +1,4 @@
-package edu.eci.cvds.manageBeans;
+package edu.eci.cvds.ManageBeans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-@ManagedBean(name = "UserBean")
+@ManagedBean(name = "UserBeans")
 @SessionScoped
-public class UserBean {
+public class UserBeans {
 
     private String name;
     private String password;

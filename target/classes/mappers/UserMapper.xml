@@ -14,7 +14,7 @@
         u.status,
         u.userType,  
         FROM Users as u
-        WHERE u.id = #{id}
+        WHERE u.name = #{name}
     </select>
 
     <insert parameterType="map" id="InsertUser" >

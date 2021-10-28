@@ -23,13 +23,12 @@ public class MyBatisUser implements UserDao{
 	}
 
 	@Override
-	public User getUser(int id) throws excepciones {
+	public User getUser(String name) throws excepciones {
         try {
-            userMapper.getUser(id);
+            return userMapper.getUser(name);
         } catch (Exception e) {
             throw new excepciones("No se logro obtener un Usuario.", e);
         }
-		return null;
 	}
 
 }

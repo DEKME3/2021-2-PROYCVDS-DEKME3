@@ -6,5 +6,5 @@ import edu.eci.cvds.exeptions.*;
 public interface UserDao {
 	
     public void InsertUser(User user) throws excepciones;
-    public User getUser(int id) throws excepciones;
+    public User getUser(String name) throws excepciones;
 }

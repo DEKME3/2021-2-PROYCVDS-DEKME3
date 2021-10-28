@@ -53,11 +53,11 @@ public class MyBatisPrueba {
         //System.out.println(userTypeMapper.getUserType(2).toString());
 
         // Imprimir user OK
-        System.out.println(userMapper.getUser(1).toString());
+        //System.out.println(userMapper.getUser(1).toString());
 
         // Insertar user OK
-        //UserType ut = userTypeMapper.getUserType(1);
-        //userMapper.InsertarUsuario(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
+        UserType ut = userTypeMapper.getUserType(1);
+        userMapper.InsertUser(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
         
         sqlss.commit();
         

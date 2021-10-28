@@ -8,5 +8,5 @@ import edu.eci.cvds.entities.UserType;
 public interface UserMapper {
 
     public void InsertUser(@Param("user") User user);
-    public User getUser(@Param("id") int id);
+    public User getUser(@Param("name") String name);
 }
