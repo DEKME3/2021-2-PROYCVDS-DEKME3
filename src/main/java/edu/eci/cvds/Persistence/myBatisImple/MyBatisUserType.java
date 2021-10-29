@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 
 import edu.eci.cvds.Persistence.UserTypeDao;
 import edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper;
-import edu.eci.cvds.entities.User;
 import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.exeptions.excepciones;
 
