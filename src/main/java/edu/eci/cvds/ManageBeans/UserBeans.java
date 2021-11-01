@@ -27,7 +27,7 @@ public class UserBeans {
                 User user=userServices.getUser(name);
             }else{
                 System.out.println("Fallo de Validacion");
-                FacesContext.getCurrentInstance().getExternalContext().redirect("SolidaridadEscuela.xhtml"); // para representar toda la información contextual asociada con el procesamiento de una solicitud entrante y crear la respuesta correspondiente.
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml"); // para representar toda la información contextual asociada con el procesamiento de una solicitud entrante y crear la respuesta correspondiente.
             }
         } catch (IOException e) {
             e.printStackTrace();
