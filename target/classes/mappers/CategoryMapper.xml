@@ -5,7 +5,7 @@
   
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper">
 
-    <insert parameterType="map" id="InsertCategory" >
+    <insert parameterType="map" id="InsertCategory">
         INSERT INTO categories (name, description, creationDate, status, modificationDate)
         VALUES(
           #{category.name},
