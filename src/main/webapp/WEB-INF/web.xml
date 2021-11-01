@@ -6,7 +6,7 @@
 	<display-name>Archetype Created Web Application</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>SolidaridadEscuela.xhtml</welcome-file>
+		<welcome-file>faces/SolidaridadEscuela.xhtml</welcome-file>
 	</welcome-file-list>
 	
   <servlet>
@@ -17,7 +17,7 @@
    
    <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
+    <url-pattern>/faces/*</url-pattern>
    </servlet-mapping>
    
    	<listener>
