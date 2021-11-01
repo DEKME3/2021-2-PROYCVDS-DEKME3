@@ -1,8 +1,9 @@
 package edu.eci.cvds.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class User implements Serializable{
+public class Category implements Serializable{
     private int id;
     private String name;
     private String description;
@@ -30,14 +31,14 @@ public class User implements Serializable{
     }
 
     public void setcreationdate(String creationdate) {
-        this.creationDate = creationdate;
+        this.creationDate = creationDate;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public void setUserType(UserType modification) {
+    public void setUserType(Date modification) {
         this.modification = modification;
     }
 
@@ -53,20 +54,20 @@ public class User implements Serializable{
         return description;
     }
 
-    public String getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public UserType getModification() {
+    public Date getModification() {
         return modification;
     }
 
     @Override
     public String toString() {
-        return "User{id=" + id + " name=" + name + " description=" + description + " creation date=" + creationDate + " status=" + status + "modification= " + modification + " }";
+        return "Category{id=" + id + " name=" + name + " description=" + description + " creation date=" + creationDate + " status=" + status + "modification= " + modification + " }";
     }
 }
