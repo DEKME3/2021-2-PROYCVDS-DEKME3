@@ -1,9 +1,0 @@
-machine:
-  java:
-    version: oraclejdk8
-
-deployment:
-  staging:
-    branch: main
-    heroku: 2021-2-PROYCVDS-DEKME3
-      appname: 2021-2-PROYCVDS-DEKME3
