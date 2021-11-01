@@ -11,11 +11,12 @@ public class Category implements Serializable{
     private String status;
     private Date modification;
 
-    public Category(String name, String description, Date creationDate, String status){
+    public Category(String name, String description, Date creationDate, String status, Date modification){
         this.name = name;
         this.description = description;
         this.status = status;
         this.creationDate = creationDate;
+        this.modification = modification;
     }
 
     public void setId(int id) {
