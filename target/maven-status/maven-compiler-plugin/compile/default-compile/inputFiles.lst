@@ -3,6 +3,7 @@ C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\ShiroSession.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\client\MyBatisPrueba.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserTypeMapper.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUserType.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\exeptions\excepciones.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserMapper.java
@@ -13,6 +14,9 @@ C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\ServicesFactory.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserDao.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\UserBeans.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\Category.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\CategoryDao.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\UserType.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\UserServicesImpl.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisCategory.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\servlet\Servlet.java

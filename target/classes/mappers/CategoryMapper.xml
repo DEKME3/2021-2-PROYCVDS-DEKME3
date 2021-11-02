@@ -12,7 +12,7 @@
           #{category.description},
           #{category.creationDate},
           #{category.status},
-          #{category.modificationDate});
+          #{category.modification});
     </insert>
 
     <resultMap type='Category' id='CategoryResult'>
