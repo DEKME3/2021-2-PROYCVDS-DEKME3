@@ -15,9 +15,10 @@
                 <p>Ingresa tu usuario</p>
                 <form>
                     <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario"/>
+                    <input type="text" id="usuario" name="usuario" value="#{LoginBean.nombre}"/>
                     <label for="pwd">Contraseña:</label>
-                    <input type="password" id="pwd" name="pwd"/>
+                    <input type="password" id="pwd" name="pwd" value="#{LoginBean.clave}"/>
+                    <p:commandButton type="submit" value="Ingresar" action="#{LoginBean.login()}"/>
                 </form>
             </div>
             <div class="item2">
