@@ -6,6 +6,7 @@ import edu.eci.cvds.Persistence.UserDao;
 import edu.eci.cvds.Persistence.UserTypeDao;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUser;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUserType;
+import edu.eci.cvds.authenticator.SessionLogger;
 
 import java.util.Optional;
 
@@ -44,5 +45,13 @@ public class ServicesFactory {
    public static ServicesFactory getInstance(){
        return instance;
    }
+
+    public SessionLogger getLoginServices(){
+        if (!optInjector.isPresent()) {
+            optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+        }
+
+        return optInjector.get().getInstance(SessionLogger.class);
+    }
 
 }

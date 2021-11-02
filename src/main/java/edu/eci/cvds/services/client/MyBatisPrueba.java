@@ -70,8 +70,12 @@ public class MyBatisPrueba {
         
         
         sqlss.close();
+    }
 
-        
-        
+    public static UserType validarUserType(String name){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        return userMapper.getUser(name).getUserType();
     }
 }
