@@ -16,9 +16,12 @@
                     <a>><img src="img/loginImagen.png" height="180" width="180"></a><br>
                     <a>User</a>
                     <div class="dropdown-divider">  </div>
-                    <a class="dropdown-item"> Salir </a>
+                    <a href="index.jsp" class="dropdown-item"> Salir </a>
                 </div>
             </div>
         </nav>
+        <div class="container mt-4">
+            <h1> Bienvenido al Sistema</h1>
+        </div>
     </h:body>
 </html>
