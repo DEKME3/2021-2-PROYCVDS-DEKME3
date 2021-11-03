@@ -9,9 +9,10 @@
     </h:head>
     <h:body>
         <div class="item1">
-            <form action="login">
+            <form action="mainAdministrador.jsp">
                 <div class="forma1" text-centet>
-                    <img src="img/loginImagen.png" height="200" width="200">
+                    <img src="img/loginImagen.png" height="200" width="20
+                    0">
                     <p><strong>Bienvenido al Sistema</strong></p> 
                 </div>
                 <div class="forma1">
