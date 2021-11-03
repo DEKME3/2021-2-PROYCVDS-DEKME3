@@ -75,7 +75,7 @@ public class LoginBean {
             String rolUsuario = MyBatisPrueba.validarUserType(nombre).getName();
             switch(rolUsuario) {
             	case "Administrador":
-            	FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.xhtml");
+            	FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
             	break;
             }
              
@@ -107,7 +107,7 @@ public class LoginBean {
     public void retroceder(){
         if(isLogged()){
             try{
-            	FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+            	FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
             }catch (IOException e){
                 setErrorMessage(e);
             }
@@ -119,7 +119,7 @@ public class LoginBean {
     
     public void logout() throws IOException{
         if(isLogged()){
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.jsp");
             SecurityUtils.getSubject().logout();
         }
     }

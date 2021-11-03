@@ -23,7 +23,7 @@
                     <label>Password:</label>
                     <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
                 </div>
-                <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.login}"> 
+                <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.login()}"> 
             </form>
         </div>
     </h:body>
