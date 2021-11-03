@@ -14,17 +14,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
 import com.google.inject.Inject;
-
 import java.io.IOException;
 
 
 
 @SuppressWarnings("deprecation")
-
-
-@ManagedBean(name="LoginBean")
+@ManagedBean(name ="LoginBean")
 @SessionScoped
 public class LoginBean {
 

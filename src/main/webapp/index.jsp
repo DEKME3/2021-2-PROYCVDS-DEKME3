@@ -8,24 +8,22 @@
         <link rel="stylesheet" type="text/css" href="css/login.css"/>
     </h:head>
     <h:body>
-        <div>
-            <div class="item1">
-                <img src="img/logo.png" alt="logo"/>
-                <h3 id="title" class="neonText">Solidaridad Escuela</h3>
-                <p>Ingresa tu usuario</p>
-                <form>
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" value="#{LoginBean.nombre}"/>
-                    <label for="pwd">Contraseña:</label>
-                    <input type="password" id="pwd" name="pwd" value="#{LoginBean.clave}"/>
-                    
-                </form>
-            </div>
-            <div class="item2">
-                <img src="img/login.gif" alt="gifLogin"/> 
-            </div>
-
-            <p:commandButton type="submit" value="Ingresar" action="#{LoginBean.login()}"/>
+        <div class="item1">
+            <form action="login">
+                <div class="forma1">
+                    <img src="img/loginImagen.png" hidden="80" width="80">
+                    <p><strong>Bienvenido al Sistema</strong></p> 
+                </div>
+                <div class="forma1">
+                    <label>User:</label>
+                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:">
+                </div>
+                <div class="forma1">
+                    <label>Password:</label>
+                    <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control">
+                </div>
+                <input type="submit" name="accion" value="Ingresar"> 
+            </form>
         </div>
     </h:body>
 </html>
