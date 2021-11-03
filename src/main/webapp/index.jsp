@@ -10,8 +10,8 @@
     <h:body>
         <div class="item1">
             <form action="login">
-                <div class="forma1">
-                    <img src="img/loginImagen.png" hidden="80" width="80">
+                <div class="forma1" text-centet>
+                    <img src="img/loginImagen.png" height="80" width="80">
                     <p><strong>Bienvenido al Sistema</strong></p> 
                 </div>
                 <div class="forma1">
