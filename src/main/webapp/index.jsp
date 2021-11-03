@@ -22,7 +22,7 @@
                     <label>Password:</label>
                     <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control">
                 </div>
-                <input type="submit" name="accion" value="Ingresar"> 
+                <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar"> 
             </form>
         </div>
     </h:body>
