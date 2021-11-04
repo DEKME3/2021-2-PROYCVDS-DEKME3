@@ -16,17 +16,16 @@
                     <p><strong>Bienvenido al Sistema</strong></p> 
                 </div>
                 <div class="forma1">
-                    <!--<label>User:</label>
-                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:" value="#{LoginBean.nombre}">-->
+                    <label>User</label>
+                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:" value="#{LoginBean.nombre}">
                     <p:inputText type="email" name="txtnom" id="name" placeholder="Name" value="#{LoginBean.nombre}"/><br/>
                 </div>
                 <div class="forma1">
-                    <!--<label>Password:</label>
-                    <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}">--> 
+                    <label>Password</label>
+                    <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
                     <p:inputText type="password" name="txtPassword" id="password" placeholder="Password"  value="#{LoginBean.clave}"/>
                 </div>
-                <!--<input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.login()}"> -->
-                <p:commandButton type="submit" value="Entrar" style="background:#00468D; margin-top: 0.5% " styleClass="customStyleButton" action="#{LoginBean.login()}"/>
+                <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.login()}"> 
             </form>
         </div>
     </h:body>
