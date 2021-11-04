@@ -15,6 +15,10 @@
           #{category.modification});
     </insert>
 
+    <update parameterType="map" id="ActualizarCategory">
+        update categories set name=#{name},description=#{description},status=#{status} where usertype="1";
+    </update>
+
     <resultMap type='Category' id='CategoryResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>

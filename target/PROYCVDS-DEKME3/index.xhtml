@@ -5,16 +5,16 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-       <!-- <link rel="stylesheet" type="text/css" href="css/login.css"/> -->
+       <link rel="stylesheet" type="text/css" href="css/login.css"/> 
     </h:head>
     <h:body>
         <div class="item1">
             <h:form id="login_form" method="post">
 
-                <!-- <div class="forma1" text-center>
-                    <img src="img/loginImagen.png" height="200" width="200">
+                <div class="forma1 text-center" >
+                    <img src="img/loginImagen.png" height="200" width="200"/>
                     <p><strong>Bienvenido al Sistema</strong></p> 
-                </div> -->
+                </div> 
 
                 <div class="forma1">
                     <label>User</label>
@@ -23,7 +23,7 @@
 
                 <div class="forma1">
                     <label>Password</label>
-                    <p:inputText name="clave" value="#{LoginBean.clave}"/>
+                    <p:inputText type="password" name="clave" value="#{LoginBean.clave}"/>
                 </div>
                 
                 <div class="forma1">
