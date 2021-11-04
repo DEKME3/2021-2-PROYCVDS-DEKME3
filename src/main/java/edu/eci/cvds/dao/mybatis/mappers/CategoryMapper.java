@@ -8,4 +8,5 @@ public interface CategoryMapper {
 
     public void InsertCategory(@Param("category") Category category);
     public Category getCategory(@Param("name") String name);
+    public void ActualizarCategory(@Param("name") String name, @Param("description") String description, @Param("status") String status);
 }

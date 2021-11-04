@@ -128,8 +128,8 @@ public class LoginBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
 
-	public void validarLogin(String name, String clave) throws excepciones {
-		setNombre(name);
+	public void validarLogin(String nombre, String clave) throws excepciones {
+		setNombre(nombre);
 		setClave(clave);
 		login();
 	}
