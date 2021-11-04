@@ -64,7 +64,7 @@ public class MyBatisPrueba {
         // userMapper.InsertUser(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
 
         // Insertar category OK
-        categoryMapper.InsertCategory(new Category("Categoria prueba", "descripcion", new Date(), "status", new Date()));
+        categoryMapper.InsertCategory(new Category("Categoriaaa", "descripcion2", new Date(), "status", new Date()));
         
         sqlss.commit();
         
@@ -84,5 +84,7 @@ public class MyBatisPrueba {
         SqlSession sqlss = sessionfact.openSession();
         CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
         categoryMapper.InsertCategory(newCategory);
+        sqlss.commit();   
+        sqlss.close();
     }
 }

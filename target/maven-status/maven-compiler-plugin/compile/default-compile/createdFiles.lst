@@ -9,6 +9,7 @@ edu\eci\cvds\entities\User.class
 edu\eci\cvds\services\client\MyBatisPrueba.class
 edu\eci\cvds\servlet\Servlet.class
 edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.class
+edu\eci\cvds\ManageBeans\CategoriaBean.class
 edu\eci\cvds\entities\UserType.class
 edu\eci\cvds\Persistence\myBatisImple\MyBatisUserType.class
 edu\eci\cvds\Persistence\UserDao.class
