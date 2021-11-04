@@ -7,6 +7,8 @@ import edu.eci.cvds.Persistence.UserTypeDao;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUser;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUserType;
 import edu.eci.cvds.authenticator.SessionLogger;
+import edu.eci.cvds.authenticator.ShiroSession;
+import edu.eci.cvds.services.impl.UserServicesImpl;
 
 import java.util.Optional;
 
@@ -27,6 +29,8 @@ public class ServicesFactory {
                setClassPathResource(pathResource);
                bind(UserDao.class).to(MyBatisUser.class);
                bind(UserTypeDao.class).to(MyBatisUserType.class);
+               bind(UserServices.class).to(UserServicesImpl.class);
+               bind(SessionLogger.class).to(ShiroSession.class);
            }
        });
    }

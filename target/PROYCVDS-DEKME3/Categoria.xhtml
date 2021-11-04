@@ -18,7 +18,6 @@
         </div>
         <div class="item2">
             <p class="textoDatos">A continuación ingrese los datos de la categoria que desea registrar como administrador</p>
-            <p:outputLabel value="A continuación ingrese los datos de la categoria que desea registrar como administrador" class="textoDatos"></p:outputLabel>
             <div class="formulario">
                 <h:form id="category_form">
                     <p:outputLabel value="Nombre:"></p:outputLabel>
@@ -29,6 +28,14 @@
                     <p:inputText name="status" value="#{categoryBean.status}"/>
                     <p:commandButton value="submit" update="category_form" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
                 </h:form>
+                <p:dataTable var="calculadora" value="#{calculadoraBean.valoresIngresados}">
+                    <p:column>
+                        <f:facet name="header">
+                            Lista de datos ingresados
+                        </f:facet>
+                        <h:outputText value="#{calculadora}"/>
+                    </p:column>
+            </p:dataTable>
             </div>
         </div>
         <div class="item3">

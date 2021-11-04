@@ -20,18 +20,25 @@ import java.io.IOException;
 
 
 @SuppressWarnings("deprecation")
-@ManagedBean(name ="LoginBean")
 @SessionScoped
+@ManagedBean(name ="LoginBean")
+
 public class LoginBean {
 
-    private String nombre;
-    private String clave;
-    private boolean logg;
+    private static final long serialVersionUID = -2084921068710522276L;
 
+
+    public String nombre;
+    public String clave;
+    public boolean logg;
 
     // @Inject
     // private SessionLogger logger;
+
     private SessionLogger logger = ServicesFactory.getInstance().getLoginServices();
+
+    public LoginBean() {
+    }
 
     public Subject getCurrentUser(){
         Subject currentUser = SecurityUtils.getSubject();
@@ -72,12 +79,14 @@ public class LoginBean {
         try {
             logger.login(nombre,clave);
             setLogg(true);
-            String rolUsuario = MyBatisPrueba.validarUserType(nombre).getName();
-            switch(rolUsuario) {
-            	case "Administrador":
-            	FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
-            	break;
-            }
+            // String rolUsuario = MyBatisPrueba.validarUserType(nombre).getName();
+            // switch(rolUsuario) {
+            // 	case "Administrador":
+            System.out.println("Valido xd");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
+            System.out.println("Entro xd");
+            // 	break;
+            // }
              
         } catch (excepciones | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
@@ -127,11 +136,11 @@ public class LoginBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
 
-	public void validarLogin(String nombre, String clave) throws excepciones {
-		setNombre(nombre);
-		setClave(clave);
-		System.out.println(nombre);
-		System.out.println(clave);
-		login();
-	}
+	// public void validarLogin(String nombre, String clave) throws excepciones {
+	// 	setNombre(nombre);
+	// 	setClave(clave);
+	// 	System.out.println(nombre);
+	// 	System.out.println(clave);
+	// 	login();
+	// }
 }

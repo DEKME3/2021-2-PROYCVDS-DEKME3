@@ -11,6 +11,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
 public class ShiroSession implements SessionLogger{
+    
     @Inject
     private UserServices userServices;
     
