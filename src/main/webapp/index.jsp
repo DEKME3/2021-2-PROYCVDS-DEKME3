@@ -16,13 +16,11 @@
                 </div>
                 <div class="forma1">
                     <label>User</label>
-                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:" value="#{LoginBean.nombre}">
-                    <p:inputText type="email" name="txtnom" id="name" placeholder="Name" value="#{LoginBean.nombre}"/><br/>
+                    <input id= "usuario" binding="#{usuario}" class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:" value="#{LoginBean.nombre}">
                 </div>
                 <div class="forma1">
                     <label>Password</label>
-                    <input type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
-                    <p:inputText type="password" name="txtPassword" id="password" placeholder="Password"  value="#{LoginBean.clave}"/>
+                    <input id= "usuario" binding="#{usuario}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
                 </div>
                 
                 <div class="forma1">
