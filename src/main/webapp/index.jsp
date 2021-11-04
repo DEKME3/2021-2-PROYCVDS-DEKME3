@@ -11,8 +11,7 @@
         <div class="item1">
             <form id="login-form" method="post" action="#">
                 <div class="forma1" text-centet>
-                    <img src="img/loginImagen.png" height="200" width="20
-                    0">
+                    <img src="img/loginImagen.png" height="200" width="200">
                     <p><strong>Bienvenido al Sistema</strong></p> 
                 </div>
                 <div class="forma1">
