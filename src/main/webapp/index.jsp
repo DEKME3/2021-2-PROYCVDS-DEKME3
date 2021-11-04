@@ -20,7 +20,7 @@
                 </div>
                 <div class="forma1">
                     <label>Password</label>
-                    <input id= "usuario" binding="#{usuario}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
+                    <input id= "clave" binding="#{clave}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
                 </div>
                 
                 <div class="forma1">
