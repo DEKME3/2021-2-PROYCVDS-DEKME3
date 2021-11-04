@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <link rel="stylesheet" type="text/css" href="css/login.css"/>
+       <!-- <link rel="stylesheet" type="text/css" href="css/login.css"/> -->
     </h:head>
     <h:body>
         <div class="item1">
@@ -32,7 +32,9 @@
                     <p:inputText type="password" name="txtPassword" id="password" placeholder="Password"  value="#{LoginBean.clave}"/>-->
                 </div>
                 <!--<input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.login()}"> -->
-                <p:commandButton value="Ingresar" actionListener="#{LoginBean.validarLogin(usuario.value, clave.value)}" style="width: 100%;"/>
+                <div class="forma1">
+                    <p:commandButton value="Ingresar" actionListener="#{LoginBean.validarLogin(usuario.value, clave.value)}" style="width: 100%;"/>
+                </div>
             </form>
         </div>
     </h:body>
