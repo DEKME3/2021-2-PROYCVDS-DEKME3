@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [04/Nov/2021:13:30:22 -0500] "GET /faces/index.xhtml HTTP/1.1" 200 3241 http-bio-8080-exec-1 1302
+0:0:0:0:0:0:0:1 - - [04/Nov/2021:13:30:31 -0500] "POST /faces/index.xhtml HTTP/1.1" 200 148 http-bio-8080-exec-3 1368
+0:0:0:0:0:0:0:1 - - [04/Nov/2021:13:30:31 -0500] "GET /mainAdministrador.jsp HTTP/1.1" 200 1203 http-bio-8080-exec-4 593
+0:0:0:0:0:0:0:1 - - [04/Nov/2021:13:30:31 -0500] "GET /css/mainAdministrador.css HTTP/1.1" 404 1001 http-bio-8080-exec-5 4

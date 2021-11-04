@@ -26,19 +26,25 @@ public class ShiroSession implements SessionLogger{
 	@Override
 	public void login(String nombre, String clave) throws excepciones {
         try{
+            
+            UsernamePasswordToken token = new UsernamePasswordToken( nombre, clave);
+
+            //”Remember Me” built-in, just do this: 
+            token.setRememberMe(true);
 
             Subject currentUser = SecurityUtils.getSubject(); //Esta función devuelve el nombre de usuario actual.
 
-            UsernamePasswordToken token = new UsernamePasswordToken(nombre,new Sha256Hash(clave).toHex());
+            // currentUser.getSession().setAttribute("Nombre", nombre);
+            //Establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado.
 
-            currentUser.getSession().setAttribute("Nombre",nombre);//Establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado.
-
-            currentUser.login( token );
+            currentUser.login(token);          
             
         } catch ( UnknownAccountException a ) {
             throw new excepciones("El Usuario o Contraseña son incorrectos",a);
         } catch ( IncorrectCredentialsException b ) {
             throw new excepciones("El Usuario o Contraseña son incorrectos",b);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 		
 	}

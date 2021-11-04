@@ -82,9 +82,7 @@ public class LoginBean {
             // String rolUsuario = MyBatisPrueba.validarUserType(nombre).getName();
             // switch(rolUsuario) {
             // 	case "Administrador":
-            System.out.println("Valido xd");
             FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
-            System.out.println("Entro xd");
             // 	break;
             // }
              

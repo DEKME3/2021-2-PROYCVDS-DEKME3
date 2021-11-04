@@ -19,7 +19,7 @@ public class ServicesFactory {
 
    private static final ServicesFactory instance = new ServicesFactory();
 
-   private static Optional<Injector> optInjector;
+   private static Optional<Injector> optInjector = Optional.empty();
 
    private Injector myBatisInjector(String env, String pathResource) {
        return createInjector(new XMLMyBatisModule() {
@@ -57,5 +57,6 @@ public class ServicesFactory {
 
         return optInjector.get().getInstance(SessionLogger.class);
     }
+
 
 }
