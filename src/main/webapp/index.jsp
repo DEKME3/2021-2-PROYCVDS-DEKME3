@@ -16,11 +16,11 @@
                 </div>
                 <div class="forma1">
                     <label>User</label>
-                    <input id= "usuario" binding="#{usuario}" class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:" value="#{LoginBean.nombre}">
+                    <input id= "usuario" binding="#{usuario}" class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:">
                 </div>
                 <div class="forma1">
                     <label>Password</label>
-                    <input id= "clave" binding="#{clave}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control" value="#{LoginBean.clave}"> 
+                    <input id= "clave" binding="#{clave}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control"> 
                 </div>
                 
                 <div class="forma1">
