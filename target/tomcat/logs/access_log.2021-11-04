@@ -18,3 +18,4 @@
 0:0:0:0:0:0:0:1 - - [04/Nov/2021:08:15:36 -0500] "GET /faces/img/background.png HTTP/1.1" 304 - http-bio-8080-exec-4 15
 0:0:0:0:0:0:0:1 - - [04/Nov/2021:08:15:50 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 3110 http-bio-8080-exec-7 25
 0:0:0:0:0:0:0:1 - - [04/Nov/2021:08:15:54 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 3110 http-bio-8080-exec-10 32
+0:0:0:0:0:0:0:1 - - [04/Nov/2021:08:28:00 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 500 5680 http-bio-8080-exec-2 186
