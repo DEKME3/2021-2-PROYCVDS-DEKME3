@@ -79,7 +79,6 @@ public class LoginBean {
             	break;
             }
              
-
         } catch (excepciones | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
         }
@@ -131,7 +130,8 @@ public class LoginBean {
 	public void validarLogin(String nombre, String clave) throws excepciones {
 		setNombre(nombre);
 		setClave(clave);
+		System.out.println(nombre);
+		System.out.println(clave);
 		login();
 	}
-
 }
