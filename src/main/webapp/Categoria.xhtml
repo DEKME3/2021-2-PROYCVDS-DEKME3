@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/registrarCategoria.css"/>
     <title>Registrar Categoria</title>
@@ -13,13 +13,12 @@
         <div class="item1">
            <div class="subit1">
                Registrar Categoria
-           </div> 
-           <button class="logout">
-                Cerrar sesion
-           </button>
+           </div>
+           <p:commandButton class="logout">Cerrar sesion</p:commandButton>
         </div>
         <div class="item2">
             <p class="textoDatos">A continuación ingrese los datos de la categoria que desea registrar como administrador</p>
+            <p:outputLabel value="A continuación ingrese los datos de la categoria que desea registrar como administrador" class="textoDatos"></p:outputLabel>
             <div class="formulario">
                 <h:form id="category_form">
                     <p:outputLabel value="Nombre:"></p:outputLabel>
