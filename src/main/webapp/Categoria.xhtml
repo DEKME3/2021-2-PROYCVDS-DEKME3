@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/registrarCategoria.css">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/registrarCategoria.css"/>
     <title>Registrar Categoria</title>
 </head>
 <body>
@@ -19,29 +23,20 @@
         </div>
         <div class="item2">
             <p class="textoDatos">A continuación igrese los datos de la categoria que desea registrar como administrador</p>
-            <br>
             <div class="formulario">
-                <form>
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre"><br>
-                    <label for="descripcion">Descripción:</label><br>
-                    <input type="text" id="descripcion" name="descripcion"><br>
-                    <label for="status">Estado:</label><br>
-                    <input type="text" id="estado" name="estado">
-                </form>
                 <h:form id="category_form">
                     <p:outputLabel value="Nombre:"></p:outputLabel>
-                    <p:inputText name="name" value="#{categorryBean.name}"/>
+                    <p:inputText name="name" value="#{categoryBean.name}"/>
                     <p:outputLabel value="Descripción:"></p:outputLabel>
-                    <p:inputText name="description" value="#{categorryBean.description}"/>
+                    <p:inputText name="description" value="#{categoryBean.description}"/>
                     <p:outputLabel value="Status:"></p:outputLabel>
-                    <p:inputText name="status" value="#{categorryBean.status}"/>
+                    <p:inputText name="status" value="#{categoryBean.status}"/>
                     <p:commandButton value="submit" update="category_form" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
                 </h:form>
             </div>
         </div>
         <div class="item3">
-            <img src="img/registrar.png" alt="registrar" width="390">
+            <img src="img/registrar.png" alt="registrar" width="390"/>
         </div>
     </div>
 </body>
