@@ -5,20 +5,27 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <link rel="stylesheet" type="text/css" href="css/inicio.css"/>
+        <link rel="stylesheet" type="text/css" href="css/login.css"/>
     </h:head>
     <h:body>
-        <div class="contenedorItems">
+        <div>
             <div class="item1">
-                <h3 id="title" class="neonText">Bienvenido a la plataforma Solidaridad Escuela</h3>
-                <p>Este sistema permite que los estudiantes puedan expresar las necesidades que puedan tener de algún elemento para poder desarrollar sus actividades de forma correcta, y que los demás miembros de la comunidad puedan facilitar estos elementos a quienes lo necesitan</p>
+                <img src="img/logo.png" alt="logo"/>
+                <h3 id="title" class="neonText">Solidaridad Escuela</h3>
+                <p>Ingresa tu usuario</p>
+                <form>
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" value="#{LoginBean.nombre}"/>
+                    <label for="pwd">Contraseña:</label>
+                    <input type="password" id="pwd" name="pwd" value="#{LoginBean.clave}"/>
+                    
+                </form>
             </div>
             <div class="item2">
-                <h3 class="neonText">Registrarse</h3>
+                <img src="img/login.gif" alt="gifLogin"/> 
             </div>
-            <div class="item3">
-                <h3 class="neonText">Iniciar sesión</h3>
-            </div>
+
+            <p:commandButton type="submit" value="Ingresar" action="#{LoginBean.login()}"/>
         </div>
     </h:body>
 </html>

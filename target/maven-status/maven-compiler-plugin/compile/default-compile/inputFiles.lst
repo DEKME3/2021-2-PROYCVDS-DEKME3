@@ -1,22 +1,23 @@
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUser.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\exeptions\excepciones.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\CategoryDao.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserTypeMapper.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\Category.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUserType.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\ShiroSession.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisCategory.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\SessionLogger.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\UserType.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\UserServicesImpl.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\UserBeans.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\ServicesFactory.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\servlet\Servlet.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserMapper.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\UserServices.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserDao.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\guice\GuiceContextListener.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\User.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\client\MyBatisPrueba.java
-C:\Users\María\Desktop\2021-2\CVDS\Proyecto\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserTypeDao.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserTypeDao.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\UserServices.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\ShiroSession.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\LoginBean.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\client\MyBatisPrueba.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserTypeMapper.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUserType.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\exeptions\excepciones.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserMapper.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\SessionLogger.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\User.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\guice\GuiceContextListener.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUser.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\ServicesFactory.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserDao.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\UserBeans.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\Category.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\CategoryDao.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\UserType.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\UserServicesImpl.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisCategory.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\servlet\Servlet.java

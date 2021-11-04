@@ -78,4 +78,11 @@ public class MyBatisPrueba {
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         return userMapper.getUser(name).getUserType();
     }
+
+    public static void insertarCategoria(Category newCategory){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        categoryMapper.InsertCategory(newCategory);
+    }
 }

@@ -3,6 +3,7 @@ edu\eci\cvds\entities\Category.class
 edu\eci\cvds\Persistence\myBatisImple\MyBatisUser.class
 edu\eci\cvds\services\ServicesFactory$1.class
 edu\eci\cvds\ManageBeans\UserBeans.class
+edu\eci\cvds\ManageBeans\LoginBean.class
 edu\eci\cvds\guice\GuiceContextListener$1.class
 edu\eci\cvds\entities\User.class
 edu\eci\cvds\services\client\MyBatisPrueba.class
