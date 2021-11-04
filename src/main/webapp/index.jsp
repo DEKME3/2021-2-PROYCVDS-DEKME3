@@ -9,22 +9,25 @@
     </h:head>
     <h:body>
         <div class="item1">
-            <form id="login-form" method="post" action="#">
+            <form id="login-form" method="post" action="mainAdministrador.jsp">
+
                 <div class="forma1" text-centet>
                     <img src="img/loginImagen.png" height="200" width="200">
                     <p><strong>Bienvenido al Sistema</strong></p> 
                 </div>
+
                 <div class="forma1">
                     <label>User</label>
                     <input id= "usuario" binding="#{usuario}" class="form-control" type="text" name="txtnom" placeholder="Ingrese su Usuario:">
                 </div>
+
                 <div class="forma1">
                     <label>Password</label>
                     <input id= "clave" binding="#{clave}" type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control"> 
                 </div>
                 
                 <div class="forma1">
-                    <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" actionListener="#{LoginBean.validarLogin(usuario.value, clave.value)}">
+                    <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.validarLogin(usuario.value, clave.value)}">
                 </div>
             </form>
         </div>
