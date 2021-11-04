@@ -20,11 +20,11 @@
                 </div>
                 <div class="forma1">
                     <label>Password</label>
-                    <input id= "clave" binding="#{clave}" ype="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control"> 
+                    <input id= "clave" binding="#{clave}" type="password" name="txtPassword" placeholder="Ingrese su clave:" class="form-control"> 
                 </div>
                 
                 <div class="forma1">
-                    <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" action="#{LoginBean.validarLogin(usuario.value, clave.value)}">
+                    <input class="btn btn-danger btn-block" type="submit" name="accion" value="Ingresar" actionListener="#{LoginBean.validarLogin(usuario.value, clave.value)}">
                 </div>
             </form>
         </div>
