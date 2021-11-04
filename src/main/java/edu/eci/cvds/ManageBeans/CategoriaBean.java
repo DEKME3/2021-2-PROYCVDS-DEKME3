@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import org.apache.commons.collections4.Get;
 
 import edu.eci.cvds.entities.Category;
+import edu.eci.cvds.services.client.MyBatisPrueba;
 
 import javax.faces.bean.ManagedBean;
 
@@ -65,5 +66,6 @@ public class CategoriaBean {
 
     public void insertCategory(){
         Category newCategory = new Category(name, description, new Date(), status, new Date());
+        MyBatisPrueba.insertarCategoria(newCategory);
     }
 }
