@@ -31,7 +31,7 @@ public class Category implements Serializable{
         this.description = description;
     }
 
-    public void setcreationdate(String creationdate) {
+    public void setcreationdate(Date creationDate) {
         this.creationDate = creationDate;
     }
 

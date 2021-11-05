@@ -16,7 +16,13 @@
     </insert>
 
     <update parameterType="map" id="ActualizarCategory">
-        update categories set name=#{name},description=#{description},status=#{status} where usertype="1";
+        UPDATE categories 
+        SET 
+        name=#{name},
+        description=#{description},
+        status=#{status},
+        modificationdate=CURRENT_DATE
+        WHERE id=#{id};
     </update>
 
     <resultMap type='Category' id='CategoryResult'>

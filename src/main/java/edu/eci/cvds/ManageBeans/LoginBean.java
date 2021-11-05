@@ -14,7 +14,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import com.google.inject.Inject;
 import java.io.IOException;
 
 
@@ -25,7 +24,7 @@ import java.io.IOException;
 
 public class LoginBean {
 
-    private static final long serialVersionUID = -2084921068710522276L;
+    // private static final long serialVersionUID = -2084921068710522276L;
 
 
     public String nombre;
@@ -97,6 +96,7 @@ public class LoginBean {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         facesContext.getExternalContext().redirect("");
     }
+
     public void volver(){
         try{
             //FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
@@ -125,10 +125,11 @@ public class LoginBean {
     
     public void logout() throws IOException{
         if(isLogged()){
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.jsp");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
             SecurityUtils.getSubject().logout();
         }
     }
+
     protected static void setErrorMessage(Exception e) {
         String message = e.getMessage();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));

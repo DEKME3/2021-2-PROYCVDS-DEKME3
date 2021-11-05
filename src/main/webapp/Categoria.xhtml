@@ -14,32 +14,44 @@
            <div class="subit1">
                Registrar Categoria
            </div>
-           <p:commandButton class="logout">Cerrar sesion</p:commandButton>
+           <p:commandButton class="logout" value="Cerrar sesión"></p:commandButton>
         </div>
         <div class="item2">
             <p class="textoDatos">A continuación ingrese los datos de la categoria que desea registrar como administrador</p>
-            <div class="formulario">
-                <h:form id="category_form">
-                    <p:outputLabel value="Nombre:"></p:outputLabel>
+            <div>
+                <h:form>
+                    <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="name" value="#{categoryBean.name}"/>
-                    <p:outputLabel value="Descripción:"></p:outputLabel>
+                    <h4 class="titulo">Descripción:</h4>
                     <p:inputText name="description" value="#{categoryBean.description}"/>
-                    <p:outputLabel value="Status:"></p:outputLabel>
+                    <h4 class="titulo">Estado:</h4>
                     <p:inputText name="status" value="#{categoryBean.status}"/>
-                    <p:commandButton value="submit" update="category_form" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="submit" update="tabla" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
                 </h:form>
-                <p:dataTable var="calculadora" value="#{calculadoraBean.valoresIngresados}">
-                    <p:column>
-                        <f:facet name="header">
-                            Lista de datos ingresados
-                        </f:facet>
-                        <h:outputText value="#{calculadora}"/>
-                    </p:column>
-            </p:dataTable>
             </div>
         </div>
         <div class="item3">
-            <img src="img/registrar.png" alt="registrar" width="390"/>
+            <h:form id="tabla">
+                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}">
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{categoria.name}" />
+                        </p:column>
+                        <p:column headerText="Descripcion">
+                            <p:outputLabel value="#{categoria.description}" />
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <p:outputLabel value="#{categoria.status}" />
+                        </p:column>
+                        <p:column headerText="Fecha de creacion">
+                            <p:outputLabel value="#{categoria.creationDate}" />
+                        </p:column>
+                        <p:column headerText="Fecha de modificacion">
+                            <p:outputLabel value="#{categoria.modification}" />
+                        </p:column>
+                    </p:dataTable>
+            </h:form>
         </div>
     </div>
 </h:body>

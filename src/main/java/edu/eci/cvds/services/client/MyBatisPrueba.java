@@ -49,8 +49,8 @@ public class MyBatisPrueba {
         SqlSession sqlss = sessionfact.openSession();
         
         // Crear el mapper y usarlo: 
-        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
-        UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
+        // UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
         CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
 
         // Imprimir usertype OK
@@ -64,8 +64,10 @@ public class MyBatisPrueba {
         // userMapper.InsertUser(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
 
         // Insertar category OK
-        categoryMapper.InsertCategory(new Category("Categoriaaa", "descripcion2", new Date(), "status", new Date()));
+        // categoryMapper.InsertCategory(new Category("Categoriaaa", "descripcion2", new Date(), "status", new Date()));
         
+        categoryMapper.ActualizarCategory(1, "Prueba2", "Prueba actualizacion2", "Abierto");
+
         sqlss.commit();
         
         
