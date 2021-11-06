@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
@@ -12,7 +14,7 @@ import edu.eci.cvds.services.client.MyBatisPrueba;
 @ManagedBean(name = "needBean")
 public class needBean {
 	private String name;
-	private int category;
+	private Category category;
 	private String description;
 	private Date creationDate;
 	private String status;
@@ -31,11 +33,11 @@ public class needBean {
 		this.name = name;
 	}
 
-	public int getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
@@ -88,7 +90,7 @@ public class needBean {
 	}
 	
     public void insertCategory(){
-        Need newNeed = new Need(name, category, description, new Date(), status, new Date() , urgency);
+        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency, category);
         MyBatisPrueba.insertarNecesidad(newNeed);
         needs.add(newNeed);
     }

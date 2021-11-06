@@ -2,7 +2,6 @@ package edu.eci.cvds.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import edu.eci.cvds.entities.Category;
 
 public class Offer implements Serializable{
     private int id;

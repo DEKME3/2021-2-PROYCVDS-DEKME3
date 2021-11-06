@@ -12,9 +12,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.dao.mybatis.mappers.CategoryMapper;
+import edu.eci.cvds.dao.mybatis.mappers.NeedMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper;
-import edu.eci.cvds.dao.mybatis.mappers.needMapper;
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.User;
@@ -53,7 +53,9 @@ public class MyBatisPrueba {
         // Crear el mapper y usarlo: 
         // UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
-        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        //CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+
 
         // Imprimir usertype OK
         //System.out.println(userTypeMapper.getUserType(2).toString());
@@ -62,17 +64,17 @@ public class MyBatisPrueba {
         //System.out.println(userMapper.getUser(1).toString());
 
         // Insertar user OK
-        // UserType ut = userTypeMapper.getUserType(1);
-        // userMapper.InsertUser(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
+        //UserType ut = userTypeMapper.getUserType(1);
+        //userMapper.InsertUser(new User("Kristhian", "666", "kristhian@gmail.com", true, ut));
 
         // Insertar category OK
-        // categoryMapper.InsertCategory(new Category("Categoriaaa", "descripcion2", new Date(), "status", new Date()));
+        //categoryMapper.InsertCategory(new Category("Prueba 3", "descripcion3", new Date(), "status 3", new Date()));
         
-        categoryMapper.ActualizarCategory(1, "Prueba2", "Prueba actualizacion2", "Abierto");
+        //Insertar need OK
+        needmappers.insertNeed(new Need("Cuaderno", "Prueba1", new Date(), "Creado", new Date(), "Alta", new Category("Prueba 1213", "descripcion4", new Date(), "status 5", new Date()) ));
+
 
         sqlss.commit();
-        
-        
         sqlss.close();
     }
 
@@ -95,8 +97,8 @@ public class MyBatisPrueba {
     public static void insertarNecesidad(Need newNeed){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
-        needMapper needmapper = sqlss.getMapper(needMapper.class);
-        needmapper.InsertCategory(newNeed);
+        NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
+        needmapper.insertNeed(newNeed);
         sqlss.commit();   
         sqlss.close();
     }

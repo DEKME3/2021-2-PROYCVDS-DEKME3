@@ -2,8 +2,11 @@ package edu.eci.cvds.services;
 
 import com.google.inject.Injector;
 import org.mybatis.guice.XMLMyBatisModule;
+
+import edu.eci.cvds.Persistence.NeedDao;
 import edu.eci.cvds.Persistence.UserDao;
 import edu.eci.cvds.Persistence.UserTypeDao;
+import edu.eci.cvds.Persistence.myBatisImple.MyBatisNeed;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUser;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUserType;
 import edu.eci.cvds.authenticator.SessionLogger;
@@ -29,6 +32,7 @@ public class ServicesFactory {
                setClassPathResource(pathResource);
                bind(UserDao.class).to(MyBatisUser.class);
                bind(UserTypeDao.class).to(MyBatisUserType.class);
+               bind(NeedDao.class).to(MyBatisNeed.class);
                bind(UserServices.class).to(UserServicesImpl.class);
                bind(SessionLogger.class).to(ShiroSession.class);
            }

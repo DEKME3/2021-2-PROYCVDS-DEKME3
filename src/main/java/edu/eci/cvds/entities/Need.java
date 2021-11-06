@@ -1,18 +1,19 @@
 package edu.eci.cvds.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Need {
+public class Need implements Serializable{
 	private int id;
 	private String name;
-	private int category;
+	private Category category;
 	private String description;
 	private Date creationDate;
 	private String status;
 	private Date modificationDate;
 	private String urgency;
 	
-	public Need(String name, int category , String description , Date creationDate, String status, Date modificationDate , String urgency) {
+	public Need(String name,  String description , Date creationDate, String status, Date modificationDate , String urgency, Category category) {
 		this.name = name;
 		this.category = category;
 		this.description = description;
@@ -38,11 +39,11 @@ public class Need {
 		this.name = name;
 	}
 
-	public int getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
