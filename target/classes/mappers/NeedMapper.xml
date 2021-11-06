@@ -14,7 +14,7 @@
           #{need.status},
           #{need.modificationDate},
           #{need.urgency},
-          #{need.category.id});
+          #{categoryId});
     </insert>
 
     <resultMap type='Need' id='NeedResult'>

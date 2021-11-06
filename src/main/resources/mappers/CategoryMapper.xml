@@ -5,6 +5,12 @@
   
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper">
 
+    <select id="getCategory" parameterType="map" resultMap="CategoryResult">
+        SELECT *
+        FROM categories
+        WHERE name = #{name};
+    </select>
+
     <insert parameterType="map" id="InsertCategory">
         INSERT INTO categories (name, description, creationDate, status, modificationDate)
         VALUES(

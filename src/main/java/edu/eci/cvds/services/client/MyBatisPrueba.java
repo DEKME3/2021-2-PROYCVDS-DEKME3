@@ -53,7 +53,7 @@ public class MyBatisPrueba {
         // Crear el mapper y usarlo: 
         // UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
-        //CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
         NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
 
 
@@ -71,8 +71,8 @@ public class MyBatisPrueba {
         //categoryMapper.InsertCategory(new Category("Prueba 3", "descripcion3", new Date(), "status 3", new Date()));
         
         //Insertar need OK
-        needmappers.insertNeed(new Need("Cuaderno", "Prueba1", new Date(), "Creado", new Date(), "Alta", new Category("Prueba 1213", "descripcion4", new Date(), "status 5", new Date()) ));
-
+        // Category category = categoryMapper.getCategory("prueba3");
+        needmappers.insertNeed(new Need("Cuadernitoxd", "Prueba1", new Date(), "Creado", new Date(), "Alta"), 3);
 
         sqlss.commit();
         sqlss.close();
@@ -94,12 +94,12 @@ public class MyBatisPrueba {
         sqlss.close();
     }
     
-    public static void insertarNecesidad(Need newNeed){
-        SqlSessionFactory sessionfact = getSqlSessionFactory();
-        SqlSession sqlss = sessionfact.openSession();
-        NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
-        needmapper.insertNeed(newNeed);
-        sqlss.commit();   
-        sqlss.close();
-    }
+    // public static void insertarNecesidad(Need newNeed){
+    //     SqlSessionFactory sessionfact = getSqlSessionFactory();
+    //     SqlSession sqlss = sessionfact.openSession();
+    //     NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
+    //     needmapper.insertNeed(newNeed);
+    //     sqlss.commit();   
+    //     sqlss.close();
+    // }
 }

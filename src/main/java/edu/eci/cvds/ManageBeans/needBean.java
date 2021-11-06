@@ -90,8 +90,8 @@ public class needBean {
 	}
 	
     public void insertCategory(){
-        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency, category);
-        MyBatisPrueba.insertarNecesidad(newNeed);
-        needs.add(newNeed);
+        // Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency, category);
+        // MyBatisPrueba.insertarNecesidad(newNeed);
+        // needs.add(newNeed);
     }
 }

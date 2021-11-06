@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/menu.css"/>
+    <title>Menu principal</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+            <div class="subit1">
+                Menu principal
+            </div>
+            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="flex-container">
+            <div class="elemento">
+                <p class="subtitulo">Categoria</p>
+                <img src="img/carpetas.png" alt="carpetas"></img><br></br>
+                <p:commandButton value="Categoria" onclick="location.href='categoria.xhtml'"></p:commandButton>
+            </div>
+            <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi earum hic quidem mollitia ipsum harum eos recusandae adipisci sunt?
+            </div>
+            <div class="elemento">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi corporis amet repellat, provident modi nobis blanditiis maiores nulla omnis eius?
+            </div>
+            <div class="elemento">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus et sint, a fugiat soluta maiores hic incidunt assumenda ad consequatur.
+            </div>
+        </div> 
+    </div> 
+</h:body>
+</html>
