@@ -57,7 +57,7 @@ public class Offer implements Serializable{
         return name;
     }
 
-    public int getCategory(){
+    public Category getCategory(){
         return category;
     }
 

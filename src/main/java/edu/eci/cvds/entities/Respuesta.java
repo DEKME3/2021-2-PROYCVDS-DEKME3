@@ -57,11 +57,11 @@ public class Respuesta implements Serializable{
         return creationDate;
     }
 
-    public String getoffer() {
+    public int getoffer() {
         return Offer;
     }
 
-    public Date getneed() {
+    public int getneed() {
         return need;
     }
 

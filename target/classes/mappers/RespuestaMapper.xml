@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestaMapper">
+
+    <insert parameterType="map" id="InsertRespuesta">
+        INSERT INTO Responses (name, comments_, creationDate, offer, need)
+        VALUES(
+          #{respuesta.name},
+          #{respuesta.comments_,},
+          #{respuesta.creationDate},
+          #{respuesta.offer},
+          #{respuesta.need});
+    </insert>
+
+    <resultMap type='Respuesta' id='RespuestaResult'>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property="comments_" column="comments_"/>
+        <result property="creationDate" column="creationDate"/>
+        <result property="offer" column="offer"/>
+        <result property="need" column="need"/>
+    </resultMap>
+          	
+</mapper>

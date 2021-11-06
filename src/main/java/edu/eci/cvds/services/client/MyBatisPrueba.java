@@ -14,7 +14,9 @@ import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.dao.mybatis.mappers.CategoryMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper;
+import edu.eci.cvds.dao.mybatis.mappers.needMapper;
 import edu.eci.cvds.entities.Category;
+import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.User;
 
 public class MyBatisPrueba {
@@ -86,6 +88,15 @@ public class MyBatisPrueba {
         SqlSession sqlss = sessionfact.openSession();
         CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
         categoryMapper.InsertCategory(newCategory);
+        sqlss.commit();   
+        sqlss.close();
+    }
+    
+    public static void insertarNecesidad(Need newNeed){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        needMapper needmapper = sqlss.getMapper(needMapper.class);
+        needmapper.InsertCategory(newNeed);
         sqlss.commit();   
         sqlss.close();
     }
