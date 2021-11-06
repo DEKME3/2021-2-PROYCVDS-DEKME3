@@ -7,10 +7,13 @@
 
     <select id="getCategory" parameterType="map" resultMap="CategoryResult">
         SELECT
-        id,
-        name
+        name,
+        description,
+        creationDate,
+        status,
+        modificationDate
         FROM categories
-        WHERE name = #{id};
+        WHERE name = #{nombre};
     </select>
 
     <insert parameterType="map" id="InsertCategory">
@@ -20,7 +23,7 @@
           #{category.description},
           #{category.creationDate},
           #{category.status},
-          #{category.modification});
+          #{category.modificationDate});
     </insert>
 
     <update parameterType="map" id="ActualizarCategory">

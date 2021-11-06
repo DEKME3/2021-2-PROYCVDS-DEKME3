@@ -15,7 +15,7 @@ public class MyBatisCategory implements CategoryDao{
     @Override
     public void save(Category category) throws excepciones {
         try {
-            categoryMapper.InsertCategory(new Category(category.getName(), category.getDescription(), category.getCreationDate(), category.getStatus(), category.getModification()));
+            categoryMapper.InsertCategory(new Category(category.getName(), category.getDescription(), category.getCreationDate(), category.getStatus(), category.getModificationDate()));
         } catch (Exception e) {
             throw new excepciones("No se logro crear la nueva categoria", e);
         }

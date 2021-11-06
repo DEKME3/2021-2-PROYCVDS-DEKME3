@@ -6,9 +6,14 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper">
 
     <select id="getCategory" parameterType="map" resultMap="CategoryResult">
-        SELECT *
+        SELECT
+        name,
+        description,
+        creationDate,
+        status,
+        modificationDate
         FROM categories
-        WHERE name = #{name};
+        WHERE name = #{nombre};
     </select>
 
     <insert parameterType="map" id="InsertCategory">
@@ -18,7 +23,7 @@
           #{category.description},
           #{category.creationDate},
           #{category.status},
-          #{category.modification});
+          #{category.modificationDate});
     </insert>
 
     <update parameterType="map" id="ActualizarCategory">

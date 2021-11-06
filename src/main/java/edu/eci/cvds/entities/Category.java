@@ -9,14 +9,14 @@ public class Category implements Serializable{
     private String description;
     private Date creationDate;
     private String status;
-    private Date modification;
+    private Date modificationDate;
 
     public Category(String name, String description, Date creationDate, String status, Date modification){
         this.name = name;
         this.description = description;
         this.status = status;
         this.creationDate = creationDate;
-        this.modification = modification;
+        this.modificationDate = modification;
     }
 
     public void setId(int id) {
@@ -31,7 +31,7 @@ public class Category implements Serializable{
         this.description = description;
     }
 
-    public void setcreationdate(Date creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -39,8 +39,9 @@ public class Category implements Serializable{
         this.status = status;
     }
 
-    public void setUserType(Date modification) {
-        this.modification = modification;
+    
+    public void setModificationDate(Date modificationDate) {
+        this.modificationDate = modificationDate;
     }
 
     public int getId() {
@@ -63,12 +64,12 @@ public class Category implements Serializable{
         return status;
     }
 
-    public Date getModification() {
-        return modification;
+    public Date getModificationDate() {
+        return modificationDate;
     }
 
     @Override
     public String toString() {
-        return "Category{id=" + id + " name=" + name + " description=" + description + " creation date=" + creationDate + " status=" + status + "modification= " + modification + " }";
+        return "Category{id=" + id + " name=" + name + " description=" + description + " creation date=" + creationDate + " status=" + status + "modification= " + modificationDate + " }";
     }
 }

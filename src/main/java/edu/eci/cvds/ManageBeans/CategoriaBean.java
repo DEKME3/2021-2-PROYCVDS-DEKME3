@@ -17,9 +17,13 @@ import edu.eci.cvds.services.client.MyBatisPrueba;
 @ManagedBean(name = "categoryBean")
 public class CategoriaBean {
 
+    public int updateId;
     public String name;
     public String description;
     public String status;
+    public String newName;
+    public String newDescription;
+    public String newStatus;
     public Date creationDate;
     public Date modificationDate;
     public static List<Category> categories = new ArrayList<>();
@@ -51,6 +55,22 @@ public class CategoriaBean {
         this.modificationDate = modificationDate;
     }
 
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    public void setNewDescription(String newDescription) {
+        this.newDescription = newDescription;
+    }
+
+    public void setNewStatus(String newStatus) {
+        this.newStatus = newStatus;
+    }
+
+    public void setUpdateId(int updateId) {
+        this.updateId = updateId;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -75,9 +95,29 @@ public class CategoriaBean {
         return categories;
     }
 
+    public String getNewName() {
+        return newName;
+    }
+
+    public String getNewDescription() {
+        return newDescription;
+    }
+
+    public String getNewStatus() {
+        return newStatus;
+    }
+
+    public int getUpdateId() {
+        return updateId;
+    }
+
     public void insertCategory(){
         Category newCategory = new Category(name, description, new Date(), status, new Date());
         MyBatisPrueba.insertarCategoria(newCategory);
         categories.add(newCategory);
+    }
+
+    public void updateCategory(){
+        MyBatisPrueba.updateCategoria(updateId, newName, newDescription, newStatus);
     }
 }

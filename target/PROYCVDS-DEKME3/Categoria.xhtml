@@ -35,14 +35,16 @@
                 <p class="textoDatos">Ingrese los datos de la categoria que desea actualizar</p>
                 <h:form>
                     <h4 class="titulo">Nombre:</h4>
-                    <p:inputText name="name" value="#{categoryBean.name}"/>
+                    <p:inputText name="newName" value="#{categoryBean.newName}"/>
                     <h4 class="titulo">Descripción:</h4>
-                    <p:inputText name="description" value="#{categoryBean.description}"/>
+                    <p:inputText name="newDescription" value="#{categoryBean.newDescription}"/>
                     <h4 class="titulo">Estado:</h4>
-                    <p:inputText name="status" value="#{categoryBean.status}"/>
+                    <p:inputText name="newStatus" value="#{categoryBean.newStatus}"/>
+                    <h4 class="titulo">ID:</h4>
+                    <p:inputText name="updateId" value="#{categoryBean.updateId}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.updateCategory}" class="send"></p:commandButton>
                 </h:form>
             </div>
         </div>
@@ -62,7 +64,7 @@
                             <p:outputLabel value="#{categoria.creationDate}" />
                         </p:column>
                         <p:column headerText="Fecha de modificacion">
-                            <p:outputLabel value="#{categoria.modification}" />
+                            <p:outputLabel value="#{categoria.modificationDate}" />
                         </p:column>
                     </p:dataTable>
             </h:form>
