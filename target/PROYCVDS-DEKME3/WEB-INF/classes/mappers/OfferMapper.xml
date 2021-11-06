@@ -9,7 +9,7 @@
         INSERT INTO Offers (name, category, description, creationDate, status, modificationDate)
         VALUES(
           #{oferta.name},
-          #{oferta.category},
+          #{oferta.category.id},
           #{oferta.description},
           #{oferta.creationDate},
           #{oferta.status},
@@ -26,11 +26,11 @@
     <resultMap type='offer' id='OfferResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>
-        <result property='category' column='category'/>
         <result property="description" column="description"/>
         <result property="creationDate" column="creationDate"/>
         <result property="status" column="status"/>
         <result property="modificationDate" column="modificationDate"/>
+        <association property='category' javaType = 'Category'></association>
     </resultMap>
           	
 </mapper>

@@ -6,9 +6,11 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper">
 
     <select id="getCategory" parameterType="map" resultMap="CategoryResult">
-        SELECT *
+        SELECT
+        id,
+        name
         FROM categories
-        WHERE name = #{name};
+        WHERE name = #{id};
     </select>
 
     <insert parameterType="map" id="InsertCategory">
