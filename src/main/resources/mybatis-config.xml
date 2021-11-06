@@ -15,6 +15,8 @@
         <typeAlias type="edu.eci.cvds.entities.User" alias="User"/>
         <typeAlias type="edu.eci.cvds.entities.UserType" alias="UserType"/>
         <typeAlias type="edu.eci.cvds.entities.Category" alias="Category"/>
+        <typeAlias type="edu.eci.cvds.entities.Offer" alias="Category"/>
+        <typeAlias type="edu.eci.cvds.entities.Respuesta" alias="Category"/>
     </typeAliases>
 
     <environments default="development">
@@ -32,7 +34,9 @@
     <mappers>
         <mapper resource="mappers/UserMapper.xml"></mapper>
         <mapper resource="mappers/UserTypeMapper.xml"></mapper> 
-        <mapper resource="mappers/CategoryMapper.xml"></mapper>   
+        <mapper resource="mappers/CategoryMapper.xml"></mapper>  
+        <mapper resource="mappers/OfferMapper.xml"></mapper> 
+        <mapper resource="mappers/RespuestaMapper.xml"></mapper>  
     </mappers> 
               
 </configuration>
