@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
+import edu.eci.cvds.entities.User;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
 @SessionScoped
@@ -20,6 +21,15 @@ public class needBean {
 	private String status;
 	private Date modificationDate;
 	private String urgency;
+	private User usuario;
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
+
 	public static List<Need> needs = new ArrayList<>();
 	
 	public void needBean() {
@@ -90,8 +100,8 @@ public class needBean {
 	}
 	
     public void insertCategory(){
-        // Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency, category);
-        // MyBatisPrueba.insertarNecesidad(newNeed);
-        // needs.add(newNeed);
+        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
+        MyBatisPrueba.insertarNecesidad(newNeed);
+        needs.add(newNeed);
     }
 }

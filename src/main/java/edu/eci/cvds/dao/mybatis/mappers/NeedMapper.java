@@ -6,7 +6,7 @@ import edu.eci.cvds.entities.Need;
 
 public interface NeedMapper {
 
-    public void insertNeed(@Param("need") Need need, @Param("categoryId") int categoryId);
+    public void insertNeed(@Param("need") Need need, @Param("categoryId") int categoryId, @Param("userId") int userId);
     public Need getNeed(@Param("name") String name);
     //public void ActualizarNeed(@Param("id") int id,@Param("name") String name, @Param("description") String description, @Param("status") String status);
 }

@@ -9,13 +9,17 @@ public class User implements Serializable{
     private String email;
     private boolean status;
     private UserType userType;
+    private int numero_necesidades;
 
-    public User(String name, String password, String email, boolean status, UserType userType){
+
+
+	public User(String name, String password, String email, boolean status, UserType userType, int numero_necesidades){
         this.name = name;
         this.password = password;
         this.email = email;
         this.status = status;
         this.userType = userType;
+        this.numero_necesidades = numero_necesidades;
     }
 
     public void setId(int id) {
@@ -65,6 +69,14 @@ public class User implements Serializable{
     public UserType getUserType() {
         return userType;
     }
+    
+    public int getNumero_necesidades() {
+		return numero_necesidades;
+	}
+
+	public void setNumero_necesidades(int numero_necesidades) {
+		this.numero_necesidades = numero_necesidades;
+	}
 
     @Override
     public String toString() {

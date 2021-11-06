@@ -46,9 +46,9 @@ public class MyBatisPrueba {
         // Crear el mapper y usarlo: 
         // UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
-        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
-        //NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
-        OfferMapper offermappers = sqlss.getMapper(OfferMapper.class);
+        //CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        //fferMapper offermappers = sqlss.getMapper(OfferMapper.class);
 
 
         // Imprimir usertype OK
@@ -65,12 +65,11 @@ public class MyBatisPrueba {
         //categoryMapper.InsertCategory(new Category("Prueba 3", "descripcion3", new Date(), "status 3", new Date()));
         
         //Insertar need OK
-        Category category = categoryMapper.getCategory("sirvio");
-        // needmappers.insertNeed(new Need("Cuadernitoxd", "Prueba1", new Date(), "Creado", new Date(), "Alta"), 3);
+        needmappers.insertNeed(new Need("Cuadernitoxd2", "Prueba2", new Date(), "Creado", new Date(), "Alta"), 3 , 2);
 
 
         //Insertar Offer ok
-        offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
+        //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
         sqlss.commit();
         sqlss.close();
     }
@@ -100,12 +99,12 @@ public class MyBatisPrueba {
         sqlss.close();
     }
     
-    // public static void insertarNecesidad(Need newNeed){
-    //     SqlSessionFactory sessionfact = getSqlSessionFactory();
-    //     SqlSession sqlss = sessionfact.openSession();
-    //     NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
-    //     needmapper.insertNeed(newNeed);
-    //     sqlss.commit();   
-    //     sqlss.close();
-    // }
+     public static void insertarNecesidad(Need newNeed){
+         SqlSessionFactory sessionfact = getSqlSessionFactory();
+         SqlSession sqlss = sessionfact.openSession();
+        NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
+        needmapper.insertNeed(newNeed, 3, 2);
+        sqlss.commit();   
+        sqlss.close();
+     }
 }

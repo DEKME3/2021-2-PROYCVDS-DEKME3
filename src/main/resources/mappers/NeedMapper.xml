@@ -6,7 +6,7 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.NeedMapper">
 
     <insert parameterType="map" id="insertNeed">
-        INSERT INTO needs (name, description, creationDate, status, modificationDate, urgency, category)
+        INSERT INTO needs (name, description, creationDate, status, modificationDate, urgency, category, usuario)
         VALUES(
           #{need.name},
           #{need.description},
@@ -14,7 +14,8 @@
           #{need.status},
           #{need.modificationDate},
           #{need.urgency},
-          #{categoryId});
+          #{categoryId},
+          #{userId});
     </insert>
 
     <resultMap type='Need' id='NeedResult'>
@@ -26,6 +27,7 @@
         <result property='modificationDate' column='modificationDate'/>
         <result property='urgency' column='urgency'/>
         <association property='category' javaType = 'Category'></association>
+        <association property='usuario' javaType = 'User'></association>
     </resultMap>
           	
 </mapper>

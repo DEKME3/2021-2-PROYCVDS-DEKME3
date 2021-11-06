@@ -14,11 +14,11 @@ public class MyBatisNeed implements NeedDao{
     
 	@Override
 	public void save(Need need) throws excepciones {
-        // try {
-        // 	needMappers.insertNeed(new Need(need.getName(), need.getDescription(), need.getCreationDate(), need.getStatus(), need.getModificationDate(), need.getUrgency()));
-        // } catch (Exception e) {
-        //     throw new excepciones("No se logro crear la nueva necesidad", e);
-        // }
+        try {
+	        needMappers.insertNeed(new Need(need.getName(), need.getDescription(), need.getCreationDate(), need.getStatus(), need.getModificationDate(), need.getUrgency()) , 3, 2 );
+	        } catch (Exception e) {
+	        throw new excepciones("No se logro crear la nueva necesidad", e);
+        }
 	}
 
 	@Override

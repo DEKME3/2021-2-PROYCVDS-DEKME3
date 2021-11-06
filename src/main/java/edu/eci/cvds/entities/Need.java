@@ -12,6 +12,7 @@ public class Need implements Serializable{
 	private String status;
 	private Date modificationDate;
 	private String urgency;
+	private User usuario;
 	
 	public Need(String name,  String description , Date creationDate, String status, Date modificationDate , String urgency) {
 		this.name = name;
