@@ -1,9 +1,0 @@
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:18:59:21 -0500] "GET /faces/Categoria.xhtml HTTP/1.1" 200 5917 http-bio-8080-exec-1 1753
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:18:59:22 -0500] "GET /faces/css/registrarCategoria.css HTTP/1.1" 200 1505 http-bio-8080-exec-3 22
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:00:08 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 2526 http-bio-8080-exec-4 1985
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:02:38 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 3260 http-bio-8080-exec-6 1035
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:03:42 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 3995 http-bio-8080-exec-8 916
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:03:47 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 4730 http-bio-8080-exec-9 949
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:03:51 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 5465 http-bio-8080-exec-10 943
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:04:34 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 6199 http-bio-8080-exec-10 5381
-0:0:0:0:0:0:0:1 - - [04/Nov/2021:19:04:35 -0500] "POST /faces/Categoria.xhtml HTTP/1.1" 200 277 http-bio-8080-exec-10 989
