@@ -6,14 +6,15 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.OfferMapper">
 
     <insert parameterType="map" id="InsertOffer">
-        INSERT INTO Offers (name, category, description, creationDate, status, modificationDate)
+        INSERT INTO offers (name, category, description, creationdate, status, modificationdate)
         VALUES(
           #{oferta.name},
-          #{oferta.category.id},
+          #{categoryId},
           #{oferta.description},
           #{oferta.creationDate},
           #{oferta.status},
           #{oferta.modification});
+
     </insert>
 
     <update parameterType="map" id="ActualizarOffer">

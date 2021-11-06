@@ -13,11 +13,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.dao.mybatis.mappers.CategoryMapper;
 import edu.eci.cvds.dao.mybatis.mappers.NeedMapper;
+import edu.eci.cvds.dao.mybatis.mappers.OfferMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
 import edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper;
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.User;
+import edu.eci.cvds.entities.Offer;
 
 public class MyBatisPrueba {
     
@@ -54,7 +56,8 @@ public class MyBatisPrueba {
         // UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
         CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
-        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        //NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        OfferMapper offermappers = sqlss.getMapper(OfferMapper.class);
 
 
         // Imprimir usertype OK
@@ -72,7 +75,11 @@ public class MyBatisPrueba {
         
         //Insertar need OK
         // Category category = categoryMapper.getCategory("prueba3");
-        needmappers.insertNeed(new Need("Cuadernitoxd", "Prueba1", new Date(), "Creado", new Date(), "Alta"), 3);
+        //needmappers.insertNeed(new Need("Cuadernitoxd", "Prueba1", new Date(), "Creado", new Date(), "Alta"), 3);
+
+        //Insertar Offer OK
+        offermappers.InsertOffer(new Offer("Cuadernitoxd", "Prueba1", new Date(), "Creado", new Date()),3);
+
 
         sqlss.commit();
         sqlss.close();
