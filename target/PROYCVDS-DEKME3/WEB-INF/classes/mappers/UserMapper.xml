@@ -18,13 +18,14 @@
     </select>
 
     <insert parameterType="map" id="InsertUser" >
-        INSERT INTO users (name, password, email, status, usertype)
+        INSERT INTO users (name, password, email, status, usertype, numero_necesidades)
         VALUES(
           #{user.name},
           #{user.password},
           #{user.email},
           #{user.status},
-          #{user.userType.id}) ;
+          #{user.userType.id}
+          #{user.numero_necesidades}) ;
     </insert>
 
     <resultMap type='User' id='UserResult'>
@@ -33,6 +34,7 @@
         <result property='password' column='password'/>
         <result property='email' column='email'/>
         <result property='status' column='status'/>
+        <result property='numero_necesidades' column='numero_necesidades'/>
         <association property='userType' javaType = 'UserType'></association>
     </resultMap>
           	
