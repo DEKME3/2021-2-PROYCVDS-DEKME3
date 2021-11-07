@@ -28,6 +28,12 @@
           #{user.numero_necesidades}) ;
     </insert>
 
+    <select id="getNumero_necesidades" parameterType="map" resultType="int">
+        SELECT numero_necesidades
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
     <resultMap type='User' id='UserResult'>
         <id property='id' column='id'/>
         <result property='name' column='name'/>

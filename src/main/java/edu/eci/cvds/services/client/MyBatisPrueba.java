@@ -144,4 +144,31 @@ public class MyBatisPrueba {
         sqlss.commit();  
         sqlss.close();
     }
+
+    public static void insertarOferta(Offer newOffer){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        OfferMapper offerMapper = sqlss.getMapper(OfferMapper.class);
+        offerMapper.InsertOffer(newOffer,1);
+        sqlss.commit();   
+        sqlss.close();
+    }
+
+    public static void updateOferta(String newStatus){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        OfferMapper offerMapper = sqlss.getMapper(OfferMapper.class);
+        offerMapper.ActualizarOffer(newStatus);
+        sqlss.commit();   
+        sqlss.close();
+    }
+
+    public static void insertarRespuesta(Respuesta newAnswer){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        RespuestaMappers respuestaMapper = sqlss.getMapper(RespuestaMappers.class);
+        respuestaMapper.InsertRespuesta(newAnswer);;
+        sqlss.commit();   
+        sqlss.close();
+    }
 }
