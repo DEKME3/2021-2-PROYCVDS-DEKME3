@@ -81,7 +81,7 @@ public class LoginBean {
         try {
             logger.login(nombre,clave);
             setLogg(true);
-            User user = userServices.getUser(name);
+            User user = userServices.getUser(nombre);
             switch (user.getUserType().getName()) {
                 case "Administrador":
                     FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
