@@ -101,7 +101,7 @@ public class needBean {
 		needBean.needs = needs;
 	}
 	
-    public void insertCategory(){
+    public void insertNeed(){
         Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
         MyBatisPrueba.insertarNecesidad(newNeed);
         needs.add(newNeed);
