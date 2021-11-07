@@ -24,7 +24,15 @@ public class UserBeans {
         try{
             if(userServices.validateLogin(name,password)){
                 System.out.println("Validacion ok");
-                User user=userServices.getUser(name);
+                User user = userServices.getUser(name);
+                switch (user.getUserType().getName()) {
+                    case "Administrador":
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
+                        break;
+                    case "Estudiante":
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("necesidad.xhtml");
+                        break;
+                }
             }else{
                 System.out.println("Fallo de Validacion");
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsp"); // para representar toda la información contextual asociada con el procesamiento de una solicitud entrante y crear la respuesta correspondiente.

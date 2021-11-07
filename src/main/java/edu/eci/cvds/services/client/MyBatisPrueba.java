@@ -67,14 +67,15 @@ public class MyBatisPrueba {
         //Insertar need OK
         // needmappers.insertNeed(new Need("Cu", "Prueba2", new Date(), "Creado", new Date(), "Alta"), 3 ,3);
 
-        if(validarInsertarNeed(6)){
-            needmappers.insertNeed(new Need("Computador", "Prueba2", new Date(), "Creado", new Date(), "Alta"), 3 ,6);
-            System.out.println("Inserto");
-        }
-        else{
-            System.out.println("No entro");
-        }
+        // if(validarInsertarNeed(6)){
+        //     needmappers.insertNeed(new Need("Computador", "Prueba2", new Date(), "Creado", new Date(), "Alta"), 3 ,6);
+        //     System.out.println("Inserto");
+        // }
+        // else{
+        //     System.out.println("No entro");
+        // }
 
+        needmappers.ActualizarNeed(1, "Proceso");
 
         //Insertar Offer ok
         //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
@@ -126,11 +127,11 @@ public class MyBatisPrueba {
         sqlss.close();
     }
     
-    public static void updateNeed(int id, String status, int iduser){
+    public static void updateNeed(int id, String status){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
         NeedMapper needmapper = sqlss.getMapper(NeedMapper.class);
-        needmapper.ActualizarNeed(id, status, iduser);
+        needmapper.ActualizarNeed(id, status);
         sqlss.commit();  
         sqlss.close();
     }

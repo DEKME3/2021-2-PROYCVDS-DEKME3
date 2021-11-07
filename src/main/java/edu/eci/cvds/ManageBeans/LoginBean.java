@@ -2,8 +2,10 @@ package edu.eci.cvds.ManageBeans;
 
 import edu.eci.cvds.authenticator.SessionLogger;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
+import edu.eci.cvds.entities.User;
 import edu.eci.cvds.exeptions.excepciones;
 import edu.eci.cvds.services.ServicesFactory;
+import edu.eci.cvds.services.UserServices;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -35,6 +37,7 @@ public class LoginBean {
     // private SessionLogger logger;
 
     private SessionLogger logger = ServicesFactory.getInstance().getLoginServices();
+    private UserServices userServices= ServicesFactory.getInstance().getUserServices();
 
     public LoginBean() {
     }
@@ -78,12 +81,15 @@ public class LoginBean {
         try {
             logger.login(nombre,clave);
             setLogg(true);
-            // String rolUsuario = MyBatisPrueba.validarUserType(nombre).getName();
-            // switch(rolUsuario) {
-            // 	case "Administrador":
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/mainAdministrador.jsp");
-            // 	break;
-            // }
+            User user = userServices.getUser(name);
+            switch (user.getUserType().getName()) {
+                case "Administrador":
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
+                    break;
+                case "Estudiante":
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("necesidad.xhtml");
+                    break;
+            }
              
         } catch (excepciones | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
