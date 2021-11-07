@@ -14,6 +14,7 @@ import edu.eci.cvds.services.client.MyBatisPrueba;
 @SessionScoped
 @ManagedBean(name = "needBean")
 public class needBean {
+
 	private String name;
 	private Category category;
 	private String description;
@@ -22,6 +23,12 @@ public class needBean {
 	private Date modificationDate;
 	private String urgency;
 	private User usuario;
+	public static List<Need> needs = new ArrayList<>();
+
+	public needBean() {
+
+	}
+
 	public User getUsuario() {
 		return usuario;
 	}
@@ -29,12 +36,7 @@ public class needBean {
 	public void setUsuario(User usuario) {
 		this.usuario = usuario;
 	}
-
-	public static List<Need> needs = new ArrayList<>();
 	
-	public void needBean() {
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -91,12 +93,12 @@ public class needBean {
 		this.urgency = urgency;
 	}
 
-	public static List<Need> getNeeds() {
+	public List<Need> getNeeds() {
 		return needs;
 	}
 
 	public void setNeeds(List<Need> needs) {
-		this.needs = needs;
+		needBean.needs = needs;
 	}
 	
     public void insertCategory(){
