@@ -18,6 +18,32 @@
           #{userId});
     </insert>
 
+    <select id="getTotalNeedsOfUser" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM needs n
+        WHERE n.usuario = #{userId};
+    </select>
+
+    <select id="getNeedsResult" parameterType="map" resultMap="NeedsResult">
+      SELECT id, 
+      name,
+      category,
+      description,
+      creationdate,
+      status,
+      modificationdate,
+      urgency
+      FROM needs
+      WHERE needs.usuario = #{usuario};
+  </select>
+
+  <update parameterType="map" id="ActualizarNeed">
+      update needs 
+      set status = #{status},
+      modificationdate=CURRENT_DATE
+      where (id = #{id} and ((select users.usertype from users where (users.id = #{user})) = 2  or (select users.usertype from users where (users.id = #{user}))=1));
+  </update>
+
     <resultMap type='Need' id='NeedResult'>
         <id property='id' column='iD'/>
         <result property='name' column='name'/>

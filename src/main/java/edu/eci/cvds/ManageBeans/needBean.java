@@ -103,7 +103,7 @@ public class needBean {
 	
     public void insertNeed(){
         Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
-        MyBatisPrueba.insertarNecesidad(newNeed);
+        MyBatisPrueba.insertarNecesidad(newNeed, 3, 2);
         needs.add(newNeed);
     }
 }

@@ -1,12 +1,4 @@
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/necesidad.xhtml HTTP/1.1" 200 15748 http-bio-8080-exec-2 933
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/theme.css;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces-saga&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-3 11
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/primeicons/primeicons.css;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-1 16
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/components.css;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-4 1
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/jquery/jquery.js;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-5 3
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/jquery/jquery-plugins.js;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-6 1
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/core.js;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-7 1
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/components.js;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-9 2
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/javax.faces.resource/touch/touchswipe.js;jsessionid=798D986742457094306B982D81BB82D8?ln=primefaces&v=10.0.0 HTTP/1.1" 400 998 http-bio-8080-exec-10 3
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:03 -0500] "GET /faces/css/categoria.css HTTP/1.1" 304 - http-bio-8080-exec-8 27
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:09 -0500] "GET /faces/necesidad.xhtml HTTP/1.1" 200 15258 http-bio-8080-exec-2 45
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:20:46:10 -0500] "GET /faces/javax.faces.resource/primeicons/primeicons.ttf?ln=primefaces&v=10.0.0 HTTP/1.1" 200 57451 http-bio-8080-exec-2 11
+0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:10:54 -0500] "GET /faces/necesidad.xhtml HTTP/1.1" 200 12965 http-bio-8080-exec-2 626
+0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:10:54 -0500] "GET /faces/css/categoria.css HTTP/1.1" 304 - http-bio-8080-exec-3 29
+0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:11:03 -0500] "POST /faces/necesidad.xhtml HTTP/1.1" 200 222 http-bio-8080-exec-4 971
+0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:14:11 -0500] "POST /faces/necesidad.xhtml HTTP/1.1" 200 386 http-bio-8080-exec-6 28

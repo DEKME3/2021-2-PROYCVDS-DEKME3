@@ -8,4 +8,5 @@ public interface UserMapper {
 
     public void InsertUser(@Param("user") User user);
     public User getUser(@Param("name") String name);
+    public int getNumero_necesidades(@Param("userId") int id);
 }
