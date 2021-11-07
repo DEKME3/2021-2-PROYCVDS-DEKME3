@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/categoria.css"/>
+    <title>Registrar Necesidad</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+           <div class="subit1">
+               Registrar Necesidad
+           </div>
+           <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="item2">
+            <div>
+                <p class="textoDatos">Ingrese los datos de la nueva necesidad</p>
+                <h:form>
+                    <h4 class="titulo">Nombre:</h4>
+                    <p:inputText name="name" value="#{needBean.name}"/>
+                    <h4 class="titulo">Categoria:</h4>
+                    <p:inputText name="category" value="#{needBean.category}"/>
+                    <h4 class="titulo">Descripción:</h4>
+                    <p:inputText name="description" value="#{needBean.description}"/>
+                    <h4 class="titulo">Fecha de creación:</h4>
+                    <p:inputText name="creationDate" value="#{needBean.creationDate}"/>
+                    <h4 class="titulo">Estado:</h4>
+                    <p:inputText name="status" value="#{needBean.status}"/>
+                    <h4 class="titulo">Fecha de modificacion:</h4>
+                    <p:inputText name="modificationDate" value="#{needBean.modificationDate}"/>
+                    <h4 class="titulo">Urgencia:</h4>
+                    <p:inputText name="urgency" value="#{needBean.urgency}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{needBean.insertNeed}" class="send"></p:commandButton>
+                </h:form>
+            </div>
+            <div>
+                <p class="textoDatos">Ingrese los datos de la necesidad que desea actualizar</p>
+                <h:form>
+                    <h4 class="titulo">Nombre:</h4>
+                    <p:inputText name="name" value="#{needBean.name}"/>
+                    <h4 class="titulo">Categoria:</h4>
+                    <p:inputText name="category" value="#{needBean.category}"/>
+                    <h4 class="titulo">Descripción:</h4>
+                    <p:inputText name="description" value="#{needBean.description}"/>
+                    <h4 class="titulo">Fecha de creación:</h4>
+                    <p:inputText name="creationDate" value="#{needBean.creationDate}"/>
+                    <h4 class="titulo">Estado:</h4>
+                    <p:inputText name="status" value="#{needBean.status}"/>
+                    <h4 class="titulo">Fecha de modificacion:</h4>
+                    <p:inputText name="modificationDate" value="#{needBean.modificationDate}"/>
+                    <h4 class="titulo">Urgencia:</h4>
+                    <p:inputText name="urgency" value="#{needBean.urgency}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.insertNeed}" class="send"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <div class="item3">
+            <h:form id="tabla">
+                <p:dataTable id="dtNecesidad" var="necesidad" value="#{needBean.needs}" paginator="true" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{categoria.name}" />
+                        </p:column>
+                        <p:column headerText="Descripcion">
+                            <p:outputLabel value="#{categoria.description}" />
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <p:outputLabel value="#{categoria.status}" />
+                        </p:column>
+                        <p:column headerText="Fecha de creacion">
+                            <p:outputLabel value="#{categoria.creationDate}" />
+                        </p:column>
+                        <p:column headerText="Fecha de modificacion">
+                            <p:outputLabel value="#{categoria.modification}" />
+                        </p:column>
+                    
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{needBean.name}"/>
+                        </p:column>
+                        <p:column headerText="Categoria">
+                            <p:outputLabel value="#{needBean.category}"/>
+                        </p:column>
+                        <p:column headerText="Descripción">
+                            <p:outputLabel value="#{needBean.description}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de creación">
+                            <p:outputLabel value="#{needBean.creationDate}"/>
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <p:outputLabel value="#{needBean.status}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de modificacion">
+                            <p:outputLabel value="#{needBean.modificationDate}"/>
+                        </p:column>
+                        <p:column headerText="Urgencia">
+                            <p:outputLabel value="#{needBean.urgency}"/>
+                        </p:column>
+                    </p:dataTable>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

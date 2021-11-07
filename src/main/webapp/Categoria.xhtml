@@ -35,22 +35,22 @@
                 <p class="textoDatos">Ingrese los datos de la categoria que desea actualizar</p>
                 <h:form>
                     <h4 class="titulo">Nombre:</h4>
-                    <p:inputText name="newName" value="#{categoryBean.newName}"/>
+                    <p:inputText name="name" value="#{categoryBean.name}"/>
                     <h4 class="titulo">Descripción:</h4>
-                    <p:inputText name="newDescription" value="#{categoryBean.newDescription}"/>
+                    <p:inputText name="description" value="#{categoryBean.description}"/>
                     <h4 class="titulo">Estado:</h4>
-                    <p:inputText name="newStatus" value="#{categoryBean.newStatus}"/>
-                    <h4 class="titulo">ID:</h4>
-                    <p:inputText name="updateId" value="#{categoryBean.updateId}"/>
+                    <p:inputText name="status" value="#{categoryBean.status}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.updateCategory}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
                 </h:form>
             </div>
         </div>
         <div class="item3">
             <h:form id="tabla">
-                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}">
+                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="5,10,{ShowAll|'All'}">
                         <p:column headerText="Nombre">
                             <p:outputLabel value="#{categoria.name}" />
                         </p:column>
@@ -64,7 +64,7 @@
                             <p:outputLabel value="#{categoria.creationDate}" />
                         </p:column>
                         <p:column headerText="Fecha de modificacion">
-                            <p:outputLabel value="#{categoria.modificationDate}" />
+                            <p:outputLabel value="#{categoria.modification}" />
                         </p:column>
                     </p:dataTable>
             </h:form>
