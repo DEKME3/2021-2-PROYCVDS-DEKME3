@@ -46,7 +46,7 @@ public class MyBatisPrueba {
         // Crear el mapper y usarlo: 
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
-        //CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
         NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
         //fferMapper offermappers = sqlss.getMapper(OfferMapper.class);
 
@@ -75,7 +75,7 @@ public class MyBatisPrueba {
         //     System.out.println("No entro");
         // }
 
-        needmappers.ActualizarNeed(1, "Proceso");
+        // needmappers.ActualizarNeed(1, "Proceso");
 
         //Insertar Offer ok
         //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);

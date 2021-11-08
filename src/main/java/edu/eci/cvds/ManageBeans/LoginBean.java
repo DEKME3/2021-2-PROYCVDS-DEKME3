@@ -3,7 +3,7 @@ package edu.eci.cvds.ManageBeans;
 import edu.eci.cvds.authenticator.SessionLogger;
 import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
 import edu.eci.cvds.entities.User;
-import edu.eci.cvds.exeptions.excepciones;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
 import edu.eci.cvds.services.client.MyBatisPrueba;
@@ -77,7 +77,7 @@ public class LoginBean {
 	}
 
     @RequiresGuest
-    public void login() throws excepciones {
+    public void login() throws ExcepcionesSolidaridad {
         try {
             logger.login(nombre,clave);
             setLogg(true);
@@ -91,7 +91,7 @@ public class LoginBean {
                     break;
             }
              
-        } catch (excepciones | IOException e){
+        } catch (ExcepcionesSolidaridad | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
         }
 

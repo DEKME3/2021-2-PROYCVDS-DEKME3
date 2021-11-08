@@ -3,7 +3,7 @@ package edu.eci.cvds.ManageBeans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import edu.eci.cvds.entities.User;
-import edu.eci.cvds.exeptions.excepciones;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
 import javax.faces.context.FacesContext;
@@ -20,7 +20,7 @@ public class UserBeans {
     private String password;
 
 
-    public void logIn() throws excepciones{
+    public void logIn() throws ExcepcionesSolidaridad{
         try{
             if(userServices.validateLogin(name,password)){
                 System.out.println("Validacion ok");

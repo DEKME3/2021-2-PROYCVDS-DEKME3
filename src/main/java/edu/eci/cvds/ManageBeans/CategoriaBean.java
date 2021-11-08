@@ -4,31 +4,46 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
+import edu.eci.cvds.services.CategoryServices;
+import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
 
-
+@SuppressWarnings("deprecation")
 @SessionScoped
 @ManagedBean(name = "categoryBean")
 public class CategoriaBean {
 
-    public int updateId;
-    public String name;
-    public String description;
-    public String status;
-    public String newName;
-    public String newDescription;
-    public String newStatus;
-    public Date creationDate;
-    public Date modificationDate;
-    public static List<Category> categories = new ArrayList<>();
+    private int updateId;
+    private String name;
+    private String description;
+    private String status;
+    private String newName;
+    private String newDescription;
+    private String newStatus;
+    private Date creationDate;
+    private Date modificationDate;
+    private static List<Category> categories = new ArrayList<>();
+    private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
 
     public CategoriaBean() {
+    }
+
+    @PostConstruct
+    public void loadCategories(){
+        ArrayList<Category> categoryList;
+        try {
+            categoryList = categoryServices.getCategories();
+            categories.addAll(categoryList);
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
     }
 
     public void setName(String name) {

@@ -16,6 +16,16 @@
         WHERE name = #{nombre};
     </select>
 
+    <select id="getCategories" resultMap="CategoryResult">
+        SELECT
+        name,
+        description,
+        creationDate,
+        status,
+        modificationDate
+        FROM categories
+    </select>
+
     <insert parameterType="map" id="InsertCategory">
         INSERT INTO categories (name, description, creationDate, status, modificationDate)
         VALUES(

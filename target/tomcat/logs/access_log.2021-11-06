@@ -1,4 +1,0 @@
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:10:54 -0500] "GET /faces/necesidad.xhtml HTTP/1.1" 200 12965 http-bio-8080-exec-2 626
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:10:54 -0500] "GET /faces/css/categoria.css HTTP/1.1" 304 - http-bio-8080-exec-3 29
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:11:03 -0500] "POST /faces/necesidad.xhtml HTTP/1.1" 200 222 http-bio-8080-exec-4 971
-0:0:0:0:0:0:0:1 - - [06/Nov/2021:21:14:11 -0500] "POST /faces/necesidad.xhtml HTTP/1.1" 200 386 http-bio-8080-exec-6 28

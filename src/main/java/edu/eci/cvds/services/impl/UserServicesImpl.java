@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 
 import edu.eci.cvds.Persistence.UserDao;
 import edu.eci.cvds.entities.User;
-import edu.eci.cvds.exeptions.excepciones;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.UserServices;
 
 public class UserServicesImpl implements UserServices{
@@ -16,7 +16,7 @@ public class UserServicesImpl implements UserServices{
     public User getUser(String name) {
         try {
             return userDao.getUser(name);
-        } catch (excepciones e) {
+        } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
             return null;
         }
@@ -32,7 +32,7 @@ public class UserServicesImpl implements UserServices{
             else{
                 return false;
             }
-        } catch (excepciones e) {
+        } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
             return false;
         } 
