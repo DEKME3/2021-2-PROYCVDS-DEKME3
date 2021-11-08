@@ -50,7 +50,7 @@
         </div>
         <div class="item3">
             <h:form id="tabla">
-                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" paginatorPosition="bottom" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                 rowsPerPageTemplate="5,10,{ShowAll|'All'}">
                         <p:column headerText="Nombre">
