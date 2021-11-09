@@ -27,7 +27,12 @@
                     <h4 class="titulo">Descripción:</h4>
                     <p:inputText name="description" value="#{needBean.description}"/>
                     <h4 class="titulo">Estado:</h4>
-                    <p:inputText name="status" value="#{needBean.status}"/>
+                    <select name="Lista Desplegable Estado">
+                        <option value="needBean.status">Activa</option> 
+                        <option value="needBean.status">En proceso</option> 
+                        <option value="needBean.status">Resuelta</option>
+                        <option value="needBean.status">Cerrada</option> 
+                    </select>
                     <h4 class="titulo">Urgencia:</h4>
                     <p:inputText name="urgency" value="#{needBean.urgency}"/>
                     <br></br>
@@ -38,10 +43,15 @@
             <div>
                 <p class="textoDatos">Ingrese los datos de la necesidad que desea actualizar</p>
                 <h:form>
-                    <h4 class="titulo">Categoria:</h4>
+                    <h4 class="titulo">:</h4>
                     <p:inputText name="category" value="#{needBean.category}"/>
                     <h4 class="titulo">Estado:</h4>
-                    <p:inputText name="status" value="#{needBean.status}"/>
+                    <select name="Lista Desplegable Estado">
+                        <option value="needBean.status">Activa</option> 
+                        <option value="needBean.status">En proceso</option> 
+                        <option value="needBean.status">Resuelta</option>
+                        <option value="needBean.status">Cerrada</option> 
+                    </select>
                     <br></br>
                     <br></br>
                     <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{needBean.updateNeed}" class="send"></p:commandButton>
