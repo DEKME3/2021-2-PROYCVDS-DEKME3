@@ -53,6 +53,9 @@
                 <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" paginatorPosition="bottom" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                 rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                        <p:column headerText="ID">
+                            <p:outputLabel value="#{categoria.id}" />
+                        </p:column>
                         <p:column headerText="Nombre">
                             <p:outputLabel value="#{categoria.name}" />
                         </p:column>

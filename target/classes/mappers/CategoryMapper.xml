@@ -7,6 +7,7 @@
 
     <select id="getCategory" parameterType="map" resultMap="CategoryResult">
         SELECT
+        id,
         name,
         description,
         creationDate,
@@ -18,6 +19,7 @@
 
     <select id="getCategories" resultMap="CategoryResult">
         SELECT
+        id,
         name,
         description,
         creationDate,

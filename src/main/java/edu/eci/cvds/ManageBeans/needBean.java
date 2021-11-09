@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.User;
@@ -15,18 +14,45 @@ import edu.eci.cvds.services.client.MyBatisPrueba;
 @ManagedBean(name = "needBean")
 public class needBean {
 
+	private int idNeed;
 	private String name;
-	private Category category;
+	private int category;
 	private String description;
 	private Date creationDate;
 	private String status;
 	private Date modificationDate;
 	private String urgency;
 	private User usuario;
+	private String nombreCategoria;
 	public static List<Need> needs = new ArrayList<>();
+	private CategoriaBean categoryBean;
 
 	public needBean() {
 
+	}
+	
+	public CategoriaBean getCategoryBean() {
+		return categoryBean;
+	}
+
+	public void setCategoryBean(CategoriaBean categoryBean) {
+		this.categoryBean = categoryBean;
+	}
+
+	public String getNombreCategoria() {
+		return nombreCategoria;
+	}
+
+	public void setNombreCategoria(String nombreCategoria) {
+		this.nombreCategoria = nombreCategoria;
+	}
+	
+	public void setIdNeed(int idNeed) {
+		this.idNeed = idNeed;
+	}
+
+	public int getIdNeed() {
+		return idNeed;
 	}
 
 	public User getUsuario() {
@@ -45,12 +71,12 @@ public class needBean {
 		this.name = name;
 	}
 
-	public Category getCategory() {
-		return category;
+	public void setCategory(int category) {
+		this.category = category;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public int getCategory() {
+		return category;
 	}
 
 	public String getDescription() {
@@ -100,10 +126,17 @@ public class needBean {
 	public void setNeeds(List<Need> needs) {
 		needBean.needs = needs;
 	}
-	
+		
     public void insertNeed(){
-        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
-        MyBatisPrueba.insertarNecesidad(newNeed, 3, 2);
-        needs.add(newNeed);
+    	if(category !=0) {
+	        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
+	        MyBatisPrueba.insertarNecesidad(newNeed, category, 2);
+	        needs.add(newNeed);
+    	}
     }
+    
+    public void updateNeed(){
+        MyBatisPrueba.updateNeed(idNeed, status);
+    }
+
 }
