@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
+
+import org.apache.shiro.authz.annotation.RequiresRoles;
+
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
@@ -126,6 +129,7 @@ public class CategoriaBean {
         return updateId;
     }
 
+    @RequiresRoles("Administrador")
     public void insertCategory(){
         Category newCategory = new Category(name, description, new Date(), status, new Date());
         MyBatisPrueba.insertarCategoria(newCategory);

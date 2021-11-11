@@ -12,8 +12,8 @@
         u.password,
         u.email,
         u.status,
-        u.userType,  
-        FROM Users as u
+        u.userType  
+        FROM users as u
         WHERE u.name = #{name}
     </select>
 
@@ -30,6 +30,12 @@
 
     <select id="getNumero_necesidades" parameterType="map" resultType="int">
         SELECT numero_necesidades
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
+    <select id="getUserType" parameterType="map" resultType="int">
+        SELECT usertype
         FROM users u
         WHERE u.id = #{userId}
     </select>
