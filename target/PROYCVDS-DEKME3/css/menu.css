@@ -53,8 +53,8 @@ body {
 }
 
 img {
-    width: 350px;
-    height: 400px;
+    width: 350%;
+    height: 400%;
 }
 
 button.ui-button-success {
