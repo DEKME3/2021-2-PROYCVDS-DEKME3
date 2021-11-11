@@ -22,23 +22,15 @@ public class needBean {
 	private String status;
 	private Date modificationDate;
 	private String urgency;
-	private User usuario;
+	private int usuario;
 	private String nombreCategoria;
 	public static List<Need> needs = new ArrayList<>();
-	private CategoriaBean categoryBean;
+
 
 	public needBean() {
-
+		
 	}
 	
-	public CategoriaBean getCategoryBean() {
-		return categoryBean;
-	}
-
-	public void setCategoryBean(CategoriaBean categoryBean) {
-		this.categoryBean = categoryBean;
-	}
-
 	public String getNombreCategoria() {
 		return nombreCategoria;
 	}
@@ -55,11 +47,11 @@ public class needBean {
 		return idNeed;
 	}
 
-	public User getUsuario() {
+	public int getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(User usuario) {
+	public void setUsuario(int usuario) {
 		this.usuario = usuario;
 	}
 	
@@ -128,15 +120,29 @@ public class needBean {
 	}
 		
     public void insertNeed(){
-    	if(category !=0) {
-	        Need newNeed = new Need(name, description, new Date(), status, new Date() , urgency);
-	        MyBatisPrueba.insertarNecesidad(newNeed, category, 2);
+    	if(MyBatisPrueba.validaInsertNecesidades(5)) {
+    		setCreationDate(new Date());
+    		setModificationDate(new Date());
+	        Need newNeed = new Need(name, description, new Date(), getStatus(), new Date() , urgency);
+	        MyBatisPrueba.insertarNecesidad(newNeed, category, 5);
 	        needs.add(newNeed);
     	}
     }
     
     public void updateNeed(){
-        MyBatisPrueba.updateNeed(idNeed, status);
+    	if(validarStatus()) {
+    		setModificationDate(new Date());
+            MyBatisPrueba.updateNeed(idNeed, status);
+    	}
+
+    }
+    
+    private boolean validarStatus() {
+    	if(this.status.equals("ACTIVA") || this.status.equals("EN PROCESO") || this.status.equals("RESUELTA") || this.status.equals("CERRADA")) {
+    		return true;
+    	}else {
+    		return false;
+    	}
     }
 
 }

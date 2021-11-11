@@ -83,25 +83,6 @@ public class MyBatisPrueba {
         sqlss.close();
     }
 
-    public static boolean validarInsertarNeed(int userId){
-        SqlSessionFactory sessionfact = getSqlSessionFactory();
-        SqlSession sqlss = sessionfact.openSession();
-        
-        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
-        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
-        int totalNecesidades = needmappers.getTotalNeedsOfUser(userId);
-        int necesidadesUsuario = userMapper.getNumero_necesidades(userId);
-        sqlss.commit();
-        sqlss.close();
-
-        if(totalNecesidades < necesidadesUsuario){
-            return true;
-        }
-        else{
-            return false;
-        }
-    } 
-
     public static UserType validarUserType(String name){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
@@ -143,6 +124,23 @@ public class MyBatisPrueba {
         needmapper.insertNeed(newNeed, idcategoria, idUser);
         sqlss.commit();  
         sqlss.close();
+    }
+    
+    public static boolean validaInsertNecesidades(int idUser) {
+    	SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        //Validar si no sobrepasa el limite de encesidades
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        int totalNecesidades = needmappers.getTotalNeedsOfUser(idUser);
+        int necesidadesUsuario = userMapper.getNumero_necesidades(idUser);
+        sqlss.commit();  
+        sqlss.close();
+        if(totalNecesidades < necesidadesUsuario){
+        	return true;
+        }else {
+        	return false;
+        }
     }
 
     public static void insertarOferta(Offer newOffer){

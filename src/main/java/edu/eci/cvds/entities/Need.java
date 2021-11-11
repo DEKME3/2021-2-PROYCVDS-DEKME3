@@ -22,6 +22,15 @@ public class Need implements Serializable{
 		this.modificationDate = modificationDate;
 		this.urgency = urgency;
 	}
+	
+	public Need(int id, String name,  String description , Date creationDate, String status, Date modificationDate , String urgency) {
+		this.name = name;
+		this.description = description;
+		this.creationDate = creationDate;
+		this.status = status;
+		this.modificationDate = modificationDate;
+		this.urgency = urgency;
+	}
 
 	public int getId() {
 		return id;
