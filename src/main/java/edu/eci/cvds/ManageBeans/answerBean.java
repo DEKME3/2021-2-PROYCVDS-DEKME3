@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
-import edu.eci.cvds.entities.Category;
-import edu.eci.cvds.entities.Offer;
 import edu.eci.cvds.entities.Respuesta;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
 
-
+@SuppressWarnings("deprecation")
 @SessionScoped
 @ManagedBean(name = "answerBean")
 public class answerBean {

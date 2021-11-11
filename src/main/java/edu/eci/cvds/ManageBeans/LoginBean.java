@@ -1,15 +1,9 @@
 package edu.eci.cvds.ManageBeans;
 
 import edu.eci.cvds.authenticator.SessionLogger;
-import edu.eci.cvds.dao.mybatis.mappers.UserMapper;
-import edu.eci.cvds.entities.User;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.ServicesFactory;
-import edu.eci.cvds.services.UserServices;
-import edu.eci.cvds.services.client.MyBatisPrueba;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.annotation.RequiresGuest;
 import org.apache.shiro.subject.Subject;
 import javax.faces.application.FacesMessage;
@@ -37,7 +31,6 @@ public class LoginBean {
     // private SessionLogger logger;
 
     private SessionLogger logger = ServicesFactory.getInstance().getLoginServices();
-    private UserServices userServices= ServicesFactory.getInstance().getUserServices();
 
     public LoginBean() {
     }

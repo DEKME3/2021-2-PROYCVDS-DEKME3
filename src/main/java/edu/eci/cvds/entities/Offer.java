@@ -10,23 +10,18 @@ public class Offer implements Serializable{
     private String description;
     private Date creationDate;
     private String status;
-    private Date modification;
+    private Date modificationDate;
     private User usuario;
 
-    public Offer(String name, String description, Date creationDate, String status, Date modification){
+    public Offer(String name, String description, Date creationDate, String status, Date modificationDate){
         this.name = name;
         this.description = description;
         this.status = status;
         this.creationDate = creationDate;
-        this.modification = modification;
+        this.modificationDate = modificationDate;
     }
 
-    public Offer(int id, String name,  String description , Date creationDate, String status, Date modification) {
-        this.name = name;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.status = status;
-        this.modification = modification;
+    public Offer() {
     }
 
     public void setId(int id) {
@@ -37,7 +32,7 @@ public class Offer implements Serializable{
         this.name = name;
     }
 
-    public void SetCategory(Category category){
+    public void setCategory(Category category){
         this.category = category;
     }
 
@@ -53,8 +48,13 @@ public class Offer implements Serializable{
         this.status = status;
     }
 
-    public void setmodificationdate(Date modification) {
-        this.modification = modification;
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public int getId() {
@@ -81,12 +81,16 @@ public class Offer implements Serializable{
         return status;
     }
 
-    public Date getModification() {
-        return modification;
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public Date getModificationDate() {
+        return modificationDate;
     }
 
     @Override
     public String toString() {
-        return "Category{id=" + id + " name=" + name + "Category" + category + " description=" + description + " creation date=" + creationDate + " status=" + status + "modification= " + modification + " }";
+        return "Category{id=" + id + " name=" + name + "Category" + category + " description=" + description + " creation date=" + creationDate + " status=" + status + "modificationDate= " + modificationDate + " }";
     }
 }

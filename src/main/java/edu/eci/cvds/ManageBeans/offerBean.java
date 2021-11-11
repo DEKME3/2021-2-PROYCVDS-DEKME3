@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
-import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.Offer;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
-
-
+@SuppressWarnings("deprecation")
 @SessionScoped
 @ManagedBean(name = "offerBean")
 public class offerBean {
@@ -116,7 +113,7 @@ public class offerBean {
     }
 
     public void insertOffer() {
-        if (MyBatisPrueba.validaInsertofertas(5)) {
+        if (MyBatisPrueba.validaInsertOfertas(5)) {
             setCreationDate(new Date());
             setModificationDate(new Date());
             Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());

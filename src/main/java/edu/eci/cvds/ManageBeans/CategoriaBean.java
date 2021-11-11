@@ -7,7 +7,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
 
-import org.apache.shiro.authz.annotation.RequiresRoles;
 
 import javax.faces.bean.ManagedBean;
 
@@ -15,7 +14,6 @@ import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.ServicesFactory;
-import edu.eci.cvds.services.client.MyBatisPrueba;
 
 
 @SuppressWarnings("deprecation")
@@ -32,7 +30,7 @@ public class CategoriaBean {
     private String newStatus;
     private Date creationDate;
     private Date modificationDate;
-    private static List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
 
     public CategoriaBean() {
@@ -141,6 +139,10 @@ public class CategoriaBean {
     }
 
     public void updateCategory(){
-        MyBatisPrueba.updateCategoria(updateId, newName, newDescription, newStatus);
+        try {
+            categoryServices.ActualizarCategory(updateId, newName, newDescription, newStatus);
+        } catch (ExcepcionesSolidaridad e) {
+            System.out.println("No se pudo actualizar la categoria");;
+        }
     }
 }

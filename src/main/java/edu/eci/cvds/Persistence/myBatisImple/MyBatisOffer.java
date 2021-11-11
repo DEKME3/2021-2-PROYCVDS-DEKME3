@@ -15,7 +15,7 @@ public class MyBatisOffer implements OfferDao {
     @Override
     public void save(Offer offer) throws ExcepcionesSolidaridad {
         try {
-            offerMappers.InsertOffer(new Offer(offer.getName(), offer.getDescription(), offer.getCreationDate(), offer.getStatus(), offer.getModification()) , 3, 2 );
+            offerMappers.InsertOffer(new Offer(offer.getName(), offer.getDescription(), offer.getCreationDate(), offer.getStatus(), offer.getModificationDate()) , 3, 2 );
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro crear la nueva oferta", e);
         }

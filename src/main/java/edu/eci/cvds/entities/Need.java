@@ -95,6 +95,14 @@ public class Need implements Serializable{
 	public void setUrgency(String urgency) {
 		this.urgency = urgency;
 	}
+
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
 	
     @Override
     public String toString() {

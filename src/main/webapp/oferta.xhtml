@@ -26,6 +26,8 @@
                     <p:inputText name="description" value="#{offerBean.description}"/>
                     <h4 class="titulo">Estado:</h4>
                     <p:inputText name="status" value="#{offerBean.status}"/>
+                    <h4 class="titulo">Categoria:</h4>
+                    <p:inputText name="category" value="#{offerBean.category}"/>
                     <br></br>
                     <br></br>
                     <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{offerBean.insertOffer}" class="send"></p:commandButton>

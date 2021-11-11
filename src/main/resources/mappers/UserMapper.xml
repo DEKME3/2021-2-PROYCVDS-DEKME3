@@ -43,6 +43,12 @@
         WHERE u.id = #{userId}
     </select>
 
+    <select id="getNumero_ofertas" parameterType="map" resultType="int">
+        SELECT numero_ofertas
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
     <select id="getUserType" parameterType="map" resultType="int">
         SELECT usertype
         FROM users u

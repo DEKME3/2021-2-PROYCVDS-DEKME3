@@ -3,7 +3,6 @@ package edu.eci.cvds.services.client;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Date;
 
 import edu.eci.cvds.dao.mybatis.mappers.*;
 import edu.eci.cvds.entities.*;
@@ -46,8 +45,8 @@ public class MyBatisPrueba {
         // Crear el mapper y usarlo: 
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
-        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
-        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        // CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        // NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
         //fferMapper offermappers = sqlss.getMapper(OfferMapper.class);
 
 
@@ -90,24 +89,6 @@ public class MyBatisPrueba {
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         return userMapper.getUser(name).getUserType();
     }
-
-    public static void insertarCategoria(Category newCategory){
-        SqlSessionFactory sessionfact = getSqlSessionFactory();
-        SqlSession sqlss = sessionfact.openSession();
-        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
-        categoryMapper.InsertCategory(newCategory);
-        sqlss.commit();   
-        sqlss.close();
-    }
-
-    public static void updateCategoria(int id, String newName, String newDescription, String newStatus){
-        SqlSessionFactory sessionfact = getSqlSessionFactory();
-        SqlSession sqlss = sessionfact.openSession();
-        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
-        categoryMapper.ActualizarCategory(id, newName, newDescription, newStatus);
-        sqlss.commit();   
-        sqlss.close();
-    }
     
     public static void updateNeed(int id, String status){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
@@ -130,7 +111,7 @@ public class MyBatisPrueba {
     public static boolean validaInsertNecesidades(int idUser) {
     	SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
-        //Validar si no sobrepasa el limite de encesidades
+        //Validar si no sobrepasa el limite de necesidades
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
         int totalNecesidades = needmappers.getTotalNeedsOfUser(idUser);
@@ -144,14 +125,14 @@ public class MyBatisPrueba {
         }
     }
 
-    public static boolean validaInsertofertas(int idUser) {
+    public static boolean validaInsertOfertas(int idUser) {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
-        //Validar si no sobrepasa el limite de encesidades
+        //Validar si no sobrepasa el limite de ofertas or usuario
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         OfferMapper offermappers = sqlss.getMapper(OfferMapper.class);
         int totalofertas = offermappers.getTotalOfferOfUser(idUser);
-        int ofertasUsuario = userMapper.getNumero_necesidades(idUser);
+        int ofertasUsuario = userMapper.getNumero_ofertas(idUser);
         sqlss.commit();
         sqlss.close();
         if(totalofertas < ofertasUsuario){

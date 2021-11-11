@@ -6,14 +6,10 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
-
-import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
-import edu.eci.cvds.entities.User;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
+@SuppressWarnings("deprecation")
 @SessionScoped
 @ManagedBean(name = "needBean")
 public class needBean {
