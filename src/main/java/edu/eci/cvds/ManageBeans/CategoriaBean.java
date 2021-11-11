@@ -129,11 +129,15 @@ public class CategoriaBean {
         return updateId;
     }
 
-    @RequiresRoles("Administrador")
     public void insertCategory(){
         Category newCategory = new Category(name, description, new Date(), status, new Date());
-        MyBatisPrueba.insertarCategoria(newCategory);
-        categories.add(newCategory);
+        try {
+            categoryServices.InsertCategory(newCategory);
+        } catch (ExcepcionesSolidaridad e) {
+            System.out.println("No se pudo insertar la categoria");;
+        }
+        categories.clear();
+        loadCategories();
     }
 
     public void updateCategory(){

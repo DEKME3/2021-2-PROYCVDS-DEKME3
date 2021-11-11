@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.User;
@@ -132,6 +136,7 @@ public class needBean {
     public void updateNeed(){
     	if(validarStatus()) {
     		setModificationDate(new Date());
+			
             MyBatisPrueba.updateNeed(idNeed, status);
     	}
 

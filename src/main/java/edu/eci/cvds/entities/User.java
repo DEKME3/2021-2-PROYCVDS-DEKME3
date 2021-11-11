@@ -10,16 +10,19 @@ public class User implements Serializable{
     private boolean status;
     private UserType userType;
     private int numero_necesidades;
+    private int numero_ofertas;
 
-
-
-	public User(String name, String password, String email, boolean status, UserType userType, int numero_necesidades){
+	public User(String name, String password, String email, boolean status, UserType userType, int numero_necesidades, int numero_ofertas){
         this.name = name;
         this.password = password;
         this.email = email;
         this.status = status;
         this.userType = userType;
         this.numero_necesidades = numero_necesidades;
+        this.numero_ofertas = numero_ofertas;
+    }
+    
+    public User() {
     }
 
     public void setId(int id) {
@@ -44,6 +47,14 @@ public class User implements Serializable{
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public void setNumero_ofertas(int numero_ofertas) {
+        this.numero_ofertas = numero_ofertas;
+    }
+
+    public int getNumero_ofertas() {
+        return numero_ofertas;
     }
 
     public int getId() {

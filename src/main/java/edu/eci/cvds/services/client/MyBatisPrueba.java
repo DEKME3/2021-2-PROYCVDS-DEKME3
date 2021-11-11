@@ -79,7 +79,7 @@ public class MyBatisPrueba {
 
         //Insertar Offer ok
         //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
-        System.out.println(userMapper.getUserType(5));
+        System.out.println(userMapper.getUser("kristhian").getUserType().toString());
         sqlss.commit();
         sqlss.close();
     }

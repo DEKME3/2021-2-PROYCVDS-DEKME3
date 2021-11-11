@@ -1,6 +1,5 @@
 package edu.eci.cvds.dao.mybatis.mappers;
 
-import edu.eci.cvds.entities.Need;
 import org.apache.ibatis.annotations.Param;
 import edu.eci.cvds.entities.Offer;
 

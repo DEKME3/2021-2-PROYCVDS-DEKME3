@@ -6,14 +6,22 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserMapper">
 
     <select parameterType="map" id="getUser" resultMap="UserResult">
-        SELECT 
+        SELECT
         u.id,
         u.name,
         u.password,
         u.email,
         u.status,
-        u.userType  
-        FROM users as u
+        u.numero_necesidades,
+        u.numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+
+        FROM users u
+        JOIN usertypes ut 
+        ON u.usertype = ut.id
         WHERE u.name = #{name}
     </select>
 
@@ -24,8 +32,9 @@
           #{user.password},
           #{user.email},
           #{user.status},
-          #{user.userType.id}
-          #{user.numero_necesidades}) ;
+          #{user.userType.id},
+          #{user.numero_necesidades},
+          #{user.numero_ofertas}) ;
     </insert>
 
     <select id="getNumero_necesidades" parameterType="map" resultType="int">
@@ -47,7 +56,12 @@
         <result property='email' column='email'/>
         <result property='status' column='status'/>
         <result property='numero_necesidades' column='numero_necesidades'/>
-        <association property='userType' javaType = 'UserType'></association>
+        <result property='numero_ofertas' column='numero_ofertas'/>
+        <association property='userType' javaType = 'UserType'>
+            <id property='id' column='ut_id'/>
+            <result property='name' column='ut_name'/>
+            <result property='description' column='ut_description'/>
+        </association>
     </resultMap>
           	
 </mapper>

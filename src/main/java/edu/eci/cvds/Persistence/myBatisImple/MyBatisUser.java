@@ -15,7 +15,7 @@ public class MyBatisUser implements UserDao{
 	@Override
 	public void InsertUser(User user) throws ExcepcionesSolidaridad {
         try {
-            userMapper.InsertUser(new User(user.getName(), user.getPassword(), user.getEmail(), user.getStatus(), user.getUserType() , user.getNumero_necesidades()));
+            userMapper.InsertUser(new User(user.getName(), user.getPassword(), user.getEmail(), user.getStatus(), user.getUserType() , user.getNumero_necesidades(), user.getNumero_ofertas()));
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro crear el nuevo Usuario.", e);
         }
