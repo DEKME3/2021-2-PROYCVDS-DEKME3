@@ -11,12 +11,21 @@ public class Offer implements Serializable{
     private Date creationDate;
     private String status;
     private Date modification;
+    private User usuario;
 
     public Offer(String name, String description, Date creationDate, String status, Date modification){
         this.name = name;
         this.description = description;
         this.status = status;
         this.creationDate = creationDate;
+        this.modification = modification;
+    }
+
+    public Offer(int id, String name,  String description , Date creationDate, String status, Date modification) {
+        this.name = name;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.status = status;
         this.modification = modification;
     }
 

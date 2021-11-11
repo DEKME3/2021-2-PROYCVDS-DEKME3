@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
+import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.Offer;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
@@ -20,7 +21,7 @@ public class offerBean {
 
     public int updateId;
     public String name;
-    public Category category;
+    public int category;
     public String description;
     public Date creationDate;
     public String status;
@@ -29,17 +30,13 @@ public class offerBean {
     public Category Newcategory;
     public String newDescription;
     public String newStatus;
-    public List<Offer> offers = new ArrayList<>();
+    public static List<Offer> offers = new ArrayList<>();
 
     public offerBean() {
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setOffers(List<Offer> offers) {
-        this.offers = offers;
     }
 
     public void setDescription(String description) {
@@ -94,10 +91,6 @@ public class offerBean {
         return status;
     }
 
-    public List<Offer> getOffers() {
-        return offers;
-    }
-
     public String getNewName() {
         return newName;
     }
@@ -114,13 +107,36 @@ public class offerBean {
         return updateId;
     }
 
-    public void insertOffer(){
-        Offer newOffer = new Offer(name, description, new Date(), status, new Date());
-        MyBatisPrueba.insertarOferta(newOffer);
-        offers.add(newOffer);
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        offerBean.offers = offers;
+    }
+
+    public void insertOffer() {
+        if (MyBatisPrueba.validaInsertofertas(5)) {
+            setCreationDate(new Date());
+            setModificationDate(new Date());
+            Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());
+            MyBatisPrueba.insertarOferta(newOffer, category, 5);
+            offers.add(newOffer);
+        }
     }
 
     public void updateOffer(){
-        MyBatisPrueba.updateOferta(newStatus);
+        if(validarStatus()) {
+            setModificationDate(new Date());
+            MyBatisPrueba.updateOferta(updateId, newStatus);
+        }
+    }
+
+    private boolean validarStatus() {
+        if(this.status.equals("ACTIVA") || this.status.equals("EN PROCESO") || this.status.equals("RESUELTA") || this.status.equals("CERRADA")) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

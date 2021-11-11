@@ -143,22 +143,40 @@ public class MyBatisPrueba {
         }
     }
 
-    public static void insertarOferta(Offer newOffer){
+    public static boolean validaInsertofertas(int idUser) {
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        //Validar si no sobrepasa el limite de encesidades
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        OfferMapper offermappers = sqlss.getMapper(OfferMapper.class);
+        int totalofertas = offermappers.getTotalOfferOfUser(idUser);
+        int ofertasUsuario = userMapper.getNumero_necesidades(idUser);
+        sqlss.commit();
+        sqlss.close();
+        if(totalofertas < ofertasUsuario){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static void insertarOferta(Offer newOffer, int idcategoria, int idUser){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
         OfferMapper offerMapper = sqlss.getMapper(OfferMapper.class);
-        offerMapper.InsertOffer(newOffer,1);
+        offerMapper.InsertOffer(newOffer, idcategoria, idUser);
         sqlss.commit();   
         sqlss.close();
     }
 
-    public static void updateOferta(String newStatus){
+    public static void updateOferta(int id, String status){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();
         OfferMapper offerMapper = sqlss.getMapper(OfferMapper.class);
-        offerMapper.ActualizarOffer(newStatus);
+        offerMapper.ActualizarOffer(id, status);
         sqlss.commit();   
         sqlss.close();
+
     }
 
     public static void insertarRespuesta(Respuesta newAnswer){
