@@ -2,10 +2,12 @@ edu\eci\cvds\authenticator\SessionLogger.class
 edu\eci\cvds\entities\Category.class
 edu\eci\cvds\ManageBeans\UserBeans.class
 edu\eci\cvds\ManageBeans\answerBean.class
+edu\eci\cvds\Persistence\myBatisImple\MyBatisOffer.class
 edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.class
 edu\eci\cvds\ManageBeans\CategoriaBean.class
 edu\eci\cvds\ManageBeans\offerBean.class
 edu\eci\cvds\dao\mybatis\mappers\OfferMapper.class
+edu\eci\cvds\Persistence\OfferDao.class
 edu\eci\cvds\Persistence\NeedDao.class
 edu\eci\cvds\ManageBeans\needBean.class
 edu\eci\cvds\entities\UserType.class

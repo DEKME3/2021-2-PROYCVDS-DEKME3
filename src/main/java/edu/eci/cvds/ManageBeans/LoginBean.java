@@ -81,16 +81,7 @@ public class LoginBean {
         try {
             logger.login(nombre,clave);
             setLogg(true);
-            User user = userServices.getUser(nombre);
-            switch (user.getUserType().getName()) {
-                case "Administrador":
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
-                    break;
-                case "Estudiante":
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("necesidad.xhtml");
-                    break;
-            }
-             
+            FacesContext.getCurrentInstance().getExternalContext().redirect("menu.xhtml");
         } catch (ExcepcionesSolidaridad | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
         }
