@@ -42,7 +42,7 @@ public class CategoriaBean {
         try {
             categoryList = categoryServices.getCategories();
             categories.addAll(categoryList);
-        } catch (ExcepcionesSolidaridad e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

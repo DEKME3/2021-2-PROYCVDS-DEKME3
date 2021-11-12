@@ -19,6 +19,8 @@ public class Category implements Serializable{
         this.modificationDate = modification;
     }
 
+    
+
     public Category() {
     }
 

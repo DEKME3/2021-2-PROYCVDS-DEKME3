@@ -169,4 +169,22 @@ public class MyBatisPrueba {
         sqlss.commit();   
         sqlss.close();
     }
+
+    public static void insertarCategoria(Category newCategory){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        categoryMapper.InsertCategory(newCategory);
+        sqlss.commit();
+        sqlss.close();
+    }
+
+    public static void updateCategoria(int id, String newName, String newDescription, String newStatus){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
+        categoryMapper.ActualizarCategory(id, newName, newDescription, newStatus);
+        sqlss.commit();
+        sqlss.close();
+    }
 }
