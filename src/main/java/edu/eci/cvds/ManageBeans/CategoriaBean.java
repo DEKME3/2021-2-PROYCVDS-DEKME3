@@ -141,6 +141,8 @@ public class CategoriaBean {
     public void updateCategory(){
         try {
             categoryServices.ActualizarCategory(updateId, newName, newDescription, newStatus);
+            categories.clear();
+            loadCategories();
         } catch (ExcepcionesSolidaridad e) {
             System.out.println("No se pudo actualizar la categoria");;
         }

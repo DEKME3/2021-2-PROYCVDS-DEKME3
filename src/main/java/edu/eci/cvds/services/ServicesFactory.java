@@ -5,15 +5,18 @@ import org.mybatis.guice.XMLMyBatisModule;
 
 import edu.eci.cvds.Persistence.CategoryDao;
 import edu.eci.cvds.Persistence.NeedDao;
+import edu.eci.cvds.Persistence.OfferDao;
 import edu.eci.cvds.Persistence.UserDao;
 import edu.eci.cvds.Persistence.UserTypeDao;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisCategory;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisNeed;
+import edu.eci.cvds.Persistence.myBatisImple.MyBatisOffer;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUser;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUserType;
 import edu.eci.cvds.authenticator.SessionLogger;
 import edu.eci.cvds.authenticator.ShiroSession;
 import edu.eci.cvds.services.impl.CategoryServicesImpl;
+import edu.eci.cvds.services.impl.OfferServicesImpl;
 import edu.eci.cvds.services.impl.UserServicesImpl;
 
 import java.util.Optional;
@@ -37,8 +40,10 @@ public class ServicesFactory {
                bind(UserTypeDao.class).to(MyBatisUserType.class);
                bind(NeedDao.class).to(MyBatisNeed.class);
                bind(CategoryDao.class).to(MyBatisCategory.class);
+               bind(OfferDao.class).to(MyBatisOffer.class);
                bind(UserServices.class).to(UserServicesImpl.class);
                bind(CategoryServices.class).to(CategoryServicesImpl.class);
+               bind(OfferServices.class).to(OfferServicesImpl.class);
                bind(SessionLogger.class).to(ShiroSession.class);
            }
        });
@@ -60,6 +65,13 @@ public class ServicesFactory {
         optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
     }
     return optInjector.get().getInstance(CategoryServices.class);
+   }
+
+   public OfferServices getOfferServices(){
+    if (!optInjector.isPresent()) {
+        optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+    }
+    return optInjector.get().getInstance(OfferServices.class);
    }
 
    public static ServicesFactory getInstance(){

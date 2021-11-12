@@ -6,14 +6,15 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.OfferMapper">
 
     <insert parameterType="map" id="InsertOffer">
-        INSERT INTO offers (name, category, description, creationdate, status, modificationdate)
+        INSERT INTO offers (name, category, description, creationdate, status, modificationdate, usuario)
         VALUES(
           #{oferta.name},
           #{categoryId},
           #{oferta.description},
           #{oferta.creationDate},
           #{oferta.status},
-          #{oferta.modification});
+          #{oferta.modificationDate},
+          #{userId});
     </insert>
 
     <select id="getTotalOfferOfUser" parameterType="map" resultType="int">
@@ -22,7 +23,7 @@
         WHERE n.usuario = #{userId};
     </select>
 
-    <select id="getOfferResult" parameterType="map" resultMap="OfferResult">
+    <select id="getOffer" parameterType="map" resultMap="OfferResult">
         SELECT id,
         name,
         category,
@@ -30,8 +31,47 @@
         creationdate,
         status,
         modificationdate,
+        usuario
         FROM offers
         WHERE offers.usuario = #{usuario};
+    </select>
+
+    <select id="getOffers" resultMap="OfferResult">
+        SELECT 
+        o.id,
+        o.name,
+
+        c.id as c_id,
+        c.name as c_name,
+        c.description as c_description,
+        c.creationdate as c_creationdate,
+        c.status as c_status,
+        c.modificationdate as c_modificationdate,
+
+        o.description,
+        o.creationdate,
+        o.status,
+        o.modificationdate,
+
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+        
+        FROM offers o
+        JOIN categories c
+        ON o.category = c.id
+        JOIN users u
+        ON o.usuario = u.id
+        JOIN usertypes ut
+        ON u.usertype = ut.id;
     </select>
 
     <update parameterType="map" id="ActualizarOffer">
@@ -48,8 +88,8 @@
         <result property="creationDate" column="creationDate"/>
         <result property="status" column="status"/>
         <result property="modificationDate" column="modificationDate"/>
-        <association property='category' javaType = 'Category'></association>
-        <association property='usuario' javaType = 'User'></association>
+        <association property='category' javaType = 'Category' resultMap="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper.CategoryResult"></association>
+        <association property='usuario' javaType = 'User' resultMap="edu.eci.cvds.dao.mybatis.mappers.UserMapper.UserResult"></association>
     </resultMap>
           	
 </mapper>

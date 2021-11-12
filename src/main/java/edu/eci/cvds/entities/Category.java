@@ -19,13 +19,7 @@ public class Category implements Serializable{
         this.modificationDate = modification;
     }
 
-    public Category(int id, String name, String description, Date creationDate, String status, Date modification){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.status = status;
-        this.creationDate = creationDate;
-        this.modificationDate = modification;
+    public Category() {
     }
 
     public void setId(int id) {

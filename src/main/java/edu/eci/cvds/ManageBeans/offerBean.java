@@ -5,10 +5,19 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.SessionScoped;
+
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Offer;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
+import edu.eci.cvds.services.OfferServices;
+import edu.eci.cvds.services.ServicesFactory;
+import edu.eci.cvds.services.UserServices;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
 @SuppressWarnings("deprecation")
@@ -27,9 +36,22 @@ public class offerBean {
     public Category Newcategory;
     public String newDescription;
     public String newStatus;
-    public static List<Offer> offers = new ArrayList<>();
+    public List<Offer> offers = new ArrayList<>();
+    private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
+    private UserServices userServices = ServicesFactory.getInstance().getUserServices();
 
     public offerBean() {
+    }
+
+    @PostConstruct
+    public void loadOffers(){
+        ArrayList<Offer> offersList;
+        try {
+            offersList = offerServices.getOfertas();
+            offers.addAll(offersList);
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
     }
 
     public void setName(String name) {
@@ -68,6 +90,14 @@ public class offerBean {
         this.updateId = updateId;
     }
 
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public void setNewcategory(Category newcategory) {
+        Newcategory = newcategory;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -86,6 +116,14 @@ public class offerBean {
 
     public String getStatus() {
         return status;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public Category getNewcategory() {
+        return Newcategory;
     }
 
     public String getNewName() {
@@ -109,7 +147,7 @@ public class offerBean {
     }
 
     public void setOffers(List<Offer> offers) {
-        offerBean.offers = offers;
+        this.offers = offers;
     }
 
     public void insertOffer() {
@@ -117,8 +155,17 @@ public class offerBean {
             setCreationDate(new Date());
             setModificationDate(new Date());
             Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());
-            MyBatisPrueba.insertarOferta(newOffer, category, 5);
-            offers.add(newOffer);
+            try {
+                Subject currentUser = SecurityUtils.getSubject();
+                String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
+                newOffer.setUsuario(userServices.getUser(nombreUsuario));
+                int idUsuario = userServices.getUser(nombreUsuario).getId();
+                offerServices.insertarOferta(newOffer, category, idUsuario);
+                offers.clear();
+                loadOffers();
+            } catch (ExcepcionesSolidaridad e) {
+                e.printStackTrace();
+            }
         }
     }
 

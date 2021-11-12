@@ -3,6 +3,7 @@ edu\eci\cvds\entities\Category.class
 edu\eci\cvds\ManageBeans\UserBeans.class
 edu\eci\cvds\ManageBeans\answerBean.class
 edu\eci\cvds\Persistence\myBatisImple\MyBatisOffer.class
+edu\eci\cvds\services\impl\OfferServicesImpl.class
 edu\eci\cvds\dao\mybatis\mappers\CategoryMapper.class
 edu\eci\cvds\ManageBeans\CategoriaBean.class
 edu\eci\cvds\ManageBeans\offerBean.class
@@ -35,6 +36,7 @@ edu\eci\cvds\entities\Offer.class
 edu\eci\cvds\entities\Respuesta.class
 edu\eci\cvds\Persistence\UserTypeDao.class
 edu\eci\cvds\services\impl\UserServicesImpl.class
+edu\eci\cvds\services\OfferServices.class
 edu\eci\cvds\Persistence\CategoryDao.class
 edu\eci\cvds\authenticator\ShiroSession.class
 edu\eci\cvds\Persistence\myBatisImple\MyBatisCategory.class

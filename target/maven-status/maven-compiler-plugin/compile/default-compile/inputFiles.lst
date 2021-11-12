@@ -24,6 +24,7 @@ C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\myBatisImple\MyBatisUserType.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\answerBean.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\UserMapper.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\OfferServicesImpl.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\authenticator\SessionLogger.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\Need.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\guice\GuiceContextListener.java
@@ -34,6 +35,7 @@ C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\UserBeans.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\Category.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\NeedDao.java
+C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\OfferServices.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\UserType.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\OfferDao.java
 C:\Users\krisd\Desktop\CVDS\Proyecto final\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\CategoryServices.java
