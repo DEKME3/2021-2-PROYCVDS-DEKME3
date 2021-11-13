@@ -26,6 +26,14 @@
         status,
         modificationDate
         FROM categories
+        ORDER BY id
+    </select>
+
+    <select id="getCategoryIdByName" parameterType="map" resultType="int">
+        SELECT
+        c.id
+        FROM categories c
+        WHERE name=#{name}
     </select>
 
     <insert parameterType="map" id="InsertCategory">
@@ -49,12 +57,12 @@
     </update>
 
     <resultMap type='Category' id='CategoryResult'>
-        <id property='id' column='c_cid'/>
-        <result property='name' column='c_name'/>
-        <result property="description" column="c_description"/>
-        <result property="creationDate" column="c_creationDate"/>
-        <result property="status" column="c_status"/>
-        <result property="modificationDate" column="c_modificationDate"/>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property="description" column="description"/>
+        <result property="creationDate" column="creationDate"/>
+        <result property="status" column="status"/>
+        <result property="modificationDate" column="modificationDate"/>
     </resultMap>
           	
 </mapper>

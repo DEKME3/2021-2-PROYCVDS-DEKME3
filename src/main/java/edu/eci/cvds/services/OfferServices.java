@@ -10,4 +10,5 @@ public interface OfferServices {
     public Offer getOferta(String name) throws ExcepcionesSolidaridad;
     public ArrayList<Offer> getOfertas() throws ExcepcionesSolidaridad;
     public void actualizarOferta(int id, String status) throws ExcepcionesSolidaridad;
+    public int getOfferIdByName(String name) throws ExcepcionesSolidaridad;
 }

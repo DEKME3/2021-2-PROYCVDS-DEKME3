@@ -74,6 +74,13 @@
         ON u.usertype = ut.id;
     </select>
 
+    <select id="getOfferIdByName" parameterType="map" resultType="int">
+        SELECT
+        o.id
+        FROM offers o
+        WHERE name=#{name}
+    </select>
+
     <update parameterType="map" id="ActualizarOffer">
         UPDATE Offers
         SET status=#{status},

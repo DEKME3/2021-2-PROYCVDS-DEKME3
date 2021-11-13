@@ -11,5 +11,6 @@ public interface CategoryMapper {
     public Category getCategory(@Param("nombre") String name);
     public void ActualizarCategory(@Param("id") int id,@Param("name") String name, @Param("description") String description, @Param("status") String status);
     public ArrayList<Category> getCategories();
+    public int getCategoryIdByName(@Param("name") String name);
 
 }

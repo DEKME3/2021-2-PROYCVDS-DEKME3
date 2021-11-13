@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
-
-
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
@@ -42,7 +40,7 @@ public class CategoriaBean {
         try {
             categoryList = categoryServices.getCategories();
             categories.addAll(categoryList);
-        } catch (Exception e) {
+        } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
     }
@@ -131,11 +129,11 @@ public class CategoriaBean {
         Category newCategory = new Category(name, description, new Date(), status, new Date());
         try {
             categoryServices.InsertCategory(newCategory);
+            categories.clear();
+            loadCategories();
         } catch (ExcepcionesSolidaridad e) {
-            System.out.println("No se pudo insertar la categoria");;
+            System.out.println("No se pudo insertar la categoria" + e.toString());
         }
-        categories.clear();
-        loadCategories();
     }
 
     public void updateCategory(){
@@ -144,7 +142,7 @@ public class CategoriaBean {
             categories.clear();
             loadCategories();
         } catch (ExcepcionesSolidaridad e) {
-            System.out.println("No se pudo actualizar la categoria");;
+            System.out.println("No se pudo actualizar la categoria" + e.toString());
         }
     }
 }

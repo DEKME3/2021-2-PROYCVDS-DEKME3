@@ -33,5 +33,10 @@ public class OfferServicesImpl implements OfferServices{
     public ArrayList<Offer> getOfertas() throws ExcepcionesSolidaridad{
         return offerDao.getOfertas();
     }
+
+    @Override
+    public int getOfferIdByName(String name) throws ExcepcionesSolidaridad {
+        return offerDao.getOfferIdByName(name);
+    }
     
 }

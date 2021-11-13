@@ -11,4 +11,5 @@ public interface CategoryServices {
     public Category getCategory(String name) throws ExcepcionesSolidaridad;
     public ArrayList<Category> getCategories() throws ExcepcionesSolidaridad;
     public void ActualizarCategory(int id, String name, String description, String status) throws ExcepcionesSolidaridad;
+    public int getCategoryIdByName(String name) throws ExcepcionesSolidaridad;
 }

@@ -35,5 +35,10 @@ public class CategoryServicesImpl implements CategoryServices{
         categoryDao.ActualizarCategory(id, name, description, status);
         
     }
+
+    @Override
+    public int getCategoryIdByName(String name) throws ExcepcionesSolidaridad {
+        return categoryDao.getCategoryIdByName(name);
+    }
     
 }

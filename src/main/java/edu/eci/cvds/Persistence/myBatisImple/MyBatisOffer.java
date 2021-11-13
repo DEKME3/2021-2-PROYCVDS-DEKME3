@@ -46,4 +46,9 @@ public class MyBatisOffer implements OfferDao {
         return offerMapper.getOffers();
     }
 
+    @Override
+    public int getOfferIdByName(String name) throws ExcepcionesSolidaridad {
+        return offerMapper.getOfferIdByName(name);
+    }
+
 }

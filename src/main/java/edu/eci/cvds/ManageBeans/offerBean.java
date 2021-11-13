@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Offer;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
+import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
@@ -27,7 +28,7 @@ public class offerBean {
 
     public int updateId;
     public String name;
-    public int category;
+    public String category;
     public String description;
     public Date creationDate;
     public String status;
@@ -39,6 +40,7 @@ public class offerBean {
     public List<Offer> offers = new ArrayList<>();
     private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
     private UserServices userServices = ServicesFactory.getInstance().getUserServices();
+    private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
 
     public offerBean() {
     }
@@ -90,7 +92,7 @@ public class offerBean {
         this.updateId = updateId;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -118,7 +120,7 @@ public class offerBean {
         return status;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -160,7 +162,8 @@ public class offerBean {
                 String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
                 newOffer.setUsuario(userServices.getUser(nombreUsuario));
                 int idUsuario = userServices.getUser(nombreUsuario).getId();
-                offerServices.insertarOferta(newOffer, category, idUsuario);
+                int idCategoria = categoryServices.getCategoryIdByName(category);
+                offerServices.insertarOferta(newOffer, idCategoria, idUsuario);
                 offers.clear();
                 loadOffers();
             } catch (ExcepcionesSolidaridad e) {

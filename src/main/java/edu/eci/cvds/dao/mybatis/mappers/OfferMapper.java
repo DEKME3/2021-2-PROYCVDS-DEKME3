@@ -11,4 +11,5 @@ public interface OfferMapper {
     public ArrayList<Offer> getOffers();
     public int getTotalOfferOfUser( @Param("userId") int id);
     public void ActualizarOffer(@Param("id") int id, @Param("status") String status);
+    public int getOfferIdByName(@Param("name") String name);
 }

@@ -10,4 +10,5 @@ public interface OfferDao {
     public Offer getOferta(String name) throws ExcepcionesSolidaridad;
     public ArrayList<Offer> getOfertas();
     public void actualizarOferta(int id, String status) throws ExcepcionesSolidaridad;
+    public int getOfferIdByName(String name) throws ExcepcionesSolidaridad;
 }
