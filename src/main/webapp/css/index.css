@@ -24,10 +24,6 @@ body {
     padding: 15px;
 }
 
-.login-box:hover {
-    opacity: 0.9;
-}
-
 .login-box input[type="text"],
 .login-box input[type="password"]{
     border: none;
