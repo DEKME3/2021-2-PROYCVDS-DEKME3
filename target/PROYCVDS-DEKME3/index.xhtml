@@ -5,31 +5,23 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-       <link rel="stylesheet" type="text/css" href="css/login.css"/> 
+       <link rel="stylesheet" type="text/css" href="css/index.css"/> 
     </h:head>
     <h:body>
-        <div class="item1">
-            <h:form id="login_form" method="post">
-
-                <div class="forma1 text-center" >
-                    <img src="img/loginImagen.png" height="200" width="200"/>
-                    <p><strong>Bienvenido al Sistema</strong></p> 
-                </div> 
-
-                <div class="forma1">
-                    <label>User</label>
-                    <p:inputText name="nombre" value="#{LoginBean.nombre}"/>
-                </div>
-
-                <div class="forma1">
-                    <label>Password</label>
-                    <p:inputText type="password" name="clave" value="#{LoginBean.clave}"/>
-                </div>
-                
-                <div class="forma1">
-                    <p:commandButton value="submit" update="login_form" actionListener="#{LoginBean.login}" class="send"></p:commandButton>
-                </div>
-            </h:form>
+        <div class="flex-container">
+            <h2 class="titulo">Bienvenido al sistema Solidaridad Escuela</h2>
+            <div class="login-box">
+                <img src="img/usuario.png" alt="imagen login"></img>
+                <h:form method="post">
+                    <h4 class="subtitulo">Usuario</h4>
+                    <p:inputText name="name" value="#{LoginBean.nombre}"/>
+                    <h4 class="subtitulo">Contraseña</h4>
+                    <p:inputText name="password" type="password" value="#{LoginBean.clave}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Login" actionListener="#{LoginBean.login}" class="send"></p:commandButton>
+                </h:form>
+            </div>
         </div>
     </h:body>
 </html>
