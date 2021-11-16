@@ -31,4 +31,9 @@ public class MyBatisUser implements UserDao{
         }
 	}
 
+    @Override
+    public int getNumero_ofertas(int id) throws ExcepcionesSolidaridad {
+        return userMapper.getNumero_ofertas(id);
+    }
+
 }

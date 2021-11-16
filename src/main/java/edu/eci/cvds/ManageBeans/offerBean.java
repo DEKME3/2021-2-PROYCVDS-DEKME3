@@ -27,6 +27,7 @@ import edu.eci.cvds.services.client.MyBatisPrueba;
 public class offerBean {
 
     public int updateId;
+    public String updateStatus;
     public String name;
     public String category;
     public String description;
@@ -100,6 +101,10 @@ public class offerBean {
         Newcategory = newcategory;
     }
 
+    public void setUpdateStatus(String updateStatus) {
+        this.updateStatus = updateStatus;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -148,22 +153,40 @@ public class offerBean {
         return offers;
     }
 
+    public String getUpdateStatus() {
+        return updateStatus;
+    }
+
     public void setOffers(List<Offer> offers) {
         this.offers = offers;
     }
 
     public void insertOffer() {
-        if (MyBatisPrueba.validaInsertOfertas(5)) {
-            setCreationDate(new Date());
-            setModificationDate(new Date());
-            Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());
-            try {
-                Subject currentUser = SecurityUtils.getSubject();
-                String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
+        Offer newOffer = new Offer(name, description, new Date(), status, new Date());
+        try {
+            Subject currentUser = SecurityUtils.getSubject();
+            String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
+            int idUsuario = userServices.getUser(nombreUsuario).getId();
+            int totalOfertas = offerServices.getTotalOfferOfUser(idUsuario);
+            int ofertasUsuario = userServices.getNumero_ofertas(idUsuario);
+            if(totalOfertas < ofertasUsuario && validarStatus(status)){
                 newOffer.setUsuario(userServices.getUser(nombreUsuario));
-                int idUsuario = userServices.getUser(nombreUsuario).getId();
                 int idCategoria = categoryServices.getCategoryIdByName(category);
                 offerServices.insertarOferta(newOffer, idCategoria, idUsuario);
+                offers.clear();
+                loadOffers();    
+            }else {
+                System.out.println("Error en la validacion");
+            }
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateOffer(){
+        if(validarStatus(this.updateStatus)) {
+            try {
+                offerServices.actualizarOferta(updateId, updateStatus);
                 offers.clear();
                 loadOffers();
             } catch (ExcepcionesSolidaridad e) {
@@ -172,15 +195,8 @@ public class offerBean {
         }
     }
 
-    public void updateOffer(){
-        if(validarStatus()) {
-            setModificationDate(new Date());
-            MyBatisPrueba.updateOferta(updateId, newStatus);
-        }
-    }
-
-    private boolean validarStatus() {
-        if(this.status.equals("ACTIVA") || this.status.equals("EN PROCESO") || this.status.equals("RESUELTA") || this.status.equals("CERRADA")) {
+    private boolean validarStatus(String validarStatus) {
+        if(validarStatus.equals("ACTIVA") || validarStatus.equals("EN PROCESO") || validarStatus.equals("RESUELTA") || validarStatus.equals("CERRADA")) {
             return true;
         }else {
             return false;

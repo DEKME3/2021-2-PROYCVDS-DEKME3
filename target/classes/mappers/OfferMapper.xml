@@ -71,7 +71,8 @@
         JOIN users u
         ON o.usuario = u.id
         JOIN usertypes ut
-        ON u.usertype = ut.id;
+        ON u.usertype = ut.id
+        ORDER BY o.id;
     </select>
 
     <select id="getOfferIdByName" parameterType="map" resultType="int">

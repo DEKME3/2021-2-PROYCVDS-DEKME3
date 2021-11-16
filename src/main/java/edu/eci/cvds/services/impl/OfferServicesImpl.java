@@ -38,5 +38,11 @@ public class OfferServicesImpl implements OfferServices{
     public int getOfferIdByName(String name) throws ExcepcionesSolidaridad {
         return offerDao.getOfferIdByName(name);
     }
+
+    @Override
+    public int getTotalOfferOfUser(int id) throws ExcepcionesSolidaridad {
+        // TODO Auto-generated method stub
+        return 0;
+    }
     
 }

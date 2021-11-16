@@ -37,5 +37,15 @@ public class UserServicesImpl implements UserServices{
             return false;
         } 
     }
+
+    @Override
+    public int getNumero_ofertas(int id) {
+        try {
+            return userDao.getNumero_ofertas(id);
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
     
 }
