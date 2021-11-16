@@ -6,6 +6,9 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.services.client.MyBatisPrueba;
 
@@ -25,6 +28,10 @@ public class needBean {
 	private int usuario;
 	private String nombreCategoria;
 	public static List<Need> needs = new ArrayList<>();
+	private String nombreUsuarioLogin;
+	private int idUserLogin;
+	private int idUserTypeLogin;
+	
 
 
 	public needBean() {
@@ -118,9 +125,41 @@ public class needBean {
 	public void setNeeds(List<Need> needs) {
 		needBean.needs = needs;
 	}
+	
+	public String getNombreUsuarioLogin() {
+		return nombreUsuarioLogin;
+	}
+
+	public void setNombreUsuarioLogin(String nombreUsuarioLogin) {
+		this.nombreUsuarioLogin = nombreUsuarioLogin;
+	}
+
+	public int getIdUserLogin() {
+		return idUserLogin;
+	}
+
+	public void setIdUserLogin(int idUserLogin) {
+		this.idUserLogin = idUserLogin;
+	}
+
+	public int getIdUserTypeLogin() {
+		return idUserTypeLogin;
+	}
+
+	public void setIdUserTypeLogin(int idUserType) {
+		this.idUserTypeLogin = idUserType;
+	}
+	
+	private void obtnerDatosUsuario() {
+		Subject currentUser = SecurityUtils.getSubject();
+		setNombreUsuarioLogin((String) currentUser.getSession().getAttribute("Nombre"));
+		setIdUserLogin(MyBatisPrueba.getIdUserByName(getNombreUsuarioLogin()));
+		setIdUserTypeLogin(MyBatisPrueba.getIdUserTypeByIdUser(getIdUserLogin()));
+	}
 		
     public void insertNeed(){
-    	if(MyBatisPrueba.validaInsertNecesidades(5)) {
+    	obtnerDatosUsuario();
+    	if(MyBatisPrueba.validaInsertNecesidades(getIdUserLogin()) && getIdUserTypeLogin() == 2 && validarStatus()) {
     		setCreationDate(new Date());
     		setModificationDate(new Date());
 	        Need newNeed = new Need(name, description, new Date(), getStatus(), new Date() , urgency);
@@ -128,11 +167,11 @@ public class needBean {
 	        needs.add(newNeed);
     	}
     }
-    
+
     public void updateNeed(){
-    	if(validarStatus()) {
+    	obtnerDatosUsuario();
+    	if(validarStatus() && (MyBatisPrueba.getIdUserByNeed(getIdNeed()) == getIdUserLogin() ) && ( getIdUserTypeLogin() == 2 ||  getIdUserTypeLogin() == 1) ) {
     		setModificationDate(new Date());
-			
             MyBatisPrueba.updateNeed(idNeed, status);
     	}
 

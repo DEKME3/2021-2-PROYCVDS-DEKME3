@@ -6,22 +6,14 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserMapper">
 
     <select parameterType="map" id="getUser" resultMap="UserResult">
-        SELECT
+        SELECT 
         u.id,
         u.name,
         u.password,
         u.email,
         u.status,
-        u.numero_necesidades,
-        u.numero_ofertas,
-
-        ut.id as ut_id,
-        ut.name as ut_name,
-        ut.description as ut_description
-
-        FROM users u
-        JOIN usertypes ut 
-        ON u.usertype = ut.id
+        u.userType,  
+        FROM Users as u
         WHERE u.name = #{name}
     </select>
 
@@ -32,9 +24,8 @@
           #{user.password},
           #{user.email},
           #{user.status},
-          #{user.userType.id},
-          #{user.numero_necesidades},
-          #{user.numero_ofertas}) ;
+          #{user.userType.id}
+          #{user.numero_necesidades}) ;
     </insert>
 
     <select id="getNumero_necesidades" parameterType="map" resultType="int">
@@ -43,31 +34,40 @@
         WHERE u.id = #{userId}
     </select>
 
-    <select id="getNumero_ofertas" parameterType="map" resultType="int">
-        SELECT numero_ofertas
+    <select id="getUserIdByName" parameterType="map" resultType="int">
+        SELECT
+        u.id
         FROM users u
-        WHERE u.id = #{userId}
+        WHERE name=#{name}
     </select>
 
     <select id="getUserType" parameterType="map" resultType="int">
-        SELECT usertype
+        SELECT
+        u.usertype
         FROM users u
-        WHERE u.id = #{userId}
+        WHERE id=#{userId}
+    </select>
+
+    <select id="getTypeIdUser" parameterType="map" resultMap="UserResult">
+        SELECT 
+        u.id,
+        u.name,
+        u.password,
+        u.email,
+        u.status,
+        u.userType,  
+        FROM Users u
+        WHERE u.id = #{idUser};
     </select>
 
     <resultMap type='User' id='UserResult'>
-        <id property='id' column='u_id'/>
-        <result property='name' column='u_name'/>
-        <result property='password' column='u_password'/>
-        <result property='email' column='u_email'/>
-        <result property='status' column='u_status'/>
-        <result property='numero_necesidades' column='u_numero_necesidades'/>
-        <result property='numero_ofertas' column='u_numero_ofertas'/>
-        <association property='userType' javaType = 'UserType'>
-            <id property='id' column='ut_id'/>
-            <result property='name' column='ut_name'/>
-            <result property='description' column='ut_description'/>
-        </association>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property='password' column='password'/>
+        <result property='email' column='email'/>
+        <result property='status' column='status'/>
+        <result property='numero_necesidades' column='numero_necesidades'/>
+        <association property='UserType' javaType = 'userType'></association>
     </resultMap>
           	
 </mapper>

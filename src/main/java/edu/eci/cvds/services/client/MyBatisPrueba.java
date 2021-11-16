@@ -83,6 +83,36 @@ public class MyBatisPrueba {
         sqlss.close();
     }
 
+    public static int getIdUserByNeed(int id){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
+        int idUsuario = needmappers.getIdUserByNeed(id);
+        sqlss.commit();  
+        sqlss.close();
+        return idUsuario;
+    }
+
+    public static int getIdUserTypeByIdUser(int id){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        int idUsuario = userMapper.getUserType(id);
+        sqlss.commit();  
+        sqlss.close();
+        return idUsuario;
+    }
+    
+    public static int getIdUserByName(String name){
+        SqlSessionFactory sessionfact = getSqlSessionFactory();
+        SqlSession sqlss = sessionfact.openSession();
+        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        int idUsuario = userMapper.getUserIdByName(name);
+        sqlss.commit();  
+        sqlss.close();
+        return idUsuario;
+    }
+
     public static UserType validarUserType(String name){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();

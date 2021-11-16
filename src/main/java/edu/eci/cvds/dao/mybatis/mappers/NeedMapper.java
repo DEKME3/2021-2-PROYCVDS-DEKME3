@@ -11,5 +11,6 @@ public interface NeedMapper {
     public int getTotalNeedsOfUser(@Param("userId") int id);
     public void ActualizarNeed(@Param("id") int id, @Param("status") String status);
     public Need getNeedsResult(@Param("usuario") String usuario);
+    public int getIdUserByNeed(@Param("id") int id);
 }
 
