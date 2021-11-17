@@ -16,9 +16,9 @@
 
 
     <resultMap type='UserType' id='UserTypeResult'>
-        <id property='id' column='id'/>
-        <result property='name' column='name'/>
-        <result property='description' column='descritcion'/>
+        <id property='id' column='ut_id'/>
+        <result property='name' column='ut_name'/>
+        <result property='description' column='ut_description'/>
     </resultMap>
           	
 </mapper>

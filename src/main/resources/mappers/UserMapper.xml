@@ -42,6 +42,12 @@
         WHERE u.id = #{userId}
     </select>
 
+    <select id="getNumero_ofertas" parameterType="map" resultType="int">
+        SELECT numero_ofertas
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
     <select id="getUserIdByName" parameterType="map" resultType="int">
         SELECT
         u.id
@@ -69,13 +75,14 @@
     </select>
 
     <resultMap type='User' id='UserResult'>
-        <id property='id' column='id'/>
-        <result property='name' column='name'/>
-        <result property='password' column='password'/>
-        <result property='email' column='email'/>
-        <result property='status' column='status'/>
-        <result property='numero_necesidades' column='numero_necesidades'/>
-        <association property='UserType' javaType = 'userType'></association>
+        <id property='id' column='u_id'/>
+        <result property='name' column='u_name'/>
+        <result property='password' column='u_password'/>
+        <result property='email' column='u_email'/>
+        <result property='status' column='u_status'/>
+        <result property='numero_necesidades' column='u_numero_necesidades'/>
+        <result property='numero_ofertas' column='u_numero_ofertas'/>
+        <association property='userType' javaType = 'UserType'></association>
     </resultMap>
           	
 </mapper>

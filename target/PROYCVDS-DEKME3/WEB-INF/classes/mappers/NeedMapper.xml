@@ -44,6 +44,13 @@
       where id = #{id};
   </update>
 
+  <select id="getIdUserByNeed" parameterType="map" resultType="int">
+    SELECT
+      n.usuario
+    FROM needs n
+    WHERE id=#{id}
+  </select>
+
   <resultMap type='Need' id='NeedResult'>
       <id property='id' column='id'/>
       <result property='name' column='name'/>

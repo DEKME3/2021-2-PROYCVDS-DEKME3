@@ -196,22 +196,13 @@ public class offerBean {
     }
 
     public void updateOffer(){
-        if(validarStatus(this.updateStatus)) {
-            try {
-                offerServices.actualizarOferta(updateId, updateStatus);
-                offers.clear();
-                loadOffers();
-            } catch (ExcepcionesSolidaridad e) {
-                e.printStackTrace();
-            }
+        try {
+            offerServices.actualizarOferta(updateId, updateStatus);
+            offers.clear();
+            loadOffers();
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
         }
     }
-
-    private boolean validarStatus(String validarStatus) {
-        if(validarStatus.equals("ACTIVA") || validarStatus.equals("EN PROCESO") || validarStatus.equals("RESUELTA") || validarStatus.equals("CERRADA")) {
-            return true;
-        }else {
-            return false;
-        }
-    }
+    
 }

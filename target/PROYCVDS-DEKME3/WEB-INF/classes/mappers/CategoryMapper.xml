@@ -7,26 +7,27 @@
 
     <select id="getCategory" parameterType="map" resultMap="CategoryResult">
         SELECT
-        id,
-        name,
-        description,
-        creationDate,
-        status,
-        modificationDate
+        id as c_id,
+        name as c_name,
+        description as c_description,
+        creationDate as c_creationdate,
+        status as c_status,
+        modificationDate as c_modificationdate
         FROM categories
-        WHERE name = #{nombre};
+        WHERE name = #{nombre}
+        ORDER BY id;
     </select>
 
     <select id="getCategories" resultMap="CategoryResult">
         SELECT
-        id,
-        name,
-        description,
-        creationDate,
-        status,
-        modificationDate
+        id as c_id,
+        name as c_name,
+        description as c_description,
+        creationDate as c_creationdate,
+        status as c_status,
+        modificationDate as c_modificationdate
         FROM categories
-        ORDER BY id
+        ORDER BY id;
     </select>
 
     <select id="getCategoryIdByName" parameterType="map" resultType="int">
@@ -57,12 +58,12 @@
     </update>
 
     <resultMap type='Category' id='CategoryResult'>
-        <id property='id' column='id'/>
-        <result property='name' column='name'/>
-        <result property="description" column="description"/>
-        <result property="creationDate" column="creationDate"/>
-        <result property="status" column="status"/>
-        <result property="modificationDate" column="modificationDate"/>
+        <id property='id' column='c_id'/>
+        <result property='name' column='c_name'/>
+        <result property="description" column="c_description"/>
+        <result property="creationDate" column="c_creationdate"/>
+        <result property="status" column="c_status"/>
+        <result property="modificationDate" column="c_modificationdate"/>
     </resultMap>
           	
 </mapper>
