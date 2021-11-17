@@ -7,13 +7,13 @@
 
     <select parameterType="map" id="getUser" resultMap="UserResult">
         SELECT
-        u.id,
-        u.name,
-        u.password,
-        u.email,
-        u.status,
-        u.numero_necesidades,
-        u.numero_ofertas,
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
 
         ut.id as ut_id,
         ut.name as ut_name,

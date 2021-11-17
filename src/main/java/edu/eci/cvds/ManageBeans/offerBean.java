@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Offer;
+import edu.eci.cvds.entities.User;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
@@ -39,6 +40,7 @@ public class offerBean {
     public String newDescription;
     public String newStatus;
     public List<Offer> offers = new ArrayList<>();
+    public List<Category> categorias = new ArrayList<>();
     private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
     private UserServices userServices = ServicesFactory.getInstance().getUserServices();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
@@ -49,9 +51,12 @@ public class offerBean {
     @PostConstruct
     public void loadOffers(){
         ArrayList<Offer> offersList;
+        ArrayList<Category> categoriesList;
         try {
             offersList = offerServices.getOfertas();
             offers.addAll(offersList);
+            categoriesList = categoryServices.getCategories();
+            categorias.addAll(categoriesList);
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -103,6 +108,10 @@ public class offerBean {
 
     public void setUpdateStatus(String updateStatus) {
         this.updateStatus = updateStatus;
+    }
+
+    public void setCategorias(List<Category> categorias) {
+        this.categorias = categorias;
     }
 
     public Date getCreationDate() {
@@ -157,26 +166,29 @@ public class offerBean {
         return updateStatus;
     }
 
+    public List<Category> getCategorias() {
+        return categorias;
+    }
+
     public void setOffers(List<Offer> offers) {
         this.offers = offers;
     }
 
     public void insertOffer() {
-        Offer newOffer = new Offer(name, description, new Date(), status, new Date());
+        Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());
+        Subject currentUser = SecurityUtils.getSubject();
+        String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
         try {
-            Subject currentUser = SecurityUtils.getSubject();
-            String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
-            int idUsuario = userServices.getUser(nombreUsuario).getId();
-            int totalOfertas = offerServices.getTotalOfferOfUser(idUsuario);
+            User usuario = userServices.getUser(nombreUsuario);
+            newOffer.setUsuario(usuario);
+            int idUsuario = usuario.getId();
+            int idCategoria = categoryServices.getCategoryIdByName(category);
             int ofertasUsuario = userServices.getNumero_ofertas(idUsuario);
-            if(totalOfertas < ofertasUsuario && validarStatus(status)){
-                newOffer.setUsuario(userServices.getUser(nombreUsuario));
-                int idCategoria = categoryServices.getCategoryIdByName(category);
+            int totalOfertas = offerServices.getTotalOfferOfUser(idUsuario);
+            if (totalOfertas < ofertasUsuario) {
                 offerServices.insertarOferta(newOffer, idCategoria, idUsuario);
                 offers.clear();
-                loadOffers();    
-            }else {
-                System.out.println("Error en la validacion");
+                loadOffers();
             }
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();

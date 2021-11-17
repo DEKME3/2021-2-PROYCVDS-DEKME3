@@ -6,14 +6,22 @@
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserMapper">
 
     <select parameterType="map" id="getUser" resultMap="UserResult">
-        SELECT 
-        u.id,
-        u.name,
-        u.password,
-        u.email,
-        u.status,
-        u.userType,  
-        FROM Users as u
+        SELECT
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+
+        FROM users u
+        JOIN usertypes ut 
+        ON u.usertype = ut.id
         WHERE u.name = #{name}
     </select>
 

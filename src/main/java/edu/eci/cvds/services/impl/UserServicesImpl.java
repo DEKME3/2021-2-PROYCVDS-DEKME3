@@ -13,13 +13,8 @@ public class UserServicesImpl implements UserServices{
     private UserDao userDao;
 
     @Override
-    public User getUser(String name) {
-        try {
-            return userDao.getUser(name);
-        } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
-            return null;
-        }
+    public User getUser(String name) throws ExcepcionesSolidaridad{
+        return userDao.getUser(name);
     }
 
     @Override
@@ -39,13 +34,8 @@ public class UserServicesImpl implements UserServices{
     }
 
     @Override
-    public int getNumero_ofertas(int id) {
-        try {
-            return userDao.getNumero_ofertas(id);
-        } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
-            return 0;
-        }
+    public int getNumero_ofertas(int id) throws ExcepcionesSolidaridad {
+        return userDao.getNumero_ofertas(id);
     }
     
 }
