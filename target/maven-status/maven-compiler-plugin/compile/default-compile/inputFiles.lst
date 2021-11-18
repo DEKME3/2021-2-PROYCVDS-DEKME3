@@ -26,6 +26,7 @@ D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\answerBean.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\entities\UserType.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\NeedDao.java
+D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\NeedServices.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\CategoryServices.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\OfferServicesImpl.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\NeedMapper.java
@@ -38,4 +39,5 @@ D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\OfferServices.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\ManageBeans\needBean.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\Persistence\UserDao.java
+D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\services\impl\NeedServicesImpl.java
 D:\Escritorio\Universidad\CVDS\Proyecto CVDS\CorteDos\2021-2-PROYCVDS-DEKME3\src\main\java\edu\eci\cvds\dao\mybatis\mappers\OfferMapper.java

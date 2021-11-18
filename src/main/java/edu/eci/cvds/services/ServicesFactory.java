@@ -18,7 +18,7 @@ import edu.eci.cvds.authenticator.ShiroSession;
 import edu.eci.cvds.services.impl.CategoryServicesImpl;
 import edu.eci.cvds.services.impl.OfferServicesImpl;
 import edu.eci.cvds.services.impl.UserServicesImpl;
-
+import edu.eci.cvds.services.impl.NeedServicesImpl;
 import java.util.Optional;
 
 import static com.google.inject.Guice.createInjector;
@@ -41,9 +41,12 @@ public class ServicesFactory {
                bind(NeedDao.class).to(MyBatisNeed.class);
                bind(CategoryDao.class).to(MyBatisCategory.class);
                bind(OfferDao.class).to(MyBatisOffer.class);
+               bind(NeedDao.class).to(MyBatisNeed.class);
+               bind(OfferDao.class).to(MyBatisOffer.class);
                bind(UserServices.class).to(UserServicesImpl.class);
                bind(CategoryServices.class).to(CategoryServicesImpl.class);
                bind(OfferServices.class).to(OfferServicesImpl.class);
+               bind(NeedServices.class).to(NeedServicesImpl.class);
                bind(SessionLogger.class).to(ShiroSession.class);
            }
        });
@@ -73,6 +76,13 @@ public class ServicesFactory {
     }
     return optInjector.get().getInstance(OfferServices.class);
    }
+   
+   public NeedServices getNeedServices(){
+	    if (!optInjector.isPresent()) {
+	        optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+	    }
+	    return optInjector.get().getInstance(NeedServices.class);
+	   }
 
    public static ServicesFactory getInstance(){
        return instance;

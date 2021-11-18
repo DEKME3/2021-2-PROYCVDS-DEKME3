@@ -36,4 +36,21 @@ public class MyBatisUser implements UserDao{
         return userMapper.getNumero_ofertas(id);
     }
 
+	@Override
+	public int getNumero_necesidades(int id) throws ExcepcionesSolidaridad {
+		// TODO Auto-generated method stub
+		return userMapper.getNumero_necesidades(id);
+	}
+
+	@Override
+	public int getIdUserByName(String name) throws ExcepcionesSolidaridad {
+		return userMapper.getUserIdByName(name);
+	}
+
+	@Override
+	public int getIdUserTypeByIdUser(int id) throws ExcepcionesSolidaridad {
+		return userMapper.getUserType(id);
+	}
+
+
 }

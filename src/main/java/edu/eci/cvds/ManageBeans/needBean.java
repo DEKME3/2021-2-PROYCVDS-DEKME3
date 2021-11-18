@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
-
 import edu.eci.cvds.entities.Need;
-import edu.eci.cvds.services.client.MyBatisPrueba;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
+import edu.eci.cvds.services.NeedServices;
+import edu.eci.cvds.services.ServicesFactory;
+import edu.eci.cvds.services.UserServices;
+
 
 @SuppressWarnings("deprecation")
 @SessionScoped
@@ -31,7 +33,8 @@ public class needBean {
 	private String nombreUsuarioLogin;
 	private int idUserLogin;
 	private int idUserTypeLogin;
-	
+	private UserServices userServices = ServicesFactory.getInstance().getUserServices();
+	private NeedServices needServices = ServicesFactory.getInstance().getNeedServices();
 
 
 	public needBean() {
@@ -150,33 +153,31 @@ public class needBean {
 		this.idUserTypeLogin = idUserType;
 	}
 	
-	private void obtnerDatosUsuario() {
+	private void obtnerDatosUsuario() throws ExcepcionesSolidaridad {
 		Subject currentUser = SecurityUtils.getSubject();
 		setNombreUsuarioLogin((String) currentUser.getSession().getAttribute("Nombre"));
-		setIdUserLogin(MyBatisPrueba.getIdUserByName(getNombreUsuarioLogin()));
-		setIdUserTypeLogin(MyBatisPrueba.getIdUserTypeByIdUser(getIdUserLogin()));
+		setIdUserLogin(userServices.getIdUserByName(getNombreUsuarioLogin()));
+		setIdUserTypeLogin(userServices.getIdUserTypeByIdUser(getIdUserLogin()));
 	}
 		
-    public void insertNeed(){
+    public void insertNeed() throws ExcepcionesSolidaridad{
     	obtnerDatosUsuario();
-    	if(MyBatisPrueba.validaInsertNecesidades(getIdUserLogin()) && getIdUserTypeLogin() == 2 && validarStatus()) {
+        int totalNecesidades = needServices.getTotalNeedsOfUser(getIdUserLogin());
+        int necesidadesUsuario = userServices.getNumero_necesidades(getIdUserLogin());
+    	if((totalNecesidades < necesidadesUsuario) && getIdUserTypeLogin() == 2 && validarStatus()) {
     		setCreationDate(new Date());
     		setModificationDate(new Date());
 	        Need newNeed = new Need(name, description, new Date(), getStatus(), new Date() , urgency);
-	        MyBatisPrueba.insertarNecesidad(newNeed, category, 5);
+	        needServices.insertNeed(newNeed, category, 5);
 	        needs.add(newNeed);
     	}
     }
 
-    public void updateNeed(){
+    public void updateNeed() throws ExcepcionesSolidaridad{
     	obtnerDatosUsuario();
-    	System.out.println(getIdUserTypeLogin());
-    	System.out.println(getIdNeed());
-    	System.out.println(MyBatisPrueba.getIdUserByNeed(getIdNeed()));
-    	System.out.println(getIdUserLogin());
     	boolean banderaUpdate = false;
     	if(validarStatus() ) {
-    		if(getIdUserTypeLogin() == 2 && (MyBatisPrueba.getIdUserByNeed(getIdNeed()) == getIdUserLogin() )) {
+    		if(getIdUserTypeLogin() == 2 && (needServices.getIdUserByNeed(getIdNeed()) == getIdUserLogin() )) {
     			banderaUpdate = true;
     		}
     		if(getIdUserTypeLogin() == 1) {
@@ -186,7 +187,7 @@ public class needBean {
     	System.out.println(banderaUpdate);
     	if(banderaUpdate) {
     		setModificationDate(new Date());
-            MyBatisPrueba.updateNeed(idNeed, status);
+    		needServices.ActualizarNeed(idNeed, status);
     	}
 
     }
@@ -198,5 +199,6 @@ public class needBean {
     		return false;
     	}
     }
+    
 
 }

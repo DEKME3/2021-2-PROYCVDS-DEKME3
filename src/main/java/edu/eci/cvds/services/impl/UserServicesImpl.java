@@ -37,5 +37,20 @@ public class UserServicesImpl implements UserServices{
     public int getNumero_ofertas(int id) throws ExcepcionesSolidaridad {
         return userDao.getNumero_ofertas(id);
     }
+
+	@Override
+	public int getNumero_necesidades(int id) throws ExcepcionesSolidaridad {
+		return userDao.getNumero_necesidades(id);
+	}
+
+	@Override
+	public int getIdUserByName(String name) throws ExcepcionesSolidaridad {
+		return userDao.getIdUserByName(name);
+	}
+
+	@Override
+	public int getIdUserTypeByIdUser(int id) throws ExcepcionesSolidaridad {
+		return userDao.getIdUserTypeByIdUser(id);
+	}
     
 }
