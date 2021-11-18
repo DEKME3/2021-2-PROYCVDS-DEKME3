@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <link rel="stylesheet" type="text/css" href="css/categoria.css"/>
+    <link rel="stylesheet" type="text/css" href="css/oferta.css"/>
     <title>Oferta</title>
 </h:head>
 <h:body>
@@ -18,7 +18,7 @@
         </div>
         <div class="item2">
             <div>
-                <p class="textoDatos">Ingrese los datos de la nueva oferta</p>
+                <p class="textoDatos">Registrar oferta</p>
                 <h:form>
                     <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="name" value="#{offerBean.name}"/>
@@ -41,7 +41,7 @@
                 </h:form>
             </div>
             <div>
-                <p class="textoDatos">Ingrese los datos de la oferta que desea actualizar</p>
+                <p class="textoDatos">Actualizar oferta</p>
                 <h:form>
                     <h4 class="titulo">ID:</h4>
                     <p:inputText name="id" value="#{offerBean.updateId}"/>
@@ -59,10 +59,13 @@
             </div>
         </div>
         <div class="item3">
+            <img src="img/oferta.png" alt="oferta"></img>
+        </div>
+        <div class="item4">
             <h:form id="tabla">
-                <p:dataTable id="dtoferta" var="oferta" value="#{offerBean.offers}" paginator="true" paginatorPosition="bottom" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                <p:dataTable id="dtoferta" var="oferta" value="#{offerBean.offers}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
                         <p:column headerText="ID">
                             <p:outputLabel value="#{oferta.id}" />
                         </p:column>
@@ -89,6 +92,27 @@
                         </p:column>
                 </p:dataTable>
             </h:form>
+        </div>
+        <div class="item5">
+            <p class="textoDatos">Registrar respuesta</p>
+            <div class="flex-respuesta">
+                <div>
+                    <h4 class="titulo">Nombre:</h4>
+                    <p:inputText name="name" value=""/>
+                </div>
+                <div>
+                    <h4 class="titulo">Oferta:</h4>
+                    <p:inputText name="offer" value=""/>
+                </div>
+                <div>
+                    <h4 class="titulo">Descripcion:</h4>
+                    <p:inputText name="description" value=""/>
+                </div>
+            </div>
+            <br></br>
+            <div class="flex-respuesta">
+                <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send"></p:commandButton>
+            </div>
         </div>
     </div>
 </h:body>
