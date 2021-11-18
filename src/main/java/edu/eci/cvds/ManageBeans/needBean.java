@@ -170,7 +170,21 @@ public class needBean {
 
     public void updateNeed(){
     	obtnerDatosUsuario();
-    	if(validarStatus() && (MyBatisPrueba.getIdUserByNeed(getIdNeed()) == getIdUserLogin() ) && ( getIdUserTypeLogin() == 2 ||  getIdUserTypeLogin() == 1) ) {
+    	System.out.println(getIdUserTypeLogin());
+    	System.out.println(getIdNeed());
+    	System.out.println(MyBatisPrueba.getIdUserByNeed(getIdNeed()));
+    	System.out.println(getIdUserLogin());
+    	boolean banderaUpdate = false;
+    	if(validarStatus() ) {
+    		if(getIdUserTypeLogin() == 2 && (MyBatisPrueba.getIdUserByNeed(getIdNeed()) == getIdUserLogin() )) {
+    			banderaUpdate = true;
+    		}
+    		if(getIdUserTypeLogin() == 1) {
+    			banderaUpdate = true;
+    		}
+    	}
+    	System.out.println(banderaUpdate);
+    	if(banderaUpdate) {
     		setModificationDate(new Date());
             MyBatisPrueba.updateNeed(idNeed, status);
     	}
