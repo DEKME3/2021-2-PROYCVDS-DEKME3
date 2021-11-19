@@ -20,11 +20,11 @@ import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
-import edu.eci.cvds.services.client.MyBatisPrueba;
 
 @SuppressWarnings("deprecation")
 @SessionScoped
 @ManagedBean(name = "offerBean")
+
 public class offerBean {
 
     public int updateId;

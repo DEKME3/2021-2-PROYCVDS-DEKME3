@@ -24,16 +24,43 @@
     </select>
 
     <select id="getOffer" parameterType="map" resultMap="OfferResult">
-        SELECT id,
-        name,
-        category,
-        description,
-        creationdate,
-        status,
-        modificationdate,
-        usuario
-        FROM offers
-        WHERE offers.usuario = #{usuario};
+        SELECT 
+        o.id as o_id,
+        o.name as o_name,
+
+        c.id as c_id,
+        c.name as c_name,
+        c.description as c_description,
+        c.creationdate as c_creationdate,
+        c.status as c_status,
+        c.modificationdate as c_modificationdate,
+
+        o.description as o_description,
+        o.creationdate as o_creationdate,
+        o.status as o_status,
+        o.modificationdate as o_modificationdate,
+
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+        
+        FROM offers o
+        JOIN categories c
+        ON o.category = c.id
+        JOIN users u
+        ON o.usuario = u.id
+        JOIN usertypes ut
+        ON u.usertype = ut.id
+        WHERE o.id = #{id}
+        ORDER BY o.id;
     </select>
 
     <select id="getOffers" resultMap="OfferResult">

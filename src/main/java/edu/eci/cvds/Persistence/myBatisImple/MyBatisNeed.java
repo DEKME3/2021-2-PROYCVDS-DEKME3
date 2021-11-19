@@ -1,6 +1,7 @@
 package edu.eci.cvds.Persistence.myBatisImple;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.inject.Inject;
@@ -58,6 +59,16 @@ public class MyBatisNeed implements NeedDao{
             throw new ExcepcionesSolidaridad("No se logro obtener el id del usuario dado el id de la necesidad: : "+ id, e);
         }
 	}
+
+    @Override
+    public ArrayList<Need> getNeeds() throws ExcepcionesSolidaridad {
+        return needMappers.getNeeds();
+    }
+
+    @Override
+    public Need getNeed(int id) throws ExcepcionesSolidaridad {
+        return needMappers.getNeed(id);
+    }
     
 
 

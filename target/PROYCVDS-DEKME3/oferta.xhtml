@@ -94,24 +94,21 @@
             </h:form>
         </div>
         <div class="item5">
-            <p class="textoDatos">Registrar respuesta</p>
+            <p class="textoDatos">Registrar respuesta para una oferta</p>
             <div class="flex-respuesta">
                 <div>
-                    <h4 class="titulo">Nombre:</h4>
-                    <p:inputText name="name" value=""/>
+                    <h:form>
+                        <h4 class="titulo">Nombre:</h4>
+                        <p:inputText name="nameR" value="#{respuestaBean.nameR}"/>
+                        <h4 class="titulo">Oferta:</h4>
+                        <p:inputText name="offerR" value="#{respuestaBean.offerR}"/>
+                        <h4 class="titulo">Comentarios:</h4>
+                        <p:inputTextarea rows="4" cols="30" name="commentsR" value="#{respuestaBean.commentsR}"/>
+                        <br></br>
+                        <br></br>
+                        <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send" actionListener="#{respuestaBean.insertarRespuestaOffer}"></p:commandButton>
+                    </h:form>
                 </div>
-                <div>
-                    <h4 class="titulo">Oferta:</h4>
-                    <p:inputText name="offer" value=""/>
-                </div>
-                <div>
-                    <h4 class="titulo">Descripcion:</h4>
-                    <p:inputText name="description" value=""/>
-                </div>
-            </div>
-            <br></br>
-            <div class="flex-respuesta">
-                <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send"></p:commandButton>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ label {
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.7em;
+    gap: 1.5em;
 }
 
 .item1 {
@@ -113,6 +113,6 @@ button.ui-button-success {
 }
 
 img {
-    width: 70%;
+    width: 65%;
 }
 

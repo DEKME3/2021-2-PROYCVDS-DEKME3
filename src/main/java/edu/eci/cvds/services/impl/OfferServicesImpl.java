@@ -20,8 +20,8 @@ public class OfferServicesImpl implements OfferServices{
     }
 
     @Override
-    public Offer getOferta(String name) throws ExcepcionesSolidaridad {
-        return offerDao.getOferta(name);
+    public Offer getOferta(int id) throws ExcepcionesSolidaridad {
+        return offerDao.getOferta(id);
     }
 
     @Override

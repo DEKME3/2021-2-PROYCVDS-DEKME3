@@ -6,67 +6,78 @@ import java.util.Date;
 public class Respuesta implements Serializable{
     private int id;
     private String name;
-    private String comments_;
+    private String comments;
     private Date creationDate;
-    private int Offer;
-    private int need;
+    private Offer offer;
+    private Need need;
 
-    public Respuesta(String name, String comments, Date creationDate, int offer, int need){
+    public Respuesta(String name, String comments, Date creationDate, Offer offer) {
         this.name = name;
-        this.comments_ = comments;
+        this.comments = comments;
         this.creationDate = creationDate;
+        this.offer = offer;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
+    public Respuesta(String name, String comments, Date creationDate, Need need) {
         this.name = name;
-    }
-
-    public void setcomments_(String comments) {
-        this.comments_ = comments;
-    }
-
-    public void setcreationdate(Date creationDate) {
+        this.comments = comments;
         this.creationDate = creationDate;
+        this.need = need;
     }
 
-    public void setOffer(int offers) {
-        this.Offer = offers;
-    }
-
-    public void setNeed(int needs) {
-        this.need = needs;
+    public Respuesta() {
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public String getcomments() {
-        return comments_;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public Date getCreationDate() {
         return creationDate;
     }
 
-    public int getoffer() {
-        return Offer;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
-    public int getneed() {
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
+    public Need getNeed() {
         return need;
+    }
+
+    public void setNeed(Need need) {
+        this.need = need;
     }
 
     @Override
     public String toString() {
-        return "Respuesta{id=" + id + " name=" + name + " Comment=" + comments_ + " creation date=" + creationDate + " Offer=" + Offer + "Need= " + need + " }";
+        return "Respuesta{id=" + id + " name=" + name + " Comment=" + comments + " creation date=" + creationDate + " }";
     }
 }

@@ -191,15 +191,6 @@ public class MyBatisPrueba {
 
     }
 
-    public static void insertarRespuesta(Respuesta newAnswer){
-        SqlSessionFactory sessionfact = getSqlSessionFactory();
-        SqlSession sqlss = sessionfact.openSession();
-        RespuestaMappers respuestaMapper = sqlss.getMapper(RespuestaMappers.class);
-        respuestaMapper.InsertRespuesta(newAnswer);;
-        sqlss.commit();   
-        sqlss.close();
-    }
-
     public static void insertarCategoria(Category newCategory){
         SqlSessionFactory sessionfact = getSqlSessionFactory();
         SqlSession sqlss = sessionfact.openSession();

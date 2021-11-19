@@ -5,23 +5,32 @@
   
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestaMapper">
 
-    <insert parameterType="map" id="InsertRespuesta">
-        INSERT INTO Responses (name, comments_, creationDate, offer, need)
-        VALUES(
-          #{respuesta.name},
-          #{respuesta.comments_,},
-          #{respuesta.creationDate},
-          #{respuesta.offer},
-          #{respuesta.need});
+    <insert parameterType="map" id="InsertResponseOffer">
+      INSERT INTO responses (name, comments, creationdate, offer)
+      VALUES(
+        #{ans.name},
+        #{ans.comments},
+        #{ans.creationDate},
+        #{ans.offer.id}
+      );
+    </insert>
+
+    <insert parameterType="map" id="InsertResponseNeed">
+      INSERT INTO responses (name, comments, creationdate, need)
+      VALUES(
+        #{ans.name},
+        #{ans.comments},
+        #{ans.creationDate},
+        #{ans.need.id}
+      );
     </insert>
 
     <resultMap type='Respuesta' id='RespuestaResult'>
-        <id property='id' column='id'/>
-        <result property='name' column='name'/>
-        <result property="comments_" column="comments_"/>
-        <result property="creationDate" column="creationDate"/>
-        <result property="offer" column="offer"/>
-        <result property="need" column="need"/>
+        <id property='id' column='r_id'/>
+        <result property='name' column='r_name'/>
+        <result property='comments' column='r_comments'/>
+        <result property='creationDate' column='r_creationdate'/>
+        <association property='offer' javaType = 'Offer'></association>
+        <association property='need' javaType = 'Need'></association>
     </resultMap>
-          	
 </mapper>

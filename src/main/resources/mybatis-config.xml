@@ -36,8 +36,8 @@
         <mapper resource="mappers/UserMapper.xml"></mapper>
         <mapper resource="mappers/UserTypeMapper.xml"></mapper> 
         <mapper resource="mappers/CategoryMapper.xml"></mapper>  
-        <mapper resource="mappers/OfferMapper.xml"></mapper> 
-        <mapper resource="mappers/RespuestaMapper.xml"></mapper>  
+        <mapper resource="mappers/OfferMapper.xml"></mapper>
+        <mapper resource="mappers/RespuestaMapper.xml"></mapper>
         <mapper resource="mappers/NeedMapper.xml"></mapper>  
     </mappers> 
               

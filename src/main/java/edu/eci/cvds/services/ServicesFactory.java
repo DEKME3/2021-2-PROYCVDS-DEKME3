@@ -6,17 +6,20 @@ import org.mybatis.guice.XMLMyBatisModule;
 import edu.eci.cvds.Persistence.CategoryDao;
 import edu.eci.cvds.Persistence.NeedDao;
 import edu.eci.cvds.Persistence.OfferDao;
+import edu.eci.cvds.Persistence.RespuestaDao;
 import edu.eci.cvds.Persistence.UserDao;
 import edu.eci.cvds.Persistence.UserTypeDao;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisCategory;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisNeed;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisOffer;
+import edu.eci.cvds.Persistence.myBatisImple.MyBatisRespuesta;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUser;
 import edu.eci.cvds.Persistence.myBatisImple.MyBatisUserType;
 import edu.eci.cvds.authenticator.SessionLogger;
 import edu.eci.cvds.authenticator.ShiroSession;
 import edu.eci.cvds.services.impl.CategoryServicesImpl;
 import edu.eci.cvds.services.impl.OfferServicesImpl;
+import edu.eci.cvds.services.impl.RespuestaServicesImpl;
 import edu.eci.cvds.services.impl.UserServicesImpl;
 import edu.eci.cvds.services.impl.NeedServicesImpl;
 import java.util.Optional;
@@ -43,9 +46,11 @@ public class ServicesFactory {
                bind(OfferDao.class).to(MyBatisOffer.class);
                bind(NeedDao.class).to(MyBatisNeed.class);
                bind(OfferDao.class).to(MyBatisOffer.class);
+               bind(RespuestaDao.class).to(MyBatisRespuesta.class);
                bind(UserServices.class).to(UserServicesImpl.class);
                bind(CategoryServices.class).to(CategoryServicesImpl.class);
                bind(OfferServices.class).to(OfferServicesImpl.class);
+               bind(RespuestaServices.class).to(RespuestaServicesImpl.class);
                bind(NeedServices.class).to(NeedServicesImpl.class);
                bind(SessionLogger.class).to(ShiroSession.class);
            }
@@ -82,7 +87,14 @@ public class ServicesFactory {
 	        optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
 	    }
 	    return optInjector.get().getInstance(NeedServices.class);
-	   }
+	}
+
+   public RespuestaServices getRespuestaServices(){
+	    if (!optInjector.isPresent()) {
+	        optInjector = Optional.of(myBatisInjector("development","mybatis-config.xml"));
+	    }
+	    return optInjector.get().getInstance(RespuestaServices.class);
+	}
 
    public static ServicesFactory getInstance(){
        return instance;

@@ -1,5 +1,7 @@
 package edu.eci.cvds.services.impl;
 
+import java.util.ArrayList;
+
 import com.google.inject.Inject;
 import edu.eci.cvds.Persistence.NeedDao;
 import edu.eci.cvds.entities.Need;
@@ -34,6 +36,16 @@ public class NeedServicesImpl implements NeedServices{
 	@Override
 	public int getIdUserByNeed(int id) throws ExcepcionesSolidaridad{
 		return needDao.getIdUserByNeed(id);
+	}
+
+	@Override
+	public ArrayList<Need> getNeeds() throws ExcepcionesSolidaridad {
+		return needDao.getNeeds();
+	}
+
+	@Override
+	public Need getNeed(int id) throws ExcepcionesSolidaridad {
+		return needDao.getNeed(id);
 	}
 
 }

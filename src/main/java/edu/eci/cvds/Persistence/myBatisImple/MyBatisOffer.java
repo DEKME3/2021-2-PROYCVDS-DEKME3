@@ -24,9 +24,9 @@ public class MyBatisOffer implements OfferDao {
     }
 
     @Override
-    public Offer getOferta(String name) throws ExcepcionesSolidaridad {
+    public Offer getOferta(int id) throws ExcepcionesSolidaridad {
         try {
-            return offerMapper.getOffer(name);
+            return offerMapper.getOffer(id);
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro obtener la oferta.", e);
         }

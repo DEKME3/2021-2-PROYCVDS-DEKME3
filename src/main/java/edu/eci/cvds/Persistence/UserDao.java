@@ -1,7 +1,5 @@
 package edu.eci.cvds.Persistence;
 
-import org.apache.ibatis.annotations.Param;
-
 import edu.eci.cvds.entities.*;
 import edu.eci.cvds.exeptions.*;
 
