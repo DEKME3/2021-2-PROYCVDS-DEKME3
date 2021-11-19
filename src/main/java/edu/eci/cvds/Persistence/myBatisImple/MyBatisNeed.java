@@ -43,7 +43,7 @@ public class MyBatisNeed implements NeedDao{
 	}
 
 	@Override
-	public Need getNeedsResult(String usuario) throws ExcepcionesSolidaridad {
+	public ArrayList<Need> getNeedsResult(int usuario) throws ExcepcionesSolidaridad {
         try {
         	return needMappers.getNeedsResult(usuario);
         } catch (Exception e) {

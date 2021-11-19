@@ -29,7 +29,7 @@ public class NeedServicesImpl implements NeedServices{
 	}
 
 	@Override
-	public Need getNeedsResult(String usuario) throws ExcepcionesSolidaridad{
+	public ArrayList<Need> getNeedsResult(int usuario) throws ExcepcionesSolidaridad{
 		return needDao.getNeedsResult(usuario);
 	}
 

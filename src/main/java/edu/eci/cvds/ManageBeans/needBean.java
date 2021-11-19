@@ -55,6 +55,7 @@ public class needBean {
         ArrayList<Category> categoriesList;
         try {
             needList = needServices.getNeeds();
+			needs.clear();
             needs.addAll(needList);
             categoriesList = categoryServices.getCategories();
             categorias.addAll(categoriesList);
@@ -230,7 +231,15 @@ public class needBean {
 
     }
     
-    
-    
+    public void buscarPorUsuario(){
+		try {
+			obtnerDatosUsuario();
+			ArrayList<Need> busquedaNecesidades = needServices.getNeedsResult(idUserLogin);
+			needs.clear();
+			needs.addAll(busquedaNecesidades);
+		} catch (ExcepcionesSolidaridad e) {
+			e.printStackTrace();
+		}
+	}
 
 }
