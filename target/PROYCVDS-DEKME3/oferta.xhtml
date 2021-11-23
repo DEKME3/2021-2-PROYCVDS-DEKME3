@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/oferta.css"/>
+    <title>Oferta</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+           <div class="subit1">
+               Oferta
+           </div>
+           <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="item2">
+            <div>
+                <p class="textoDatos">Registrar oferta</p>
+                <h:form>
+                    <h4 class="titulo">Nombre:</h4>
+                    <p:inputText name="name" value="#{offerBean.name}"/>
+                    <h4 class="titulo">Descripción:</h4>
+                    <p:inputText name="description" value="#{offerBean.description}"/>
+                    <h4 class="titulo">Estado:</h4>
+                    <p:selectOneMenu id="option" value="#{offerBean.status}">
+                        <f:selectItem itemLabel="Activa" itemValue="Activa"/>
+                        <f:selectItem itemLabel="En proceso" itemValue="En proceso"/>
+                        <f:selectItem itemLabel="Resuelta" itemValue="Resuelta"/>
+                        <f:selectItem itemLabel="Cerrada" itemValue="Cerrada"/>
+                    </p:selectOneMenu>
+                    <h4 class="titulo">Categoria:</h4>
+                    <p:selectOneMenu id="group" value="#{offerBean.category}">
+                        <f:selectItems value="#{offerBean.categorias}"/>
+                    </p:selectOneMenu>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{offerBean.insertOffer}" class="send"></p:commandButton>
+                </h:form>
+            </div>
+            <div>
+                <p class="textoDatos">Actualizar oferta</p>
+                <h:form>
+                    <h4 class="titulo">ID:</h4>
+                    <p:inputText name="id" value="#{offerBean.updateId}"/>
+                    <h4 class="titulo">Estado:</h4>
+                    <p:selectOneMenu id="option" value="#{offerBean.updateStatus}">
+                        <f:selectItem itemLabel="Activa" itemValue="Activa"/>
+                        <f:selectItem itemLabel="En proceso" itemValue="En proceso"/>
+                        <f:selectItem itemLabel="Resuelta" itemValue="Resuelta"/>
+                        <f:selectItem itemLabel="Cerrada" itemValue="Cerrada"/>
+                    </p:selectOneMenu>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{offerBean.updateOffer}" class="send"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <div class="item3">
+            <img src="img/oferta.png" alt="oferta"></img>
+        </div>
+        <div class="item4">
+            <h:form id="tabla">
+                <p:dataTable id="dtoferta" var="oferta" value="#{offerBean.offers}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
+                        <p:column headerText="ID">
+                            <p:outputLabel value="#{oferta.id}" />
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{oferta.name}" />
+                        </p:column>
+                        <p:column headerText="Descripcion">
+                            <p:outputLabel value="#{oferta.description}"/>
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <p:outputLabel value="#{oferta.status}"/>
+                        </p:column>
+                        <p:column headerText="Categoria">
+                            <p:outputLabel value="#{oferta.category.name}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de creación">
+                            <p:outputLabel value="#{oferta.creationDate}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de modificacion">
+                            <p:outputLabel value="#{oferta.modificationDate}"/>
+                        </p:column>
+                        <p:column headerText="Usuario">
+                            <p:outputLabel value="#{oferta.usuario.name}"/>
+                        </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+        <div class="item5">
+            <p class="textoDatos">Registrar respuesta para una oferta</p>
+            <div class="flex-respuesta">
+                <div>
+                    <h:form>
+                        <h4 class="titulo">Nombre:</h4>
+                        <p:inputText name="nameR" value="#{respuestaBean.nameR}"/>
+                        <h4 class="titulo">Oferta:</h4>
+                        <p:inputText name="offerR" value="#{respuestaBean.offerR}"/>
+                        <h4 class="titulo">Comentarios:</h4>
+                        <p:inputTextarea rows="4" cols="30" name="commentsR" value="#{respuestaBean.commentsR}"/>
+                        <br></br>
+                        <br></br>
+                        <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send" actionListener="#{respuestaBean.insertarRespuestaOffer}"></p:commandButton>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

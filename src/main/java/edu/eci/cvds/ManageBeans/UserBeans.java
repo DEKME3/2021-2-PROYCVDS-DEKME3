@@ -32,45 +32,102 @@ public class UserBeans {
 	public UserBeans(){}
     
 	
-    public int getIdUserTypeLogin() {
-		return idUserTypeLogin;
+
+	public UserServices getUserServices() {
+		return userServices;
 	}
 
-	public void setIdUserTypeLogin(int idUserTypeLogin) {
-		this.idUserTypeLogin = idUserTypeLogin;
+
+
+	public void setUserServices(UserServices userServices) {
+		this.userServices = userServices;
 	}
 
-	public String getNombreUsuarioLogin() {
-		return nombreUsuarioLogin;
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setNombreUsuarioLogin(String nombreUsuarioLogin) {
-		this.nombreUsuarioLogin = nombreUsuarioLogin;
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getIdUserLogin() {
-		return idUserLogin;
+
+
+	public String getPassword() {
+		return password;
 	}
 
-	public void setIdUserLogin(int idUserLogin) {
-		this.idUserLogin = idUserLogin;
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public int getNameuser() {
+
+
+	public int getIdName() {
 		return idName;
 	}
 
-	public void setNameuser(int idName) {
+
+
+	public void setIdName(int idName) {
 		this.idName = idName;
 	}
+
+
 
 	public int getNumeroNecesidades() {
 		return numeroNecesidades;
 	}
 
+
+
 	public void setNumeroNecesidades(int numeroNecesidades) {
 		this.numeroNecesidades = numeroNecesidades;
 	}
+
+
+
+	public String getNombreUsuarioLogin() {
+		return nombreUsuarioLogin;
+	}
+
+
+
+	public void setNombreUsuarioLogin(String nombreUsuarioLogin) {
+		this.nombreUsuarioLogin = nombreUsuarioLogin;
+	}
+
+
+
+	public int getIdUserLogin() {
+		return idUserLogin;
+	}
+
+
+
+	public void setIdUserLogin(int idUserLogin) {
+		this.idUserLogin = idUserLogin;
+	}
+
+
+
+	public int getIdUserTypeLogin() {
+		return idUserTypeLogin;
+	}
+
+
+
+	public void setIdUserTypeLogin(int idUserTypeLogin) {
+		this.idUserTypeLogin = idUserTypeLogin;
+	}
+
+
 
 	public void logIn() throws ExcepcionesSolidaridad{
         try{
@@ -105,8 +162,12 @@ public class UserBeans {
     	obtnerDatosUsuario();
     	int idTypeUserActualizar = userServices.getIdUserTypeByIdUser(idName);
     	if(getIdUserTypeLogin() == 1 && idTypeUserActualizar == 2 ) {
-    		userServices.ActualizarNeedUserByName(getNameuser(), getNumeroNecesidades());
+    		userServices.ActualizarNeedUserByName(getIdName(), getNumeroNecesidades());
     	}
+		else{
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo modificar el numero de necesidades del usuario");
+            PrimeFaces.current().dialog().showMessageDynamic(message);	
+		}
     }
 
 

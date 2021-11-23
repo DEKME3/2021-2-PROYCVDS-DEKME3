@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.NeedMapper">
+
+    <insert parameterType="map" id="insertNeed">
+        INSERT INTO needs (name, description, creationDate, status, modificationDate, urgency, category, usuario)
+        VALUES(
+          #{need.name},
+          #{need.description},
+          #{need.creationDate},
+          #{need.status},
+          #{need.modificationDate},
+          #{need.urgency},
+          #{categoryId},
+          #{userId});
+    </insert>
+
+    <select id="getTotalNeedsOfUser" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM needs n
+        WHERE n.usuario = #{userId};
+    </select>
+
+    <select id="getNeeds" resultMap="NeedResult">
+        SELECT 
+        n.id as n_id,
+        n.name as n_name,
+
+        c.id as c_id,
+        c.name as c_name,
+        c.description as c_description,
+        c.creationdate as c_creationdate,
+        c.status as c_status,
+        c.modificationdate as c_modificationdate,
+
+        n.description as n_description,
+        n.creationdate as n_creationdate,
+        n.status as n_status,
+        n.modificationdate as n_modificationdate,
+        n.urgency as n_urgency,
+
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+        
+        FROM needs n
+        JOIN categories c
+        ON n.category = c.id
+        JOIN users u
+        ON n.usuario = u.id
+        JOIN usertypes ut
+        ON u.usertype = ut.id
+        ORDER BY n.id;
+    </select>
+
+    <select id="getNeed" resultMap="NeedResult">
+      SELECT 
+      n.id as n_id,
+      n.name as n_name,
+
+      c.id as c_id,
+      c.name as c_name,
+      c.description as c_description,
+      c.creationdate as c_creationdate,
+      c.status as c_status,
+      c.modificationdate as c_modificationdate,
+
+      n.description as n_description,
+      n.creationdate as n_creationdate,
+      n.status as n_status,
+      n.modificationdate as n_modificationdate,
+      n.urgency as n_urgency,
+
+      u.id as u_id,
+      u.name as u_name,
+      u.password as u_password,
+      u.email as u_email,
+      u.status as u_status,
+      u.numero_necesidades as u_numero_necesidades,
+      u.numero_ofertas as u_numero_ofertas,
+
+      ut.id as ut_id,
+      ut.name as ut_name,
+      ut.description as ut_description
+      
+      FROM needs n
+      JOIN categories c
+      ON n.category = c.id
+      JOIN users u
+      ON n.usuario = u.id
+      JOIN usertypes ut
+      ON u.usertype = ut.id
+      WHERE n.id = #{id}
+      ORDER BY n.id;
+    </select>
+
+    <select id="getNeedsResult" parameterType="map" resultMap="NeedResult">
+      SELECT 
+      n.id as n_id,
+      n.name as n_name,
+
+      c.id as c_id,
+      c.name as c_name,
+      c.description as c_description,
+      c.creationdate as c_creationdate,
+      c.status as c_status,
+      c.modificationdate as c_modificationdate,
+
+      n.description as n_description,
+      n.creationdate as n_creationdate,
+      n.status as n_status,
+      n.modificationdate as n_modificationdate,
+      n.urgency as n_urgency,
+
+      u.id as u_id,
+      u.name as u_name,
+      u.password as u_password,
+      u.email as u_email,
+      u.status as u_status,
+      u.numero_necesidades as u_numero_necesidades,
+      u.numero_ofertas as u_numero_ofertas,
+
+      ut.id as ut_id,
+      ut.name as ut_name,
+      ut.description as ut_description
+      
+      FROM needs n
+      JOIN categories c
+      ON n.category = c.id
+      JOIN users u
+      ON n.usuario = u.id
+      JOIN usertypes ut
+      ON u.usertype = ut.id
+      WHERE n.usuario = #{usuario}
+      ORDER BY n.id;
+    </select>
+
+  <update parameterType="map" id="ActualizarNeed">
+      update needs 
+      set status = #{status},
+      modificationdate=CURRENT_DATE
+      where id = #{id};
+  </update>
+
+  <select id="getIdUserByNeed" parameterType="map" resultType="int">
+    SELECT
+      n.usuario
+    FROM needs n
+    WHERE id=#{id}
+  </select>
+
+  <select id="countCategories" parameterType="map" resultType="int">
+    SELECT COUNT(*)
+    FROM needs
+    WHERE category=#{category}
+  </select>
+
+  <resultMap type='Need' id='NeedResult'>
+      <id property='id' column='n_id'/>
+      <result property='name' column='n_name'/>
+      <result property='description' column='n_description'/>
+      <result property='creationDate' column='n_creationdate'/>
+      <result property='status' column='n_status'/>
+      <result property='modificationDate' column='n_modificationdate'/>
+      <result property='urgency' column='n_urgency'/>
+      <association property='category' javaType = 'Category' resultMap="edu.eci.cvds.dao.mybatis.mappers.CategoryMapper.CategoryResult"></association>
+      <association property='usuario' javaType = 'User' resultMap="edu.eci.cvds.dao.mybatis.mappers.UserMapper.UserResult"></association>
+  </resultMap>
+          	
+</mapper>
