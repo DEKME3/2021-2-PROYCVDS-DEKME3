@@ -40,5 +40,15 @@ public class CategoryServicesImpl implements CategoryServices{
     public int getCategoryIdByName(String name) throws ExcepcionesSolidaridad {
         return categoryDao.getCategoryIdByName(name);
     }
+
+    @Override
+    public void deleteCategory(String name) throws ExcepcionesSolidaridad {
+        categoryDao.deleteCategory(name);
+    }
+
+    @Override
+    public int validarCategory(String name) throws ExcepcionesSolidaridad {
+        return categoryDao.validarCategory(name);
+    }
     
 }

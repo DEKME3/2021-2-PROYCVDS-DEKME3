@@ -58,5 +58,15 @@ public class MyBatisCategory implements CategoryDao{
         return categoryMapper.getCategoryIdByName(name);    
     }
 
+    @Override
+    public void deleteCategory(String name) throws ExcepcionesSolidaridad{
+        categoryMapper.deleteCategory(name); 
+    }
+
+    @Override
+    public int validarCategory(String name) throws ExcepcionesSolidaridad {
+        return categoryMapper.validarCategory(name);
+    }
+
     
 }

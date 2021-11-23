@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
+
+import org.primefaces.PrimeFaces;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
@@ -26,6 +30,7 @@ public class CategoriaBean {
     private String newName;
     private String newDescription;
     private String newStatus;
+    private String deleteName;
     private Date creationDate;
     private Date modificationDate;
     private List<Category> categories = new ArrayList<>();
@@ -85,6 +90,14 @@ public class CategoriaBean {
         this.updateId = updateId;
     }
 
+    public void setDeleteName(String deleteName) {
+        this.deleteName = deleteName;
+    }
+
+    public String getDeleteName() {
+        return deleteName;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -128,9 +141,14 @@ public class CategoriaBean {
     public void insertCategory(){
         Category newCategory = new Category(name, description, new Date(), status, new Date());
         try {
-            categoryServices.InsertCategory(newCategory);
-            categories.clear();
-            loadCategories();
+            if (categoryServices.validarCategory(name) == 0) {
+                categoryServices.InsertCategory(newCategory);
+                categories.clear();
+                loadCategories();
+            } else {
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria invalida", "Seleccione una categoria valida!");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
+            }
         } catch (ExcepcionesSolidaridad e) {
             System.out.println("No se pudo insertar la categoria" + e.toString());
         }
@@ -143,6 +161,16 @@ public class CategoriaBean {
             loadCategories();
         } catch (ExcepcionesSolidaridad e) {
             System.out.println("No se pudo actualizar la categoria" + e.toString());
+        }
+    }
+
+    public void deleteCategory(){
+        try {
+            categoryServices.deleteCategory(deleteName);
+            categories.clear();
+            loadCategories();
+        } catch (ExcepcionesSolidaridad e) {
+            System.out.println("No se pudo eliminar la categoria" + e.toString());
         }
     }
 }

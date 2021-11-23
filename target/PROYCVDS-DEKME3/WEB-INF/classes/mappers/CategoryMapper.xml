@@ -37,6 +37,13 @@
         WHERE name=#{name}
     </select>
 
+    <select id="validarCategory" parameterType="map" resultType="int">
+        SELECT
+        COUNT(*)
+        FROM invalid_categories
+        WHERE name=#{name}
+    </select>
+
     <insert parameterType="map" id="InsertCategory">
         INSERT INTO categories (name, description, creationDate, status, modificationDate)
         VALUES(
@@ -46,6 +53,12 @@
           #{category.status},
           #{category.modificationDate});
     </insert>
+
+    <delete parameterType="map" id="deleteCategory" >
+        DELETE 
+        FROM categories
+        WHERE name = #{name};
+    </delete>
 
     <update parameterType="map" id="ActualizarCategory">
         UPDATE categories 

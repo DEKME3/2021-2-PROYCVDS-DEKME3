@@ -74,6 +74,20 @@
                 </p:dataTable>
             </h:form>
         </div>
+        <div class="item4">
+            <p class="textoDatos">Ingrese el nombre de la categoria que desea eliminar</p>
+            <div class="flex-eliminar">
+                <div>
+                    <h:form>
+                    <h4 class="titulo">Nombre:</h4>
+                    <p:inputText name="newName" value="#{categoryBean.deleteName}"/>
+                    <br></br>
+                    <br></br>
+                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.deleteCategory}" class="send"></p:commandButton>
+                </h:form>
+                </div>
+            </div>
+        </div>
     </div>
 </h:body>
 </html>

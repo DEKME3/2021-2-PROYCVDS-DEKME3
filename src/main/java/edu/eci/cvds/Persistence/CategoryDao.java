@@ -12,5 +12,7 @@ public interface CategoryDao {
     public ArrayList<Category> getCategories() throws ExcepcionesSolidaridad;
     public void ActualizarCategory(int id, String name, String description, String status) throws ExcepcionesSolidaridad;
     public int getCategoryIdByName(String name) throws ExcepcionesSolidaridad;
+    public void deleteCategory(String name) throws ExcepcionesSolidaridad;
+    public int validarCategory(String name) throws ExcepcionesSolidaridad;
     
 }

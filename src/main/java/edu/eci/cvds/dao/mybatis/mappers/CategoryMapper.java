@@ -3,7 +3,9 @@ package edu.eci.cvds.dao.mybatis.mappers;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
+
 import edu.eci.cvds.entities.Category;
+
 
 public interface CategoryMapper {
 
@@ -12,5 +14,7 @@ public interface CategoryMapper {
     public void ActualizarCategory(@Param("id") int id,@Param("name") String name, @Param("description") String description, @Param("status") String status);
     public ArrayList<Category> getCategories();
     public int getCategoryIdByName(@Param("name") String name);
+    public void deleteCategory(@Param("name") String name);
+    public int validarCategory(@Param("name") String name);
 
 }
