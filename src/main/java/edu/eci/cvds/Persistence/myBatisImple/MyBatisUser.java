@@ -52,5 +52,13 @@ public class MyBatisUser implements UserDao{
 		return userMapper.getUserType(id);
 	}
 
+	@Override
+	public void ActualizarNeedUserByName(int  idName, int necesidades) throws ExcepcionesSolidaridad {
+		try {
+			userMapper.ActualizarNeedUserByName(idName, necesidades);
+	     }catch (Exception e) {
+	    	 throw new ExcepcionesSolidaridad("No se Actualziar el Número de necesidades del usuario con id:"+idName, e);
+	     }
+	}
 
 }

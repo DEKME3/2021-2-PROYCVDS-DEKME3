@@ -52,5 +52,11 @@ public class UserServicesImpl implements UserServices{
 	public int getIdUserTypeByIdUser(int id) throws ExcepcionesSolidaridad {
 		return userDao.getIdUserTypeByIdUser(id);
 	}
+
+	@Override
+	public void ActualizarNeedUserByName(int idName, int necesidades) throws ExcepcionesSolidaridad {
+		userDao.ActualizarNeedUserByName(idName, necesidades);	
+		
+	}
     
 }

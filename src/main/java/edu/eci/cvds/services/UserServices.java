@@ -11,4 +11,5 @@ public interface UserServices {
     public int getNumero_necesidades(int id) throws ExcepcionesSolidaridad;
     public int getIdUserByName(String name) throws ExcepcionesSolidaridad;
     public int getIdUserTypeByIdUser(int id) throws ExcepcionesSolidaridad;
+    public void ActualizarNeedUserByName(int idNamename, int necesidades) throws ExcepcionesSolidaridad;
 }

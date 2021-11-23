@@ -12,5 +12,6 @@ public interface UserMapper {
     public int getNumero_ofertas(@Param("userId") int id);
     public int getUserType(@Param("userId") int id);
     public int getUserIdByName(@Param("name") String name);
+    public void ActualizarNeedUserByName(@Param("idName") int  idName, @Param("necesidades") int necesidades);
     
 }

@@ -74,6 +74,12 @@
         WHERE u.id = #{idUser};
     </select>
 
+    <update parameterType="map" id="ActualizarNeedUserByName">
+      update users 
+      set numero_necesidades = #{necesidades}
+      where id = #{idName};
+    </update>
+
     <resultMap type='User' id='UserResult'>
         <id property='id' column='u_id'/>
         <result property='name' column='u_name'/>
