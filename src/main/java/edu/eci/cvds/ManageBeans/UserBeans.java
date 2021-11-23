@@ -1,5 +1,6 @@
 package edu.eci.cvds.ManageBeans;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import edu.eci.cvds.entities.User;
@@ -10,6 +11,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.primefaces.PrimeFaces;
 
 import java.io.IOException;
 
