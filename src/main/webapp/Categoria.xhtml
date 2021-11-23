@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <link rel="stylesheet" type="text/css" href="css/categoria.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Categoria.css"/>
     <title>Categoria</title>
 </h:head>
 <h:body>
@@ -19,7 +19,7 @@
         <div class="item2">
             <div>
                 <p class="textoDatos">Ingrese los datos de la nueva categoria</p>
-                <h:form>
+                <h:form id="insert_form">
                     <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="name" value="#{categoryBean.name}"/>
                     <h4 class="titulo">Descripción:</h4>
@@ -28,12 +28,12 @@
                     <p:inputText name="status" value="#{categoryBean.status}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla insert_form" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.insertCategory}" class="send"></p:commandButton>
                 </h:form>
             </div>
             <div>
                 <p class="textoDatos">Ingrese los datos de la categoria que desea actualizar</p>
-                <h:form>
+                <h:form id="update_form">
                     <h4 class="titulo">ID:</h4>
                     <p:inputText name="updateId" value="#{categoryBean.updateId}"/>
                     <h4 class="titulo">Nombre:</h4>
@@ -44,15 +44,15 @@
                     <p:inputText name="newStatus" value="#{categoryBean.newStatus}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.updateCategory}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla update_form" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.updateCategory}" class="send"></p:commandButton>
                 </h:form>
             </div>
         </div>
         <div class="item3">
             <h:form id="tabla">
-                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" paginatorPosition="bottom" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categories}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
                         <p:column headerText="ID" sortBy="#{categoria.id}">
                             <p:outputLabel value="#{categoria.id}" />
                         </p:column>
@@ -78,12 +78,12 @@
             <p class="textoDatos">Ingrese el nombre de la categoria que desea eliminar</p>
             <div class="flex-eliminar">
                 <div>
-                    <h:form>
+                    <h:form id="delete_form">
                     <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="newName" value="#{categoryBean.deleteName}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.deleteCategory}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla delete_form" icon="pi pi-check" iconPos="right" actionListener="#{categoryBean.deleteCategory}" class="send"></p:commandButton>
                 </h:form>
                 </div>
             </div>

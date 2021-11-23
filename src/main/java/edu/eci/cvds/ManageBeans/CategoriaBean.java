@@ -145,12 +145,14 @@ public class CategoriaBean {
                 categoryServices.InsertCategory(newCategory);
                 categories.clear();
                 loadCategories();
+                restartInsert();
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria invalida", "Seleccione una categoria valida!");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
             }
         } catch (ExcepcionesSolidaridad e) {
-            System.out.println("No se pudo insertar la categoria" + e.toString());
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo insertar la categoria");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
 
@@ -159,8 +161,10 @@ public class CategoriaBean {
             categoryServices.ActualizarCategory(updateId, newName, newDescription, newStatus);
             categories.clear();
             loadCategories();
+            restartUpdate();
         } catch (ExcepcionesSolidaridad e) {
-            System.out.println("No se pudo actualizar la categoria" + e.toString());
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la categoria");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
 
@@ -169,8 +173,27 @@ public class CategoriaBean {
             categoryServices.deleteCategory(deleteName);
             categories.clear();
             loadCategories();
+            restartDelete();
         } catch (ExcepcionesSolidaridad e) {
-            System.out.println("No se pudo eliminar la categoria" + e.toString());
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo eliminar la categoria");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
         }
+    }
+
+    private void restartInsert(){
+        name = "";
+        description = "";
+        status = "";
+    }
+
+    private void restartUpdate(){
+        updateId = 0;
+        newName = "";
+        newDescription = "";
+        newStatus = "";
+    }
+
+    private void restartDelete(){
+        deleteName = "";
     }
 }
