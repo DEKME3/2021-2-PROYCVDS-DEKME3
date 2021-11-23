@@ -13,4 +13,5 @@ public interface NeedServices {
     public int getIdUserByNeed(int id) throws ExcepcionesSolidaridad;
     public ArrayList<Need> getNeeds() throws ExcepcionesSolidaridad;
     public Need getNeed(int id) throws ExcepcionesSolidaridad;
+    public int countCategories(int category) throws ExcepcionesSolidaridad;
 }

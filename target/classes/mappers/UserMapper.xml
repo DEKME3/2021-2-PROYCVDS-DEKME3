@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserMapper">
+
+    <select parameterType="map" id="getUser" resultMap="UserResult">
+        SELECT
+        u.id as u_id,
+        u.name as u_name,
+        u.password as u_password,
+        u.email as u_email,
+        u.status as u_status,
+        u.numero_necesidades as u_numero_necesidades,
+        u.numero_ofertas as u_numero_ofertas,
+
+        ut.id as ut_id,
+        ut.name as ut_name,
+        ut.description as ut_description
+
+        FROM users u
+        JOIN usertypes ut 
+        ON u.usertype = ut.id
+        WHERE u.name = #{name}
+    </select>
+
+    <insert parameterType="map" id="InsertUser" >
+        INSERT INTO users (name, password, email, status, usertype, numero_necesidades)
+        VALUES(
+          #{user.name},
+          #{user.password},
+          #{user.email},
+          #{user.status},
+          #{user.userType.id}
+          #{user.numero_necesidades}) ;
+    </insert>
+
+    <select id="getNumero_necesidades" parameterType="map" resultType="int">
+        SELECT numero_necesidades
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
+    <select id="getNumero_ofertas" parameterType="map" resultType="int">
+        SELECT numero_ofertas
+        FROM users u
+        WHERE u.id = #{userId}
+    </select>
+
+    <select id="getUserIdByName" parameterType="map" resultType="int">
+        SELECT
+        u.id
+        FROM users u
+        WHERE name=#{name}
+    </select>
+
+    <select id="getUserType" parameterType="map" resultType="int">
+        SELECT
+        u.usertype
+        FROM users u
+        WHERE id=#{userId}
+    </select>
+
+    <select id="getTypeIdUser" parameterType="map" resultMap="UserResult">
+        SELECT 
+        u.id,
+        u.name,
+        u.password,
+        u.email,
+        u.status,
+        u.userType,  
+        FROM Users u
+        WHERE u.id = #{idUser};
+    </select>
+
+    <resultMap type='User' id='UserResult'>
+        <id property='id' column='u_id'/>
+        <result property='name' column='u_name'/>
+        <result property='password' column='u_password'/>
+        <result property='email' column='u_email'/>
+        <result property='status' column='u_status'/>
+        <result property='numero_necesidades' column='u_numero_necesidades'/>
+        <result property='numero_ofertas' column='u_numero_ofertas'/>
+        <association property='userType' javaType = 'UserType'></association>
+    </resultMap>
+          	
+</mapper>

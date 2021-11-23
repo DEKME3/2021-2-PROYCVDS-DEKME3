@@ -10,6 +10,9 @@ public class Category implements Serializable{
     private Date creationDate;
     private String status;
     private Date modificationDate;
+    private int cantidadOfertas;
+    private int cantidadNecesidades;
+    private int totalOfertasNecesidades;
 
     public Category(String name, String description, Date creationDate, String status, Date modification){
         this.name = name;
@@ -54,6 +57,30 @@ public class Category implements Serializable{
     
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
+    }
+
+    public void setCantidadNecesidades(int cantidadNecesidades) {
+        this.cantidadNecesidades = cantidadNecesidades;
+    }
+
+    public void setCantidadOfertas(int cantidadOfertas) {
+        this.cantidadOfertas = cantidadOfertas;
+    }
+
+    public void setTotalOfertasNecesidades(int totalOfertasNecesidades) {
+        this.totalOfertasNecesidades = totalOfertasNecesidades;
+    }
+
+    public int getTotalOfertasNecesidades() {
+        return totalOfertasNecesidades;
+    }
+
+    public int getCantidadNecesidades() {
+        return cantidadNecesidades;
+    }
+
+    public int getCantidadOfertas() {
+        return cantidadOfertas;
     }
 
     public int getId() {

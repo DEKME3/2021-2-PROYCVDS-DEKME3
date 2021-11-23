@@ -15,5 +15,6 @@ public interface NeedMapper {
     public int getIdUserByNeed(@Param("id") int id);
     public ArrayList<Need> getNeeds();
     public Need getNeed(@Param("id") int id);
+    public int countCategories(@Param("category") int category);
 }
 

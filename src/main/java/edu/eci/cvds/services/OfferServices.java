@@ -12,4 +12,5 @@ public interface OfferServices {
     public void actualizarOferta(int id, String status) throws ExcepcionesSolidaridad;
     public int getOfferIdByName(String name) throws ExcepcionesSolidaridad;
     public int getTotalOfferOfUser(int id) throws ExcepcionesSolidaridad;
+    public int countCategories(int category) throws ExcepcionesSolidaridad;
 }

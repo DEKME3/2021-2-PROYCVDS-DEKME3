@@ -44,5 +44,10 @@ public class OfferServicesImpl implements OfferServices{
         // TODO Auto-generated method stub
         return 0;
     }
+
+    @Override
+    public int countCategories(int category) throws ExcepcionesSolidaridad {
+        return offerDao.countCategories(category);
+    }
     
 }

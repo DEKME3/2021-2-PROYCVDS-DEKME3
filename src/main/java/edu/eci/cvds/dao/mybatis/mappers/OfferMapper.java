@@ -12,4 +12,5 @@ public interface OfferMapper {
     public int getTotalOfferOfUser( @Param("userId") int id);
     public void ActualizarOffer(@Param("id") int id, @Param("status") String status);
     public int getOfferIdByName(@Param("name") String name);
+    public int countCategories(@Param("category") int category);
 }

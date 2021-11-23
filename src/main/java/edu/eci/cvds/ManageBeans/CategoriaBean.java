@@ -15,6 +15,8 @@ import javax.faces.bean.ManagedBean;
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.CategoryServices;
+import edu.eci.cvds.services.NeedServices;
+import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 
 
@@ -34,7 +36,10 @@ public class CategoriaBean {
     private Date creationDate;
     private Date modificationDate;
     private List<Category> categories = new ArrayList<>();
+    private List<Category> categoriesTable2 = new ArrayList<>();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
+    private OfferServices ofertaServices = ServicesFactory.getInstance().getOfferServices();
+    private NeedServices needServices = ServicesFactory.getInstance().getNeedServices();
 
     public CategoriaBean() {
     }
@@ -45,6 +50,7 @@ public class CategoriaBean {
         try {
             categoryList = categoryServices.getCategories();
             categories.addAll(categoryList);
+            loadTable2(categories);
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -94,6 +100,14 @@ public class CategoriaBean {
         this.deleteName = deleteName;
     }
 
+    public void setCategoriesTable2(List<Category> categoriesTable2) {
+        this.categoriesTable2 = categoriesTable2;
+    }
+
+    public List<Category> getCategoriesTable2() {
+        return categoriesTable2;
+    }
+
     public String getDeleteName() {
         return deleteName;
     }
@@ -136,6 +150,22 @@ public class CategoriaBean {
 
     public int getUpdateId() {
         return updateId;
+    }
+
+    private void loadTable2(List<Category> categories){
+        categoriesTable2.clear();
+        for (Category category : categories) {
+            Category categoryInformation = new Category();
+            categoryInformation.setName(category.getName());
+            try {
+                categoryInformation.setCantidadNecesidades(needServices.countCategories(category.getId()));
+                categoryInformation.setCantidadOfertas(ofertaServices.countCategories(category.getId()));
+                categoryInformation.setTotalOfertasNecesidades(categoryInformation.getCantidadNecesidades() + categoryInformation.getCantidadOfertas());
+            } catch (ExcepcionesSolidaridad e) {
+                e.printStackTrace();
+            }
+            categoriesTable2.add(categoryInformation);
+        }
     }
 
     public void insertCategory(){
