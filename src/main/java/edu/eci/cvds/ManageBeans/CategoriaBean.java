@@ -8,6 +8,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
 
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.ChartSeries;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -37,6 +41,7 @@ public class CategoriaBean {
     private Date modificationDate;
     private List<Category> categories = new ArrayList<>();
     private List<Category> categoriesTable2 = new ArrayList<>();
+    private BarChartModel barChartModel;
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
     private OfferServices ofertaServices = ServicesFactory.getInstance().getOfferServices();
     private NeedServices needServices = ServicesFactory.getInstance().getNeedServices();
@@ -51,6 +56,7 @@ public class CategoriaBean {
             categoryList = categoryServices.getCategories();
             categories.addAll(categoryList);
             loadTable2(categories);
+            createBarModel();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -102,6 +108,14 @@ public class CategoriaBean {
 
     public void setCategoriesTable2(List<Category> categoriesTable2) {
         this.categoriesTable2 = categoriesTable2;
+    }
+
+    public void setBarChartModel(BarChartModel barChartModel) {
+        this.barChartModel = barChartModel;
+    }
+
+    public BarChartModel getBarChartModel() {
+        return barChartModel;
     }
 
     public List<Category> getCategoriesTable2() {
@@ -208,6 +222,42 @@ public class CategoriaBean {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo eliminar la categoria");
             PrimeFaces.current().dialog().showMessageDynamic(message);
         }
+    }
+
+    private void createBarModel() {
+        barChartModel = initBarModel();
+
+        barChartModel.setTitle("Reporte Categorias");
+        barChartModel.setLegendPosition("ne");
+
+        Axis xAxis = barChartModel.getAxis(AxisType.X);
+        xAxis.setLabel("Numero solicitudes");
+
+        Axis yAxis = barChartModel.getAxis(AxisType.Y);
+        yAxis.setLabel("Oferta/Necesidad");
+        yAxis.setMin(0);
+        yAxis.setMax(15);
+    }
+
+    private BarChartModel initBarModel() {
+        BarChartModel model = new BarChartModel();
+
+        ChartSeries ofertas = new ChartSeries();
+        ofertas.setLabel("Ofertas");
+        for (Category categoryT : categoriesTable2) {
+            ofertas.set(categoryT.getName(), categoryT.getCantidadOfertas());
+        }
+
+        ChartSeries necesidades = new ChartSeries();
+        necesidades.setLabel("Necesidades");
+        for (Category categoryT : categoriesTable2) {
+            necesidades.set(categoryT.getName(), categoryT.getCantidadNecesidades());
+        }
+
+        model.addSeries(ofertas);
+        model.addSeries(necesidades);
+
+        return model;
     }
 
     private void restartInsert(){

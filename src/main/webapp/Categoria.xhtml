@@ -9,6 +9,21 @@
     <title>Categoria</title>
 </h:head>
 <h:body>
+    <script>
+        function exportChartInPDF() {
+           var docDefinition = {
+              content: [
+            'Category chart',
+            {
+               image: $(PF('categoryChart').exportAsImage()).attr('src'),
+               width: 520
+            }		
+          ]
+           }
+           pdfMake.createPdf(docDefinition).open();
+           pdfMake.createPdf(docDefinition).download('barChart.pdf');
+        }
+     </script>
     <div class="container">
         <div class="item1">
            <div class="subit1">
@@ -76,7 +91,7 @@
         </div>
         <div class="item4">
             <h:form id="tabla2">
-                <p:dataTable id="dtCategoria" var="categoria" value="#{categoryBean.categoriesTable2}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                <p:dataTable id="dtCategoria2" var="categoria" value="#{categoryBean.categoriesTable2}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                 rowsPerPageTemplate="4,10,{ShowAll|'All'}">
                         <p:column headerText="Nombre">
@@ -94,14 +109,20 @@
                 </p:dataTable>
                 <br></br>
                 <br></br>
-                <p:commandButton value="PDF">
-                            <p:dataExporter type="pdf" target="tabla2" fileName="products"/>
+                <p:commandButton value="PDF" ajax="false">
+                            <p:dataExporter type="pdf" target="dtCategoria2" fileName="products" widgetVar="categoryChart"/>
                 </p:commandButton>
                 <br></br>
                 <br></br>
             </h:form>
         </div>
         <div class="item5">
+            <p:chart id="chart" type="bar" model="#{categoryBean.barChartModel}"/>
+            <p:commandLink onclick="exportChartInPDF()">
+                Export Chart To PDF
+            </p:commandLink>
+        </div>
+        <div class="item6">
             <p class="textoDatos">Ingrese el nombre de la categoria que desea eliminar</p>
             <div class="flex-eliminar">
                 <div>
