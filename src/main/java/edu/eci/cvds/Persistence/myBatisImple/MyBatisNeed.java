@@ -74,6 +74,11 @@ public class MyBatisNeed implements NeedDao{
     public int countCategories(int category) throws ExcepcionesSolidaridad {
         return needMappers.countCategories(category);
     }
+
+	@Override
+	public ArrayList<Need> getNeedsReporte() throws ExcepcionesSolidaridad {
+		return needMappers.getNeedsReporte();
+	}
     
 
 

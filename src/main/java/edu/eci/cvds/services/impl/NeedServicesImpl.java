@@ -53,4 +53,9 @@ public class NeedServicesImpl implements NeedServices{
 		return needDao.countCategories(category);
 	}
 
+	@Override
+	public ArrayList<Need> getNeedsReporte() throws ExcepcionesSolidaridad {
+		return needDao.getNeedsReporte();
+	}
+
 }

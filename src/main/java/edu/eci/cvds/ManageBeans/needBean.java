@@ -217,12 +217,10 @@ public class needBean {
     public void updateNeed() throws ExcepcionesSolidaridad{
     	obtnerDatosUsuario();
     	boolean banderaUpdate = false;
-		if(getIdUserTypeLogin() == 2 && (needServices.getIdUserByNeed(getIdNeed()) == getIdUserLogin() )) {
+		if((getIdUserTypeLogin() == 2 && (needServices.getIdUserByNeed(getIdNeed()) == getIdUserLogin() ) ) ||  getIdUserTypeLogin() == 1) {
 			banderaUpdate = true;
 		}
-		if(getIdUserTypeLogin() == 1) {
-			banderaUpdate = true;
-    	}
+		
     	if(banderaUpdate) {
     		needServices.ActualizarNeed(idNeed, updateStatus);
 			needs.clear();
@@ -241,5 +239,16 @@ public class needBean {
 			e.printStackTrace();
 		}
 	}
+    
+    public void getNeedsReporte(){
+        ArrayList<Need> needList;
+        try {
+            needList = needServices.getNeedsReporte();
+			needs.clear();
+            needs.addAll(needList);
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
+    }
 
 }

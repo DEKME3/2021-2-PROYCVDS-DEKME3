@@ -67,7 +67,7 @@
             <h:form id="tabla">
                 <p:dataTable id="dtnecesidad" var="necesidad" value="#{needBean.needs}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
+                rowsPerPageTemplate="4,12,{ShowAll|'All'}">
                         <p:column headerText="ID">
                             <p:outputLabel value="#{necesidad.id}" />
                         </p:column>
@@ -94,6 +94,12 @@
                         </p:column>
                         <p:column headerText="Usuario">
                             <p:outputLabel value="#{necesidad.usuario.name}"/>
+                        </p:column>
+                        <p:column headerText="Id del Usuario">
+                            <p:outputLabel value="#{necesidad.usuario.id}"/>
+                        </p:column>
+                        <p:column headerText="Número de necesidad del Usuario">
+                            <p:outputLabel value="#{necesidad.usuario.numero_necesidades}"/>
                         </p:column>
                 </p:dataTable>
                 <br></br>
@@ -129,9 +135,13 @@
                     <div>
                         <h:form>
                             <h4 class="titulo">Id del Usuario:</h4> 
-                            <p:inputText name="idName" value="#{UserBeans.idName}"/>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:spinner id="basic" value="#{UserBeans.idName}"/>
+                            </div>
                             <h4 class="titulo">Numero necesidades:</h4>
-                            <p:inputText name="numeroNecesidades" value="#{UserBeans.numeroNecesidades}"/>
+                            <div class="p-field p-col-12 p-md-4">
+                                <p:spinner id="basic2" value="#{UserBeans.numeroNecesidades}"/>
+                            </div>
                             <br></br>
                             <br></br>
                             <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send" actionListener="#{UserBeans.updateNeed}"></p:commandButton>
@@ -141,6 +151,37 @@
             </div>
             <div class="subitem4">
                 <p class="textoDatos">Generar reporte de necesidades</p>
+                <h:form id="tabla2">
+                    <p:dataTable id="dtnecesidad" var="necesidad" value="#{needBean.needs}" paginator="true" paginatorPosition="bottom" rows="3" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                    rowsPerPageTemplate="3,9,{ShowAll|'All'}">
+                            <p:column headerText="ID">
+                                <p:outputLabel value="#{necesidad.id}" />
+                            </p:column>
+                            <p:column headerText="Categoria">
+                                <p:outputLabel value="#{necesidad.category.name}"/>
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                <p:outputLabel value="#{necesidad.name}" />
+                            </p:column>
+                            <p:column headerText="Descripcion">
+                                <p:outputLabel value="#{necesidad.description}"/>
+                            </p:column>
+                            <p:column headerText="Fecha de creación">
+                                <p:outputLabel value="#{necesidad.creationDate}"/>
+                            </p:column>
+                            <p:column headerText="Estado">
+                                <p:outputLabel value="#{necesidad.status}"/>
+                            </p:column>
+                            <p:column headerText="Fecha de modificacion">
+                                <p:outputLabel value="#{necesidad.modificationDate}"/>
+                            </p:column>
+                            <p:column headerText="Usuario">
+                                <p:outputLabel value="#{necesidad.usuario.name}"/>
+                            </p:column>
+                    </p:dataTable>
+                </h:form>
+                <p:commandButton value="Generar Reporte" update="tabla2" actionListener="#{needBean.getNeedsReporte}" class="send"></p:commandButton>
             </div>
         </div>
     </div>

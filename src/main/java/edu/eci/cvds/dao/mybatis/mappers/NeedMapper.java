@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 import edu.eci.cvds.entities.Need;
+import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 
 
 public interface NeedMapper {
@@ -16,5 +17,6 @@ public interface NeedMapper {
     public ArrayList<Need> getNeeds();
     public Need getNeed(@Param("id") int id);
     public int countCategories(@Param("category") int category);
+    public ArrayList<Need> getNeedsReporte() throws ExcepcionesSolidaridad;
 }
 
