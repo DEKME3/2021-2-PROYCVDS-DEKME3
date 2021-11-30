@@ -62,6 +62,7 @@ public class offerBean {
             offers.addAll(offersList);
             categoriesList = categoryServices.getCategories();
             categorias.addAll(categoriesList);
+            createBarModel();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -266,4 +267,4 @@ public class offerBean {
 
     }
 
-    }
+}
