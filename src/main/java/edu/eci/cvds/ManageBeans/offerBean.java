@@ -20,6 +20,10 @@ import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.BarChartModel;
 
 @SuppressWarnings("deprecation")
 @SessionScoped
@@ -44,6 +48,7 @@ public class offerBean {
     private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
     private UserServices userServices = ServicesFactory.getInstance().getUserServices();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
+    private BarChartModel barChartModel;
 
     public offerBean() {
     }
@@ -146,6 +151,14 @@ public class offerBean {
         return newName;
     }
 
+    public void setBarChartModel(BarChartModel barChartModel) {
+        this.barChartModel = barChartModel;
+    }
+
+    public BarChartModel getBarChartModel() {
+        return barChartModel;
+    }
+
     public String getNewDescription() {
         return newDescription;
     }
@@ -204,5 +217,53 @@ public class offerBean {
             e.printStackTrace();
         }
     }
-    
-}
+
+    private void createBarModel() {
+
+        barChartModel = initBarModel();
+
+
+        barChartModel.setTitle("Reporte Ofertas");
+
+        barChartModel.setLegendPosition("ne");
+
+
+        Axis xAxis = barChartModel.getAxis(AxisType.X);
+
+        xAxis.setLabel("Categoria");
+
+
+        Axis yAxis = barChartModel.getAxis(AxisType.Y);
+
+        yAxis.setLabel("Oferta");
+
+        yAxis.setMin(0);
+
+        yAxis.setMax(10);
+
+    }
+
+    private BarChartModel initBarModel() {
+
+        BarChartModel model = new BarChartModel();
+
+        ChartSeries ofertas = new ChartSeries();
+
+        ofertas.setLabel("Ofertas");
+
+        for (Offer offert : offers) {
+
+            ofertas.set(offert.getName(), offert.getCategory().getId());
+
+        }
+
+        model.addSeries(ofertas);
+
+
+
+
+        return model;
+
+    }
+
+    }
