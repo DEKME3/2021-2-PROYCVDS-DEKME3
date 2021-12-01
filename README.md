@@ -171,7 +171,7 @@ El presenta manual se encuentra organizado de acuerdo al orden de pantallas de l
 
 6. Operaciones Respuesta:
 
-![](https://i.postimg.cc/SN06Q2Qj/Capture31.png)
+    ![](https://i.postimg.cc/SN06Q2Qj/Capture31.png)
 
     1. Cerrar sesión: le permite al usuario cerrar la sesión actual.
 
