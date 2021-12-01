@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/respuesta.css"/>
+    <title>Respuesta</title>
+</h:head>
+<h:body>
+    <script>
+        function exportChartInPDF() {
+           var docDefinition = {
+              content: [
+            'Category chart',
+            {
+               image: $(PF('categoryChart').exportAsImage()).attr('src'),
+               width: 520
+            }		
+          ]
+           }
+           pdfMake.createPdf(docDefinition).open();
+           pdfMake.createPdf(docDefinition).download('barChart.pdf');
+        }
+     </script>
+    <div class="container">
+        <div class="item1">
+           <div class="subit1">
+               Respuesta
+           </div>
+           <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="item2">
+            <h:form id="tabla">
+                <p:dataTable id="dtRespuesta" var="respuesta" value="#{respuestaBean.categories}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
+                        <p:column headerText="ID" sortBy="#{categoria.id}">
+                            <p:outputLabel value="#{categoria.id}" />
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{categoria.name}" />
+                        </p:column>
+                        <p:column headerText="Descripcion">
+                            <p:outputLabel value="#{categoria.description}" />
+                        </p:column>
+                        <p:column headerText="Estado">
+                            <p:outputLabel value="#{categoria.status}" />
+                        </p:column>
+                        <p:column headerText="Fecha de creacion">
+                            <p:outputLabel value="#{categoria.creationDate}" />
+                        </p:column>
+                        <p:column headerText="Fecha de modificacion">
+                            <p:outputLabel value="#{categoria.modificationDate}" />
+                        </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

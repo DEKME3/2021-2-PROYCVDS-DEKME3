@@ -1,5 +1,7 @@
 package edu.eci.cvds.services.impl;
 
+import java.util.ArrayList;
+
 import com.google.inject.Inject;
 
 import edu.eci.cvds.Persistence.RespuestaDao;
@@ -20,6 +22,11 @@ public class RespuestaServicesImpl implements RespuestaServices{
     @Override
     public void InsertResponseNeed(Respuesta respuesta) throws ExcepcionesSolidaridad {
         respuestaDao.InsertResponseNeed(respuesta);
+    }
+
+    @Override
+    public ArrayList<Respuesta> getResponses() throws ExcepcionesSolidaridad {
+        return respuestaDao.getResponses();
     }
     
 }

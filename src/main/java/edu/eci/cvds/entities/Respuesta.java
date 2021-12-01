@@ -26,6 +26,7 @@ public class Respuesta implements Serializable{
     }
 
     public Respuesta() {
+        
     }
 
     public int getId() {

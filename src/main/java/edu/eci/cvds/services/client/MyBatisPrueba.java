@@ -44,6 +44,7 @@ public class MyBatisPrueba {
         
         // Crear el mapper y usarlo: 
         UserMapper userMapper = sqlss.getMapper(UserMapper.class);
+        RespuestaMapper respuestaMapper = sqlss.getMapper(RespuestaMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
         // CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
         // NeedMapper needmappers = sqlss.getMapper(NeedMapper.class);
@@ -78,7 +79,7 @@ public class MyBatisPrueba {
 
         //Insertar Offer ok
         //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
-        System.out.println(userMapper.getUser("kristhian").getUserType().toString());
+        System.out.println(respuestaMapper.getResponses());
         sqlss.commit();
         sqlss.close();
     }

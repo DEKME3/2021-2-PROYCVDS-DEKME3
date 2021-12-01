@@ -5,6 +5,36 @@
   
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestaMapper">
 
+    <select id="getResponses" resultMap="RespuestaResult">
+      SELECT
+      r.id as r_id,
+      r.name as r_name,
+      r.comments as r_comments,
+      r.creationDate as r_creationdate,
+
+      o.id as o_id,
+      o.name as o_name,
+      o.description as o_description,
+      o.creationdate as o_creationdate,
+      o.status as o_status,
+      o.modificationdate as o_modificationdate,
+
+      n.id as n_id,
+      n.name as n_name,
+      n.description as n_description,
+      n.creationdate as n_creationdate,
+      n.status as n_status,
+      n.modificationdate as n_modificationdate,
+      n.urgency as n_urgency
+
+      FROM responses r
+      JOIN offers o
+      ON r.offer = o.id
+      JOIN needs n
+      ON r.need = n.id
+      ORDER BY r.id
+    </select>
+
     <insert parameterType="map" id="InsertResponseOffer">
       INSERT INTO responses (name, comments, creationdate, offer)
       VALUES(
@@ -33,4 +63,6 @@
         <association property='offer' javaType = 'Offer'></association>
         <association property='need' javaType = 'Need'></association>
     </resultMap>
+
+
 </mapper>

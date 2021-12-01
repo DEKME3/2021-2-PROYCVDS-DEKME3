@@ -1,5 +1,7 @@
 package edu.eci.cvds.Persistence.myBatisImple;
 
+import java.util.ArrayList;
+
 import com.google.inject.Inject;
 
 import edu.eci.cvds.Persistence.RespuestaDao;
@@ -20,6 +22,11 @@ public class MyBatisRespuesta implements RespuestaDao{
     @Override
     public void InsertResponseNeed(Respuesta respuesta) throws ExcepcionesSolidaridad {
         respuestaMapper.InsertResponseNeed(respuesta);
+    }
+
+    @Override
+    public ArrayList<Respuesta> getResponses() throws ExcepcionesSolidaridad {
+        return respuestaMapper.getResponses();
     }
     
 }
