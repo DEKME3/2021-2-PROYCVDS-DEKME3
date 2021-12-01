@@ -89,6 +89,52 @@ El presenta manual se encuentra organizado de acuerdo al orden de pantallas de l
 
 4. Operaciones Necesidades:
 
+
+
+![](https://i.postimg.cc/y63hzXHw/Capture30.png)
+
+    1. Cerrar sesión: le permite al usuario cerrar la sesión actual.
+
+   	![](https://i.postimg.cc/DZMKQPNQ/Capture.png)
+
+    2. Registrar necesidad: permite al usuario del sistema crear una necesidad nueva.
+
+   	![](https://i.postimg.cc/P5Y18txK/Capture16.png)
+
+    3. Actualizar necesidad: permite actualizar el estado de una necesidad ya existente a través de su id.
+
+   	![](https://i.postimg.cc/wBzLXSRz/Capture17.png)
+
+    4. Visualizar las necesidades: Permite visualizar todas las necesidades que se encuentran en la base de datos.
+
+   	![](https://i.postimg.cc/B6YFGbYZ/Capture18.png)
+
+    5. filtrar necesidades por usuario:
+
+   	![](https://i.postimg.cc/T1KD2xFV/Capture19.png)
+
+    6. cargar todas las necesidades:
+
+   	![](https://i.postimg.cc/T1KD2xFV/Capture19.png)
+
+    7. grafico de reporte de necesidades:  la pagina genera un grafico del reporte de necesidades.
+
+   	![](https://i.postimg.cc/WpyZWDqX/Capture20.png)
+
+    8. registrar respuesta por una necesidad:  la pagina permite al usuario registrar respuesta para una necesidad.
+
+   	![](https://i.postimg.cc/BQDC257x/Capture21.png)
+
+    9. actualizar número de necesidades: el administrador puede cambiar el numero máximo de necesidades por usuario.
+
+   	![](https://i.postimg.cc/V6dqvXb0/Capture22.png)
+
+    10. generar PDF o Excel de necesidades:
+
+    	![](https://i.postimg.cc/1t2pq4pC/Capture23.png)
+
+
+
 5. Operaciones Oferta:
 
 	![](https://i.postimg.cc/kgQqr8V9/oferta.png)
@@ -126,8 +172,67 @@ El presenta manual se encuentra organizado de acuerdo al orden de pantallas de l
    	![](https://i.postimg.cc/Pfvq3CMf/Capture6.png)
 
 6. Operaciones Respuesta:
+![](https://i.postimg.cc/SN06Q2Qj/Capture31.png)
+
+    1. Cerrar sesión: le permite al usuario cerrar la sesión actual.
+
+   	![](https://i.postimg.cc/DZMKQPNQ/Capture.png)
+
+    2. Generar Reporte de Respuestas en PDF.
+
+   	![](https://i.postimg.cc/9MVVbBCs/Capture14.png)
+
+    3. Generar Reporte de Respuestas en Excel.
+
+   	![](https://i.postimg.cc/9MVVbBCs/Capture14.png)
+
+    4. Visualizar todas las respuestas:
+
+   	![](https://i.postimg.cc/Qd2j93P8/Capture13.png)
+
+   
+
 
 **3. Imágenes y descripción de las funcionalidades más importantes.**
+
+Dentro de este proyecto llegamos a encontrarnos varias funcionalidades importantes sin las cuales el proyecto no serviría de la misma manera de como lo hace: 
+
+- El inicio de sesión funcional: en donde se debe utilizar varias funcionalidades que permitan ingresar y comparar la información dentro de la base de datos con la que se esta ingresando en la pagina. cuando confirma que si es un usuario dentro de la base de datos permite hacer el redireccionamiento a la pagina del menú principal en donde dependiendo de el usuario que sea, se le habilitan las funcionalidades correspondientes.
+
+  ![](https://i.postimg.cc/5tGDr2xL/Capture7.png)
+
+  en este caso se intento con un usuario correcto pero con la clave incorrecta, haciendo que no logre acceder a la pagina.
+
+  ![](https://i.postimg.cc/Bbfkq7Pv/Capture8.png)
+
+  ![](https://i.postimg.cc/bN8WWMjC/Capture9.png)
+
+  por el otro lado, aquí en donde se coloca un usuario y una clave correctas permite el acceso al menú principal sin ningún problema.
+
+- Registrar oferta: una de las principales funcionalidades y de la cual la mayoría de otras funcionalidades relacionadas con oferta se centran en esta funcionalidad, poder tener acceso a la base de datos de ofertas y agregar una nueva es lo que permite al usuario interactuar con la pagina y hacer uso de los servicios que ofrece la pagina, además de estar relacionado con las categorías lo que facilita sus funcionamientos.
+
+  ![](https://i.postimg.cc/02FWxBg1/Capture10.png)
+
+  ![](https://i.postimg.cc/hGbpL4XK/Capture11.png)
+
+  
+
+- Registrar necesidad: como con el caso de registrar oferta, esta función llega a ser el nucleó de muchas otras funcionalidades relacionadas, llega a estar también relacionado con categorías y llega a tener los estados específicos para generar correctamente las necesidades. sin esta función no seria posible el correcto funcionamiento de la pagina. Esta función, junto con la de registrar oferta abren el paso para la ultima función indispensable del proyecto.
+
+  ![](https://i.postimg.cc/4xNW67Dw/Capture15.png)
+
+  ![](https://i.postimg.cc/2Sc22jmY/Microsoft-Teams-image-14.png)
+
+  
+
+- Registrar respuesta: esta función es indispensable para el funcionamiento de la pagina y del servicio, ya que gracias a esta es que pasa de ser solo una aplicación para registrar necesidades y ofertas, en algo interactivo que permite que los usuarios den respuestas a necesidades y ofertas y se pueda ver el interés en las publicaciones que hacen los usuarios. Además de ser utilizada para la creación de reportes que pueden ser de interés.
+
+  ![](https://i.postimg.cc/63Hr5ym1/Capture12.png)
+
+  ![](https://i.postimg.cc/fR4xL48Z/Microsoft-Teams-image-13.png)
+
+
+
 
 ## Arquitectura y Diseño detallado:
 1. Modelo E-R.
