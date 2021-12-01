@@ -117,6 +117,8 @@ public class respuestaBean {
             Offer ofertaR = ofertaServices.getOferta(offerR);
             Respuesta respuesta = new Respuesta(nameR, commentsR, new Date(), ofertaR);
             respuestaServices.InsertResponseOffer(respuesta);
+            respuestas.clear();
+            loadResponses();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -127,6 +129,8 @@ public class respuestaBean {
             Need necesidad = needServices.getNeed(needR);
             Respuesta respuesta = new Respuesta(nameR, commentsR, new Date(), necesidad);
             respuestaServices.InsertResponseNeed(respuesta);
+            respuestas.clear();
+            loadResponses();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
