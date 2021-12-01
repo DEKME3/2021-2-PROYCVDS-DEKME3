@@ -9,5 +9,6 @@ public interface RespuestaDao {
 
     public void InsertResponseOffer(Respuesta respuesta) throws ExcepcionesSolidaridad;
     public void InsertResponseNeed(Respuesta respuesta) throws ExcepcionesSolidaridad;
-    public ArrayList<Respuesta> getResponses() throws ExcepcionesSolidaridad;
+    public ArrayList<Respuesta> getResponsesOffer() throws ExcepcionesSolidaridad;
+    public ArrayList<Respuesta> getResponsesNeed() throws ExcepcionesSolidaridad;
 }

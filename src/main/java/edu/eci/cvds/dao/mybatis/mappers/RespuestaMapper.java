@@ -10,5 +10,6 @@ public interface RespuestaMapper{
 
     public void InsertResponseOffer(@Param("ans") Respuesta respuesta);
     public void InsertResponseNeed(@Param("ans") Respuesta respuesta);
-    public ArrayList<Respuesta> getResponses();
+    public ArrayList<Respuesta> getResponsesOffer();
+    public ArrayList<Respuesta> getResponsesNeed();
 }

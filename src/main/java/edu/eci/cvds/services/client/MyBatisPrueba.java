@@ -43,7 +43,6 @@ public class MyBatisPrueba {
         SqlSession sqlss = sessionfact.openSession();
         
         // Crear el mapper y usarlo: 
-        UserMapper userMapper = sqlss.getMapper(UserMapper.class);
         RespuestaMapper respuestaMapper = sqlss.getMapper(RespuestaMapper.class);
         // UserTypeMapper userTypeMapper = sqlss.getMapper(UserTypeMapper.class);
         // CategoryMapper categoryMapper = sqlss.getMapper(CategoryMapper.class);
@@ -79,7 +78,12 @@ public class MyBatisPrueba {
 
         //Insertar Offer ok
         //offermappers.InsertOffer(new Offer("Cuadernitoprueba", "Prueba1", new Date(), "Creado", new Date()), 3);
-        System.out.println(respuestaMapper.getResponses());
+        for (Respuesta r : respuestaMapper.getResponsesOffer()) {
+            System.out.println(r.toString());
+        }
+        for (Respuesta r : respuestaMapper.getResponsesNeed()) {
+            System.out.println(r.toString());
+        }
         sqlss.commit();
         sqlss.close();
     }

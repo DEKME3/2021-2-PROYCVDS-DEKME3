@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.cvds.dao.mybatis.mappers.UserTypeMapper">
+
+    <select parameterType="map" id="getUserType" resultMap="UserTypeResult">
+      SELECT 
+      id,
+      name,
+      description 
+      FROM UserTypes
+      WHERE id = #{id}
+    </select>
+
+
+    <resultMap type='UserType' id='UserTypeResult'>
+        <id property='id' column='ut_id'/>
+        <result property='name' column='ut_name'/>
+        <result property='description' column='ut_description'/>
+    </resultMap>
+          	
+</mapper>

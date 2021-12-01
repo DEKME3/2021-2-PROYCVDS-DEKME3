@@ -5,33 +5,97 @@
   
 <mapper namespace="edu.eci.cvds.dao.mybatis.mappers.RespuestaMapper">
 
-    <select id="getResponses" resultMap="RespuestaResult">
+    <select id="getResponsesOffer" resultMap="RespuestaResult">
       SELECT
       r.id as r_id,
       r.name as r_name,
       r.comments as r_comments,
       r.creationDate as r_creationdate,
 
+      
       o.id as o_id,
       o.name as o_name,
+
+      c.id as c_id,
+      c.name as c_name,
+      c.description as c_description,
+      c.creationdate as c_creationdate,
+      c.status as c_status,
+      c.modificationdate as c_modificationdate,
+
       o.description as o_description,
       o.creationdate as o_creationdate,
       o.status as o_status,
       o.modificationdate as o_modificationdate,
 
-      n.id as n_id,
-      n.name as n_name,
-      n.description as n_description,
-      n.creationdate as n_creationdate,
-      n.status as n_status,
-      n.modificationdate as n_modificationdate,
-      n.urgency as n_urgency
+      u.id as u_id,
+      u.name as u_name,
+      u.password as u_password,
+      u.email as u_email,
+      u.status as u_status,
+      u.numero_necesidades as u_numero_necesidades,
+      u.numero_ofertas as u_numero_ofertas,
+
+      ut.id as ut_id,
+      ut.name as ut_name,
+      ut.description as ut_description
 
       FROM responses r
       JOIN offers o
       ON r.offer = o.id
+      JOIN categories c
+      ON o.category = c.id
+      JOIN users u
+      ON o.usuario = u.id
+      JOIN usertypes ut
+      ON u.usertype = ut.id
+      ORDER BY r.id
+    </select>
+
+    <select id="getResponsesNeed" resultMap="RespuestaResult">
+      SELECT
+      r.id as r_id,
+      r.name as r_name,
+      r.comments as r_comments,
+      r.creationDate as r_creationdate,
+
+      n.id as n_id,
+      n.name as n_name,
+
+      nc.id as nc_id,
+      nc.name as nc_name,
+      nc.description as nc_description,
+      nc.creationdate as nc_creationdate,
+      nc.status as nc_status,
+      nc.modificationdate as nc_modificationdate,
+
+      n.description as n_description,
+      n.creationdate as n_creationdate,
+      n.status as n_status,
+      n.modificationdate as n_modificationdate,
+      n.urgency as n_urgency,
+
+      nu.id as u_id,
+      nu.name as u_name,
+      nu.password as u_password,
+      nu.email as u_email,
+      nu.status as u_status,
+      nu.numero_necesidades as u_numero_necesidades,
+      nu.numero_ofertas as u_numero_ofertas,
+
+      nut.id as ut_id,
+      nut.name as ut_name,
+      nut.description as ut_description
+
+      FROM responses r
       JOIN needs n
       ON r.need = n.id
+      JOIN categories nc
+      ON n.category = nc.id
+      JOIN users nu
+      ON n.usuario = nu.id
+      JOIN usertypes nut
+      ON nu.usertype = nut.id
       ORDER BY r.id
     </select>
 
@@ -60,8 +124,8 @@
         <result property='name' column='r_name'/>
         <result property='comments' column='r_comments'/>
         <result property='creationDate' column='r_creationdate'/>
-        <association property='offer' javaType = 'Offer'></association>
-        <association property='need' javaType = 'Need'></association>
+        <association property='offer' javaType = 'Offer' resultMap="edu.eci.cvds.dao.mybatis.mappers.OfferMapper.OfferResult"></association>
+        <association property='need' javaType = 'Need' resultMap="edu.eci.cvds.dao.mybatis.mappers.NeedMapper.NeedResult"></association>
     </resultMap>
 
 

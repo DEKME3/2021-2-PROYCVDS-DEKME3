@@ -33,28 +33,38 @@
         </div>
         <div class="item2">
             <h:form id="tabla">
-                <p:dataTable id="dtRespuesta" var="respuesta" value="#{respuestaBean.categories}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                <p:dataTable id="dtRespuesta" var="respuesta" value="#{respuestaBean.respuestas}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
                 rowsPerPageTemplate="4,10,{ShowAll|'All'}">
-                        <p:column headerText="ID" sortBy="#{categoria.id}">
-                            <p:outputLabel value="#{categoria.id}" />
+                        <p:column headerText="ID" sortBy="#{respuesta.id}">
+                            <p:outputLabel value="#{respuesta.id}" />
                         </p:column>
                         <p:column headerText="Nombre">
-                            <p:outputLabel value="#{categoria.name}" />
+                            <p:outputLabel value="#{respuesta.name}" />
                         </p:column>
-                        <p:column headerText="Descripcion">
-                            <p:outputLabel value="#{categoria.description}" />
-                        </p:column>
-                        <p:column headerText="Estado">
-                            <p:outputLabel value="#{categoria.status}" />
+                        <p:column headerText="Comentarios">
+                            <p:outputLabel value="#{respuesta.comments}" />
                         </p:column>
                         <p:column headerText="Fecha de creacion">
-                            <p:outputLabel value="#{categoria.creationDate}" />
+                            <p:outputLabel value="#{respuesta.creationDate}" />
                         </p:column>
-                        <p:column headerText="Fecha de modificacion">
-                            <p:outputLabel value="#{categoria.modificationDate}" />
+                        <p:column headerText="Oferta">
+                            <p:outputLabel value="#{respuesta.offer.id}" />
+                        </p:column>
+                        <p:column headerText="Necesidad">
+                            <p:outputLabel value="#{respuesta.need.id}" />
                         </p:column>
                 </p:dataTable>
+                <br></br>
+                <br></br>
+                <p:commandButton value="PDF" ajax="false">
+                            <p:dataExporter type="pdf" target="dtRespuesta" fileName="Respuestas" widgetVar="respuestaChart"/>
+                </p:commandButton>
+                <br></br>
+                <br></br>
+                <p:commandButton value="Excel" ajax="false">
+                    <p:dataExporter type="xls" target="dtRespuesta" fileName="Ofertas" widgetVar="respuestaChart"/>
+                </p:commandButton>
             </h:form>
         </div>
     </div>

@@ -1,7 +1,9 @@
 package edu.eci.cvds.ManageBeans;
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -25,6 +27,7 @@ public class respuestaBean {
     private Date creationDateR;
     private int offerR;
     private int needR;
+    private ArrayList<Respuesta> respuestas = new ArrayList<>();
     private RespuestaServices respuestaServices = ServicesFactory.getInstance().getRespuestaServices();
     private OfferServices ofertaServices = ServicesFactory.getInstance().getOfferServices();
     private NeedServices needServices = ServicesFactory.getInstance().getNeedServices();
@@ -32,7 +35,15 @@ public class respuestaBean {
     public respuestaBean() {
     }
 
-    
+    @PostConstruct
+    public void loadResponses(){
+        try {
+            respuestas.addAll(respuestaServices.getResponsesNeed());
+            respuestas.addAll(respuestaServices.getResponsesOffer());
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
+    }
 
     public String getNameR() {
         return nameR;
@@ -90,6 +101,14 @@ public class respuestaBean {
 
     public void setNeedR(int needR) {
         this.needR = needR;
+    }
+
+    public void setRespuestas(ArrayList<Respuesta> respuestas) {
+        this.respuestas = respuestas;
+    }
+
+    public ArrayList<Respuesta> getRespuestas() {
+        return respuestas;
     }
 
 

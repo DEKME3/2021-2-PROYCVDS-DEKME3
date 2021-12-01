@@ -25,8 +25,13 @@ public class RespuestaServicesImpl implements RespuestaServices{
     }
 
     @Override
-    public ArrayList<Respuesta> getResponses() throws ExcepcionesSolidaridad {
-        return respuestaDao.getResponses();
+    public ArrayList<Respuesta> getResponsesOffer() throws ExcepcionesSolidaridad {
+        return respuestaDao.getResponsesOffer();
+    }
+
+    @Override
+    public ArrayList<Respuesta> getResponsesNeed() throws ExcepcionesSolidaridad {
+        return respuestaDao.getResponsesNeed();
     }
     
 }

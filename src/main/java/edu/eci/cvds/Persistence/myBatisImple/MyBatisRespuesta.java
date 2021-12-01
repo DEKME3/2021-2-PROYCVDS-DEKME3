@@ -25,8 +25,13 @@ public class MyBatisRespuesta implements RespuestaDao{
     }
 
     @Override
-    public ArrayList<Respuesta> getResponses() throws ExcepcionesSolidaridad {
-        return respuestaMapper.getResponses();
+    public ArrayList<Respuesta> getResponsesOffer() throws ExcepcionesSolidaridad {
+        return respuestaMapper.getResponsesOffer();
+    }
+
+    @Override
+    public ArrayList<Respuesta> getResponsesNeed() throws ExcepcionesSolidaridad {
+        return respuestaMapper.getResponsesNeed();
     }
     
 }
