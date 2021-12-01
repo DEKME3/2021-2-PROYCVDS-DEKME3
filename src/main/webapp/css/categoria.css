@@ -76,6 +76,8 @@ label {
 }
 
 .item5 {
+    background: rgb(242, 241, 248);
+    border-radius: 10px;
     grid-column: 1/3;
     grid-row: 4/5;
     padding: 10px;

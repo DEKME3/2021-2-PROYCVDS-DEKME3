@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <link rel="stylesheet" type="text/css" href="css/oferta.css"/>
+    <link rel="stylesheet" type="text/css" href="css/necesidad.css"/>
     <title>Necesidad</title>
 </h:head>
 <h:body>
@@ -103,7 +103,6 @@
                         </p:column>
                 </p:dataTable>
                 <br></br>
-                <br></br>
                 <p:commandButton value="Filtrar necesidades por usuario" update="tabla" actionListener="#{needBean.buscarPorUsuario}" class="send"></p:commandButton>
                 <br></br>
                 <br></br>
@@ -111,6 +110,9 @@
             </h:form>
         </div>
         <div class="item5">
+            <p:chart id="chart" type="pie" model="#{needBean.pieModel}"/>
+        </div>
+        <div class="item6">
             <div class="subitem2">
                 <p class="textoDatos">Registrar respuesta para una necesidad</p>
                 <div class="flex-respuesta">
@@ -180,8 +182,17 @@
                                 <p:outputLabel value="#{necesidad.usuario.name}"/>
                             </p:column>
                     </p:dataTable>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <br></br>
+                        <p:commandButton value="PDF" ajax="false" style="width: 500px;">
+                            <p:dataExporter type="pdf" target="dtnecesidad" fileName="Necesidades" widgetVar="needChart"/>
+                        </p:commandButton>
+                        <br></br>
+                        <p:commandButton value="Excel" ajax="false" style="width: 500px;">
+                            <p:dataExporter type="xls" target="dtnecesidad" fileName="Necesidades" widgetVar="needChart"/>
+                        </p:commandButton>
+                    </div>
                 </h:form>
-                <p:commandButton value="Generar Reporte" update="tabla2" actionListener="#{needBean.getNeedsReporte}" class="send"></p:commandButton>
             </div>
         </div>
     </div>

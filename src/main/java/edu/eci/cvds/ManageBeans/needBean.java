@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.primefaces.model.chart.PieChartModel;
 
 import edu.eci.cvds.entities.Category;
 import edu.eci.cvds.entities.Need;
@@ -43,6 +44,7 @@ public class needBean {
 	private UserServices userServices = ServicesFactory.getInstance().getUserServices();
 	private NeedServices needServices = ServicesFactory.getInstance().getNeedServices();
 	private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
+	private PieChartModel pieModel;
 
 
 	public needBean() {
@@ -59,6 +61,7 @@ public class needBean {
             needs.addAll(needList);
             categoriesList = categoryServices.getCategories();
             categorias.addAll(categoriesList);
+			createPieModel();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -191,6 +194,14 @@ public class needBean {
 	public void setIdUserTypeLogin(int idUserType) {
 		this.idUserTypeLogin = idUserType;
 	}
+
+	public void setPieModel(PieChartModel pieModel) {
+		this.pieModel = pieModel;
+	}
+
+	public PieChartModel getPieModel() {
+		return pieModel;
+	}
 	
 	private void obtnerDatosUsuario() throws ExcepcionesSolidaridad {
 		Subject currentUser = SecurityUtils.getSubject();
@@ -249,6 +260,28 @@ public class needBean {
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
+    }
+
+	private void createPieModel() {
+        pieModel = new PieChartModel();
+
+        int[] numerosCategorias = new int[categorias.size()];
+
+        for (Need need : needs) {
+            for (int i = 0; i < categorias.size(); i++) {
+                if (need.getCategory().getName().equals(categorias.get(i).getName())) {
+                    numerosCategorias[i] += 1;
+                }
+            }
+        }
+
+        for (int i = 0; i < categorias.size(); i++) {
+            pieModel.set(categorias.get(i).getName(), numerosCategorias[i]);
+        }
+
+        pieModel.setTitle("Necesidad");
+        pieModel.setLegendPosition("w");
+        pieModel.setShadow(false);
     }
 
 }

@@ -231,12 +231,12 @@ public class CategoriaBean {
         barChartModel.setLegendPosition("ne");
 
         Axis xAxis = barChartModel.getAxis(AxisType.X);
-        xAxis.setLabel("Numero solicitudes");
+        xAxis.setLabel("Oferta/Necesidad");
 
         Axis yAxis = barChartModel.getAxis(AxisType.Y);
-        yAxis.setLabel("Oferta/Necesidad");
+        yAxis.setLabel("Numero solicitudes");
         yAxis.setMin(0);
-        yAxis.setMax(15);
+        yAxis.setMax(10);
     }
 
     private BarChartModel initBarModel() {
