@@ -20,10 +20,7 @@ import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
-import org.primefaces.model.chart.Axis;
-import org.primefaces.model.chart.AxisType;
-import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.PieChartModel;
 
 @SuppressWarnings("deprecation")
 @SessionScoped
@@ -48,7 +45,7 @@ public class offerBean {
     private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
     private UserServices userServices = ServicesFactory.getInstance().getUserServices();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
-    private BarChartModel barChartModel;
+    private PieChartModel pieModel;
 
     public offerBean() {
     }
@@ -62,7 +59,7 @@ public class offerBean {
             offers.addAll(offersList);
             categoriesList = categoryServices.getCategories();
             categorias.addAll(categoriesList);
-            createBarModel();
+            createPieModel();
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -120,6 +117,14 @@ public class offerBean {
         this.categorias = categorias;
     }
 
+    public void setPieModel(PieChartModel pieModel) {
+        this.pieModel = pieModel;
+    }
+
+    public PieChartModel getPieModel() {
+        return pieModel;
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }
@@ -150,14 +155,6 @@ public class offerBean {
 
     public String getNewName() {
         return newName;
-    }
-
-    public void setBarChartModel(BarChartModel barChartModel) {
-        this.barChartModel = barChartModel;
-    }
-
-    public BarChartModel getBarChartModel() {
-        return barChartModel;
     }
 
     public String getNewDescription() {
@@ -218,53 +215,27 @@ public class offerBean {
             e.printStackTrace();
         }
     }
+    
+    private void createPieModel() {
+        pieModel = new PieChartModel();
 
-    private void createBarModel() {
+        int[] numerosCategorias = new int[categorias.size()];
 
-        barChartModel = initBarModel();
-
-
-        barChartModel.setTitle("Reporte Ofertas");
-
-        barChartModel.setLegendPosition("ne");
-
-
-        Axis xAxis = barChartModel.getAxis(AxisType.X);
-
-        xAxis.setLabel("Categoria");
-
-
-        Axis yAxis = barChartModel.getAxis(AxisType.Y);
-
-        yAxis.setLabel("Oferta");
-
-        yAxis.setMin(0);
-
-        yAxis.setMax(10);
-
-    }
-
-    private BarChartModel initBarModel() {
-
-        BarChartModel model = new BarChartModel();
-
-        ChartSeries ofertas = new ChartSeries();
-
-        ofertas.setLabel("Ofertas");
-
-        for (Offer offert : offers) {
-
-            ofertas.set(offert.getName(), offert.getCategory().getId());
-
+        for (Offer offer : offers) {
+            for (int i = 0; i < categorias.size(); i++) {
+                if (offer.getCategory().getName().equals(categorias.get(i).getName())) {
+                    numerosCategorias[i] += 1;
+                }
+            }
         }
 
-        model.addSeries(ofertas);
+        for (int i = 0; i < categorias.size(); i++) {
+            pieModel.set(categorias.get(i).getName(), numerosCategorias[i]);
+        }
 
-
-
-
-        return model;
-
+        pieModel.setTitle("Ofertas");
+        pieModel.setLegendPosition("w");
+        pieModel.setShadow(false);
     }
 
 }
