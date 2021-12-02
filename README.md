@@ -355,11 +355,14 @@ Enlace a Taiga (hacer público el Backlog).
 
 Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 
-
+	![](https://i.postimg.cc/0rRB1DCD/Capture32.png)
+	![](https://i.postimg.cc/wvSp3tVT/Capture35.png)
 
 Para cada Sprint:
 
 **Primer Sprint**
+
+![](https://i.postimg.cc/bwQsPPqt/Capture36.png)
 
 En el primer sprint escogimos 2 historias de usuario:
 
@@ -372,9 +375,12 @@ La tarea de "Crear categoría" fue completada sin inconvenientes, para esta tare
 
 Adicionalmente subimos el proyecto en Circle Ci, Codacy y Heroku e hicimos las debidas configuraciones para cada una de estas plataformas.
 
-"Poner imagen"
+![](https://i.postimg.cc/28DsJN9J/Microsoft-Teams-image-15.png)
+![](https://i.postimg.cc/qMxPHD97/Microsoft-Teams-image-16.png)
 
 **Segundo Sprint**
+
+![](https://i.postimg.cc/q74gMF7Z/Capture37.png)
 
 Para el segundo sprint escogimos las tareas:
 
@@ -387,9 +393,16 @@ Para el segundo sprint escogimos las tareas:
 
 En este sprint pudimos tener un mejor desempeño en el trabajo de cada actividad debido a que como grupo nos acostumbramos de una mejor manera a la metodología de trabajo de scrum. Adicionalmente hicimos algunos arreglos en cuanto a la parte del frontend de las páginas xhtml que fueron creadas en el primer sprint.
 
-"Poner imagen"
+![](https://i.postimg.cc/wvDWc7zB/Microsoft-Teams-image-17.png)
+![](https://i.postimg.cc/Rh9gP4CL/Microsoft-Teams-image-18.png)
+![](https://i.postimg.cc/BZcYjLNY/Microsoft-Teams-image-19.png)
+![](https://i.postimg.cc/9FmxZmnW/Microsoft-Teams-image-20.png)
+![](https://i.postimg.cc/qvgjDmrS/Microsoft-Teams-image-21.png)
+![](https://i.postimg.cc/vBwhBbnw/Microsoft-Teams-image-22.png)
 
 **Tercer Sprint**
+
+![](https://i.postimg.cc/q74gMF7Z/Capture37.png)
 
 Para el segundo sprint escogimos las actividades:
 
@@ -402,8 +415,12 @@ Para el segundo sprint escogimos las actividades:
 
 Este sprint nos tomó más trabajo ya que nos dimos cuenta de que habían algunos aspectos por mejorar y para esto nos repartimos equivalentemente el trabajo de las actividades planteadas. Sumado a esto, también cambiamos algunos aspectos de los anteriores sprints en cuanto al aparatado del frontend, adicionalmente, realizamos las pruebas unitarias.
 
-"Poner imagen"
-
+![](https://i.postimg.cc/xCQGQgr0/Microsoft-Teams-image-23.png)
+![](https://i.postimg.cc/50mB2v18/Microsoft-Teams-image-24.png)
+![](https://i.postimg.cc/1X5pnt52/Microsoft-Teams-image-25.png)
+![](https://i.postimg.cc/prGKDHmT/Microsoft-Teams-image-26.png)
+![](https://i.postimg.cc/dQ4RM85Y/Microsoft-Teams-image-27.png)
+![](https://i.postimg.cc/GhtFbHfs/Microsoft-Teams-image-28.png)
 
 
 - Imagen del 'sprint-backlog'
