@@ -235,17 +235,70 @@ Dentro de este proyecto llegamos a encontrarnos varias funcionalidades important
 
 ## Arquitectura y Diseño detallado:
 1. Modelo E-R.
-#### Diagrama version 001.
 
-![Diagrama-Version-001.png](https://i.postimg.cc/66ncdHZ5/Diagrama-Version-001.png)
+#### Diagrama version Final.
+
+![ModeloER.png](https://i.postimg.cc/MGbyx6J9/ModeloER.png)
 
 2. Diagrama de clases (hacerlo mediante ingeniería inversa)
+
+#### Diagrama version Final.
+
+![Diagrama-de-Clases-General.png](https://i.postimg.cc/FR3whJs2/Diagrama-de-Clases-General.png)
+
+#### Diagrama Ampliado.
+
+![Diagrama-de-Clases-ampliado1.png](https://i.postimg.cc/P5C3t8S2/Diagrama-de-Clases-ampliado1.png)
+
+![Diagrama-de-Clases-ampliado2.png](https://i.postimg.cc/05ZcDC3V/Diagrama-de-Clases-ampliado2.png)
+
+![Diagrama-de-Clases-ampliado3.png](https://i.postimg.cc/wBKVg4yj/Diagrama-de-Clases-ampliado3.png)
+
+
 3. Descripción de la arquitectura (capas) y del Stack de tecnologías utilizado (PrimeFaces, Guice, QuickTheories, PostgreSQL).
+
+## Arquitectura (Capas)
+
+### Enlace a BD:
+>- [PostgreSQL](https://www.postgresql.org/) (DataBase Management)
+
+### Capa aplicación:
+
+>- [Eclipse IDE](https://www.eclipse.org/)
+>- [Visual Studio Code](https://code.visualstudio.com/)
+>- [Intellij IDEA](https://www.jetbrains.com/es-es/idea/)
+>- [Apache Maven](https://maven.apache.org/) (Project Management tool)
+>- [Shiro](https://shiro.apache.org/) (Autenticación)
+>- [Guice](https://github.com/google/guice) (Inyección de Dependencias)
+
+
+### Cloud Application Platforms:
+>- [Heroku – Bootstrap](https://getbootstrap.com/) (Despliegue WEB)
+
+### Capa de presentación:
+>- [PrimeFaces](https://www.primefaces.org/) (Framework)
+
+## Tecnologías Utilizadas (Capas)
+
++ PrimeFaces (FRONT):
+   +  "PrimeFaces es un marco de código abierto popular para JavaServer Faces que presenta más de 100 componentes, kit móvil optimizado al tacto, validación del lado del cliente, motor de temas y más."
+   Tomado de: [PrimeFaces](http://localhost/)
+   
++ Guice (BACK):
+   + "Google Guice es un framework de inyección de dependencias que puede ser utilizado en aplicaciones hechas con Java en donde la relación o dependencia entre objetos de negocio necesita ser administrada o mantenida."
+   Tomado de: [Wikipedia](https://es.wikipedia.org/wiki/Google_Guice)
++ PostgreSQL (BASE DE DATOS):
+   + "PostgreSQL es un sistema para gestionar bases de datos de muy alto nivel, completamente de software libre y con una licencia BSD, compatible con cualquier uso, ya sea personal o comercial."
+   Tomado de: [arsys](https://www.arsys.es/blog/soluciones/postgresql-servidores/)
+
+
 4. Enlace a la aplicación en Heroku.
 
-[![Heroku](https://i.postimg.cc/3JBqPghh/Heroku.png)](https://dashboard.heroku.com/apps/proyecto-dekm)
+[![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/apps/proyecto-dekm)
 
 5. Enlace al sistema de integración continua.
+
+[![CircleCI](https://circleci.com/gh/EquipoTimeLimitCvds/2020-2-PROYCVDS-TimeLimit.svg?style=svg)](https://app.circleci.com/pipelines/github/DEKME3/2021-2-PROYCVDS-DEKME3)
 
 
 ## Descripción del proceso:
@@ -253,7 +306,7 @@ Dentro de este proyecto llegamos a encontrarnos varias funcionalidades important
 2. Breve descripción de la Metodología.
 3. Enlace a Taiga (hacer público el Backlog).
 
-[![Taiga.jpg](https://i.postimg.cc/3r6jWNZG/Taiga.jpg)](https://tree.taiga.io/project/kristhiansegura-solidaridad-escuela/backlog)
+[Taiga](https://tree.taiga.io/project/kristhiansegura-solidaridad-escuela/backlog)
 
 4. Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 5. Para cada Sprint:
