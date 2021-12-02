@@ -302,119 +302,114 @@ Dentro de este proyecto llegamos a encontrarnos varias funcionalidades important
 
 
 ## Descripción del proceso:
-1. Integrantes.
+Integrantes.
 
-   - Kristhian David Segura - kristhian21
-   - Eduardo Ospina Mejia - eduardoospina
-   - María José Torres Nieves - MariaJoseTorresN
-   - Deivid Sebastián Mejía Rativa - DeividMedina30
+- Kristhian David Segura - kristhian21
+- Eduardo Ospina Mejia - eduardoospina
+- María José Torres Nieves - MariaJoseTorresN
+- Deivid Sebastián Mejía Rativa - DeividMedina30
 
-2. Breve descripción de la Metodología.
+Breve descripción de la Metodología.
 
-    En el proyecto final de la materia de CVDS para el periodo academico 2021-02, pusimos en practica la métodología Scrum.
-     Donde se tiene un equipo de trabajo, con el cual se divide el Scrum en las siguientes fases.
+En el proyecto final de la materia de CVDS para el periodo academico 2021-02, pusimos en practica la métodología Scrum.
+ Donde se tiene un equipo de trabajo, con el cual se divide el Scrum en las siguientes fases.
 
-    
 
-    1. El quien y el que: Identificar los roles de cada uno de los miembros y definir su responsabilidad en el proyecto.
 
-        \+ DEIVID SEBASTIAN MEDINA RATIVA: UX
-        \+ EDUARDO OSPINA MEJIA: Back
-        \+ KRISTHIAN DAVID SEGURA GUATIBONZA: Back
-        \+ MARÍA JOSÉ TORRES NIEVES: Front
-        \+ OSCAR DAVID OSPINA RODRIGUEZ: Dueño del producto
+1. El quien y el que: Identificar los roles de cada uno de los miembros y definir su responsabilidad en el proyecto.
 
-    2. El donde y Cuando: Que representa el Sprint.
+   - DEIVID SEBASTIAN MEDINA RATIVA: UX
+   - EDUARDO OSPINA MEJIA: Back
+   - KRISTHIAN DAVID SEGURA GUATIBONZA: Back
+   - MARÍA JOSÉ TORRES NIEVES: Front
+   - OSCAR DAVID OSPINA RODRIGUEZ: Dueño del producto
 
-    
+2. El donde y Cuando: Que representa el Sprint.
 
-     	\+ Sprint1:
-       + Representa el iniscio de sesión, ya que con este podemos empezar a validar que funcionen los permisos para cada
-          usuario.
+   - Sprint1:
+     - Representa el iniscio de sesión, ya que con este podemos empezar a validar que funcionen los permisos para cada
+        usuario.
 
-          \+ Sprint2:
-          	\+ Representa la estructura del proyecto y sus principales componentes como lo son:
-         	 \+ Necesidad.
-         	 \+ Oferta.
-          	\+ Respuesta.
-         	 \+ Categoria.
+   - Sprint2:
+     - Representa la estructura del proyecto y sus principales componentes como lo son:
+       - Necesidad
+       - Oferta
+       - Respuesta
+       - Categoría
 
-          \+ Sprint3:
-          	\+ Representa los informes de validación por parte de cada componente definido en el sprint dos.
-          Con el fin de comprobar si lo se esta haciendo si se esta haciendo como debe ser.
+   -  Sprint3:
+     - Representa los informes de validación por parte de cada componente definido en el sprint dos.
+        Con el fin de comprobar si lo se esta haciendo si se esta haciendo como debe ser.
 
-    
 
-    3. El por qué y el cómo: Herramientas que utilizaron los miebros del proyecto.
 
-    
+3. El por qué y el cómo: Herramientas que utilizaron los miebros del proyecto.
+   - Herramientas Utilizadas
+   - Eclipse IDE
+   - Código de Visual Studio
+   - Intellij IDEA
 
-     	\+ Herramientas Utilizadas
-    	 \+ Eclipse IDE
-    	 \+ Código de Visual Studio
-    	 \+ Intellij IDEA
+Enlace a Taiga (hacer público el Backlog).
 
-3. Enlace a Taiga (hacer público el Backlog).
+​	 [Taiga](https://tree.taiga.io/project/kristhiansegura-solidaridad-escuela/backlog)
 
-   ​	 [Taiga](https://tree.taiga.io/project/kristhiansegura-solidaridad-escuela/backlog)
+Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 
-4. Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 
-   
 
-5. Para cada Sprint:
+Para cada Sprint:
 
-    **Primer Sprint**
+**Primer Sprint**
 
-    En el primer sprint escogimos 2 historias de usuario:
+En el primer sprint escogimos 2 historias de usuario:
 
-    -  Iniciar Sesión
-    - Crear Categoría
+-  Iniciar Sesión
+- Crear Categoría
 
-    Al principio la tarea de "Iniciar Sesión" presentó algunas dificultades por el uso de Apache Shiro, sin embargo, luego de consultar la documentación oficial de dicha tecnología y algunos foros, conseguimos implementar de manera satisfactoria el Login para el usuario. En esta tarea 3 estudiantes nos dedicamos al apartado del backend y 1 estudiante al apartado del frontend.
+Al principio la tarea de "Iniciar Sesión" presentó algunas dificultades por el uso de Apache Shiro, sin embargo, luego de consultar la documentación oficial de dicha tecnología y algunos foros, conseguimos implementar de manera satisfactoria el Login para el usuario. En esta tarea 3 estudiantes nos dedicamos al apartado del backend y 1 estudiante al apartado del frontend.
 
-    La tarea de "Crear categoría" fue completada sin inconvenientes, para esta tarea 2 de los integrantes del grupo se dedicaron al apartado del backend y los otros 2 al apartado del frontend.
+La tarea de "Crear categoría" fue completada sin inconvenientes, para esta tarea 2 de los integrantes del grupo se dedicaron al apartado del backend y los otros 2 al apartado del frontend.
 
-    Adicionalmente subimos el proyecto en Circle Ci, Codacy y Heroku e hicimos las debidas configuraciones para cada una de estas plataformas.
+Adicionalmente subimos el proyecto en Circle Ci, Codacy y Heroku e hicimos las debidas configuraciones para cada una de estas plataformas.
 
-    "Poner imagen"
+"Poner imagen"
 
-    **Segundo Sprint**
+**Segundo Sprint**
 
-    Para el segundo sprint escogimos las tareas:
+Para el segundo sprint escogimos las tareas:
 
-    - Actualizar Categoría
-    - Registrar Necesidad
-    - Registrar Oferta
-    - Registrar Respuestas
-    - Actualizar estado Necesidad
-    - Actualizar estado Oferta
+- Actualizar Categoría
+- Registrar Necesidad
+- Registrar Oferta
+- Registrar Respuestas
+- Actualizar estado Necesidad
+- Actualizar estado Oferta
 
-    En este sprint pudimos tener un mejor desempeño en el trabajo de cada actividad debido a que como grupo nos acostumbramos de una mejor manera a la metodología de trabajo de scrum. Adicionalmente hicimos algunos arreglos en cuanto a la parte del frontend de las páginas xhtml que fueron creadas en el primer sprint.
+En este sprint pudimos tener un mejor desempeño en el trabajo de cada actividad debido a que como grupo nos acostumbramos de una mejor manera a la metodología de trabajo de scrum. Adicionalmente hicimos algunos arreglos en cuanto a la parte del frontend de las páginas xhtml que fueron creadas en el primer sprint.
 
-    "Poner imagen"
+"Poner imagen"
 
-    **Tercer Sprint**
+**Tercer Sprint**
 
-    Para el segundo sprint escogimos las actividades:
+Para el segundo sprint escogimos las actividades:
 
-    - Reporte de necesidades
-    - Reporte de ofertas
-    - Reporte de respuestas
-    - Reporte de Categorías más solicitadas/ofrecidas
-    - Eliminar Categoría
-    - Gestión de categorías no validas
+- Reporte de necesidades
+- Reporte de ofertas
+- Reporte de respuestas
+- Reporte de Categorías más solicitadas/ofrecidas
+- Eliminar Categoría
+- Gestión de categorías no validas
 
-    Este sprint nos tomó más trabajo ya que nos dimos cuenta de que habían algunos aspectos por mejorar y para esto nos repartimos equivalentemente el trabajo de las actividades planteadas. Sumado a esto, también cambiamos algunos aspectos de los anteriores sprints en cuanto al aparatado del frontend, adicionalmente, realizamos las pruebas unitarias.
+Este sprint nos tomó más trabajo ya que nos dimos cuenta de que habían algunos aspectos por mejorar y para esto nos repartimos equivalentemente el trabajo de las actividades planteadas. Sumado a esto, también cambiamos algunos aspectos de los anteriores sprints en cuanto al aparatado del frontend, adicionalmente, realizamos las pruebas unitarias.
 
-    "Poner imagen"
+"Poner imagen"
 
-    
 
-    - Imagen del 'sprint-backlog'
 
-    - Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas encontrados y mejoras realizadas al proceso.
+- Imagen del 'sprint-backlog'
 
-6. Reporte de pruebas y de cubrimiento de las mismas (sólo la foto del reporte principal). Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
+- Imagen del 'sprint-burndown chart' (sacado del sprint-backlog anterior), y una descripción breve de los problemas encontrados y mejoras realizadas al proceso.
 
-7. Reporte de análisis estático de código. Se pueden usar las mismas herramientas trabajadas en los laboratorios.
+Reporte de pruebas y de cubrimiento de las mismas (sólo la foto del reporte principal). Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
+
+Reporte de análisis estático de código. Se pueden usar las mismas herramientas trabajadas en los laboratorios.
