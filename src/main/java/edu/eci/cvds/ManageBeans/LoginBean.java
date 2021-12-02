@@ -115,7 +115,7 @@ public class LoginBean {
     
     public void logout() throws IOException{
         if(isLogged()){
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/index.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("cerrarSesion.xhtml");
             SecurityUtils.getSubject().logout();
         }
     }
