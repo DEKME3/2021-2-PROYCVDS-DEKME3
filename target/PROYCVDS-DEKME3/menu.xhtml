@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="img/menu.css"/>
+    <title>Menu principal</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+            <div class="subit1">
+                Menu principal
+            </div>
+            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="flex-container">
+            <div class="elemento">
+                <p class="subtitulo">Categoria</p>
+                <img src="img/categoria.jpg" alt="categoria"></img><br></br>
+                <p:commandButton value="Categoria" onclick="location.href='categoria.xhtml'"></p:commandButton>
+            </div>
+            <div class="elemento">
+                <p class="subtitulo">Necesidad</p>
+                <img src="img/necesidad.jpg" alt="necesidad"></img><br></br>
+                <p:commandButton value="Necesidad" onclick="location.href='necesidad.xhtml'"></p:commandButton>
+            </div>
+            <div class="elemento">
+                <p class="subtitulo">Oferta</p>
+                <img src="img/oferta.jpg" alt="oferta"></img><br></br>
+                <p:commandButton value="Oferta" onclick="location.href='oferta.xhtml'"></p:commandButton>
+            </div>
+            <div class="elemento">
+                <p class="subtitulo">Respuesta</p>
+                <img src="img/respuesta.jpg" alt="respuesta"></img><br></br>
+                <p:commandButton value="Respuesta" onclick="location.href='respuesta.xhtml'"></p:commandButton>
+            </div>
+        </div> 
+    </div> 
+</h:body>
+</html>

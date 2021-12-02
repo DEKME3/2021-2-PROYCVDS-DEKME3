@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/respuesta.css"/>
+    <title>Respuesta</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+           <div class="subit1">
+               Respuesta
+           </div>
+           <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="item2">
+            <h:form id="tabla">
+                <p:dataTable id="dtRespuesta" var="respuesta" value="#{respuestaBean.respuestas}" paginator="true" paginatorPosition="bottom" rows="5" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                        <p:column headerText="ID" sortBy="#{respuesta.id}">
+                            <p:outputLabel value="#{respuesta.id}" />
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{respuesta.name}" />
+                        </p:column>
+                        <p:column headerText="Comentarios">
+                            <p:outputLabel value="#{respuesta.comments}" />
+                        </p:column>
+                        <p:column headerText="Fecha de creacion">
+                            <p:outputLabel value="#{respuesta.creationDate}" />
+                        </p:column>
+                        <p:column headerText="Oferta">
+                            <p:outputLabel value="#{respuesta.offer.id}" />
+                        </p:column>
+                        <p:column headerText="Necesidad">
+                            <p:outputLabel value="#{respuesta.need.id}" />
+                        </p:column>
+                </p:dataTable>
+                <br></br>
+                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <p:commandButton value="PDF" ajax="false" style="width: 500px;">
+                        <p:dataExporter type="pdf" target="dtRespuesta" fileName="Respuestas" widgetVar="responseChart"/>
+                    </p:commandButton>
+                    <br></br>
+                    <p:commandButton value="Excel" ajax="false" style="width: 500px;">
+                        <p:dataExporter type="xls" target="dtRespuesta" fileName="Respuestas" widgetVar="responseChart"/>
+                    </p:commandButton>
+                </div>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>
