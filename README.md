@@ -430,3 +430,12 @@ Este sprint nos tomó más trabajo ya que nos dimos cuenta de que habían alguno
 Reporte de pruebas y de cubrimiento de las mismas (sólo la foto del reporte principal). Para la cobertura, pueden usar los plugins disponibles (EclEmma, Jacoco, etc.)
 
 Reporte de análisis estático de código. Se pueden usar las mismas herramientas trabajadas en los laboratorios.
+
+![]()
+![]()
+![]()
+
+[![Codacy Badge](https://app.codacy.com/gh/DEKME3/2021-2-PROYCVDS-DEKME3/dashboard?branch=main)
+
+![](https://i.postimg.cc/8zHfWGxV/Microsoft-Teams-image-29.png)
+![](https://i.postimg.cc/wB4tfV6f/Microsoft-Teams-image-30.png)
