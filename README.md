@@ -44,6 +44,7 @@ El presenta manual se encuentra organizado de acuerdo al orden de pantallas de l
    Al hacer inicio de sesión, una de las primeras funcionalidades disponibles es la de cerrar la sesión en la que se encuentra actualmente. 
 
    ![](https://i.postimg.cc/g0bTyZjX/cerrarsesion.png)
+   ![](https://i.postimg.cc/prrHLg3x/Microsoft-Teams-image-35.png)
 
 3. Operaciones Categoría:
 
