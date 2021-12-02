@@ -355,8 +355,8 @@ Enlace a Taiga (hacer público el Backlog).
 
 Generar el 'release-burndown chart' del proyecto, e indicar los puntos de historia realizados y los faltantes.
 
-	![](https://i.postimg.cc/0rRB1DCD/Capture32.png)
-	![](https://i.postimg.cc/wvSp3tVT/Capture35.png)
+![](https://i.postimg.cc/0rRB1DCD/Capture32.png)
+![](https://i.postimg.cc/wvSp3tVT/Capture35.png)
 
 Para cada Sprint:
 
