@@ -123,6 +123,8 @@ public class respuestaBean {
             restartInsertRespuesta();
             respuestas.clear();
             loadResponses();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Respuesta registrada", "La respuesta a la oferta " + offerR + " fue registrada");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
             restartInsertRespuesta();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo resgistrar la respuesta");
@@ -138,6 +140,8 @@ public class respuestaBean {
             restartInsertRespuesta();
             respuestas.clear();
             loadResponses();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Respuesta registrada", "La respuesta a la necesidad " + needR + " fue registrada");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
             restartInsertRespuesta();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo resgistrar la respuesta");
