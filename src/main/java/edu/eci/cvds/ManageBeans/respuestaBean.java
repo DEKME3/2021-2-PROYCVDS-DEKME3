@@ -149,6 +149,12 @@ public class respuestaBean {
         }
     }
 
+    public ArrayList<Respuesta> exportarRespuestas(){
+        loadResponses();
+        return respuestas;
+    }
+
+
     private void restartInsertRespuesta(){
         nameR = "";
         commentsR = "";

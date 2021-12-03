@@ -214,6 +214,15 @@ public class offerBean {
         pieModel.setShadow(false);
     }
 
+    public List<Offer> exportOffers(){
+        loadOffers();
+        return offers;
+    }
+
+    public PieChartModel exportPieChart(){
+        return pieModel;
+    }
+
     private void restartInsert(){
         name = "";
         category = "";

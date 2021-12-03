@@ -277,7 +277,6 @@ public class CategoriaBean {
     }
 
     public BarChartModel exportarBarChart(){
-        createBarModel();
         return barChartModel;
     }
 

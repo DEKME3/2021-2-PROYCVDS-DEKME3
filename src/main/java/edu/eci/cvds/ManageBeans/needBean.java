@@ -68,24 +68,6 @@ public class needBean {
             e.printStackTrace();
         }
     }
-
-    public void loadNeeds() throws ExcepcionesSolidaridad{
-        ArrayList<Need> needList;
-        ArrayList<Category> categoriesList;
-        try {
-        	obtenerDatosUsuario();
-        	if(getIdUserTypeLogin() == 1) {
-                needList = needServices.getNeeds();
-    			needs.clear();
-                needs.addAll(needList);
-                categoriesList = categoryServices.getCategories();
-                categorias.addAll(categoriesList);
-    			createPieModel();
-        	}
-        } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
-        }
-    }
 	
 	public String getNombreCategoria() {
 		return nombreCategoria;
@@ -341,6 +323,15 @@ public class needBean {
         pieModel.setLegendPosition("w");
         pieModel.setShadow(false);
     }
+
+	public List<Need> exportarNeeds(){
+		loadNeeds2();
+		return needs;
+	}
+
+	public PieChartModel exportarPieChart(){
+		return pieModel;
+	}
 
 	private void restartInsert(){
         name = "";
