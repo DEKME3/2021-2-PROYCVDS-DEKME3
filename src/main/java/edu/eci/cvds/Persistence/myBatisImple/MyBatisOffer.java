@@ -17,7 +17,11 @@ public class MyBatisOffer implements OfferDao {
     @Override
     public void insertarOferta(Offer offer, int category, int userId) throws ExcepcionesSolidaridad {
         try {
-            offerMapper.InsertOffer(new Offer(offer.getName(), offer.getDescription(), offer.getCreationDate(), offer.getStatus(), offer.getModificationDate()) , category, userId);
+            if (!(offer.getName().equals("") || category == 0 || userId == 0 || offer.getDescription().equals("") || offer.getStatus().equals(""))) {
+                offerMapper.InsertOffer(offer, category, userId);
+            } else {
+                throw new ExcepcionesSolidaridad("No se logro crear la nueva oferta");
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro crear la nueva oferta", e);
         }
@@ -35,7 +39,11 @@ public class MyBatisOffer implements OfferDao {
     @Override
     public void actualizarOferta(int id, String status) throws ExcepcionesSolidaridad {
         try {
-            offerMapper.ActualizarOffer(id, status);
+            if (!(id == 0 || status.equals(""))) {
+                offerMapper.ActualizarOffer(id, status); 
+            } else {
+                throw new ExcepcionesSolidaridad("No se logro actualizar la oferta.");
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro actualizar la oferta.", e);
         }

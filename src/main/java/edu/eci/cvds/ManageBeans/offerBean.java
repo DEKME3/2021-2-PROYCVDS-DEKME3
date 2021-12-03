@@ -1,5 +1,6 @@
 package edu.eci.cvds.ManageBeans;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
 import edu.eci.cvds.entities.Category;
@@ -20,6 +22,8 @@ import edu.eci.cvds.services.CategoryServices;
 import edu.eci.cvds.services.OfferServices;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
+
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.chart.PieChartModel;
 
 @SuppressWarnings("deprecation")
@@ -36,10 +40,6 @@ public class offerBean {
     public Date creationDate;
     public String status;
     public Date modificationDate;
-    public String newName;
-    public Category Newcategory;
-    public String newDescription;
-    public String newStatus;
     public List<Offer> offers = new ArrayList<>();
     public List<Category> categorias = new ArrayList<>();
     private OfferServices offerServices = ServicesFactory.getInstance().getOfferServices();
@@ -85,28 +85,12 @@ public class offerBean {
         this.modificationDate = modificationDate;
     }
 
-    public void setNewName(String newName) {
-        this.newName = newName;
-    }
-
-    public void setNewDescription(String newDescription) {
-        this.newDescription = newDescription;
-    }
-
-    public void setNewStatus(String newStatus) {
-        this.newStatus = newStatus;
-    }
-
     public void setUpdateId(int updateId) {
         this.updateId = updateId;
     }
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public void setNewcategory(Category newcategory) {
-        Newcategory = newcategory;
     }
 
     public void setUpdateStatus(String updateStatus) {
@@ -149,22 +133,6 @@ public class offerBean {
         return category;
     }
 
-    public Category getNewcategory() {
-        return Newcategory;
-    }
-
-    public String getNewName() {
-        return newName;
-    }
-
-    public String getNewDescription() {
-        return newDescription;
-    }
-
-    public String getNewStatus() {
-        return newStatus;
-    }
-
     public int getUpdateId() {
         return updateId;
     }
@@ -186,7 +154,7 @@ public class offerBean {
     }
 
     public void insertOffer() {
-        Offer newOffer = new Offer(name, description, new Date(), getStatus(), new Date());
+        Offer newOffer = new Offer(name, description, new Date(), status, new Date());
         Subject currentUser = SecurityUtils.getSubject();
         String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
         try {
@@ -200,9 +168,13 @@ public class offerBean {
                 offerServices.insertarOferta(newOffer, idCategoria, idUsuario);
                 offers.clear();
                 loadOffers();
+                restartInsert();
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta registrada", "La oferta ha sido registrada");
+			    PrimeFaces.current().dialog().showMessageDynamic(message);
             }
         } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La oferta no se ha podido registrar");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
 
@@ -211,8 +183,12 @@ public class offerBean {
             offerServices.actualizarOferta(updateId, updateStatus);
             offers.clear();
             loadOffers();
+            restartUpdate();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta actualizada", "La oferta ha sido actualizada");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La oferta no se ha podido actualizar");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
     
@@ -236,6 +212,18 @@ public class offerBean {
         pieModel.setTitle("Ofertas");
         pieModel.setLegendPosition("w");
         pieModel.setShadow(false);
+    }
+
+    private void restartInsert(){
+        name = "";
+        category = "";
+        description = "";
+        status = "";
+    }
+
+    private void restartUpdate(){
+        updateId = 0;
+        updateStatus = "";
     }
 
 }

@@ -193,11 +193,11 @@ public class CategoriaBean {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría registrada", "La categoría que creo ha sido registrada");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
             } else {
-                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria invalida", "Seleccione una categoria valida!");
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría invalida", "Seleccione una categoría valida!");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
             }
         } catch (ExcepcionesSolidaridad e) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo insertar la categoria");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo insertar la categoría");
             PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
@@ -211,7 +211,7 @@ public class CategoriaBean {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría actualizada", "La categoría ha sido actualizada");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la categoria");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la categoría");
             PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
@@ -225,7 +225,7 @@ public class CategoriaBean {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría eliminada", "La categoría ha sido eliminada");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo eliminar la categoria");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo eliminar la categoría");
             PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
@@ -233,14 +233,14 @@ public class CategoriaBean {
     private void createBarModel() {
         barChartModel = initBarModel();
 
-        barChartModel.setTitle("Reporte Categorias");
+        barChartModel.setTitle("Reporte Categorías");
         barChartModel.setLegendPosition("ne");
 
         Axis xAxis = barChartModel.getAxis(AxisType.X);
         xAxis.setLabel("Oferta/Necesidad");
 
         Axis yAxis = barChartModel.getAxis(AxisType.Y);
-        yAxis.setLabel("Numero solicitudes");
+        yAxis.setLabel("Número solicitudes");
         yAxis.setMin(0);
         yAxis.setMax(10);
     }

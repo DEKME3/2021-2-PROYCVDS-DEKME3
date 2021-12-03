@@ -21,7 +21,7 @@ import java.io.IOException;
 
 public class UserBeans {
 	
-	private UserServices userServices= ServicesFactory.getInstance().getUserServices(); //es una clase abstracta que proporciona una fábrica para la creación de instancias del tipo javax.xml.rpc.Service.
+	private UserServices userServices= ServicesFactory.getInstance().getUserServices(); 
     private String name;
     private String password;
     private int idName; 
@@ -146,14 +146,14 @@ public class UserBeans {
                 }
             }else{
                 System.out.println("Fallo de Validacion");
-                FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsp"); // para representar toda la información contextual asociada con el procesamiento de una solicitud entrante y crear la respuesta correspondiente.
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsp");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 	
-	private void obtnerDatosUsuario() throws ExcepcionesSolidaridad {
+	private void obtenerDatosUsuario() throws ExcepcionesSolidaridad {
 		Subject currentUser = SecurityUtils.getSubject();
 		setNombreUsuarioLogin((String) currentUser.getSession().getAttribute("Nombre"));
 		setIdUserLogin(userServices.getIdUserByName(getNombreUsuarioLogin()));
@@ -161,10 +161,12 @@ public class UserBeans {
 	}
     
     public void updateNeed() throws ExcepcionesSolidaridad {
-    	obtnerDatosUsuario();
+    	obtenerDatosUsuario();
     	int idTypeUserActualizar = userServices.getIdUserTypeByIdUser(idName);
     	if(getIdUserTypeLogin() == 1 && idTypeUserActualizar == 2 ) {
-    		userServices.ActualizarNeedUserByName(getIdName(), getNumeroNecesidades());
+    		userServices.ActualizarNeedUserByName(idName, numeroNecesidades);
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cambio de número de necesidades", "El número de necesidades del usuario con id " + idName + " fue actualizado");
+            PrimeFaces.current().dialog().showMessageDynamic(message);	
     	}
 		else{
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo modificar el numero de necesidades del usuario");

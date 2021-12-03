@@ -12,13 +12,13 @@
     <div class="container">
         <div class="item1">
            <div class="subit1">
-               Categoria
+               Categoría
            </div>
            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
         </div>
         <div class="item2">
             <div>
-                <p class="textoDatos">Ingrese los datos de la nueva categoria</p>
+                <p class="textoDatos">Ingrese los datos de la nueva categoría</p>
                 <h:form id="insert_form">
                     <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="name" value="#{categoryBean.name}"/>
@@ -32,7 +32,7 @@
                 </h:form>
             </div>
             <div>
-                <p class="textoDatos">Ingrese los datos de la categoria que desea actualizar</p>
+                <p class="textoDatos">Ingrese los datos de la categoría que desea actualizar</p>
                 <h:form id="update_form">
                     <h4 class="titulo">ID:</h4>
                     <p:inputText name="updateId" value="#{categoryBean.updateId}"/>
@@ -108,7 +108,7 @@
             <p:chart id="chart" type="bar" model="#{categoryBean.barChartModel}"/>
         </div>
         <div class="item6">
-            <p class="textoDatos">Ingrese el nombre de la categoria que desea eliminar</p>
+            <p class="textoDatos">Ingrese el nombre de la categoría que desea eliminar</p>
             <div class="flex-eliminar">
                 <div>
                     <h:form id="delete_form">
