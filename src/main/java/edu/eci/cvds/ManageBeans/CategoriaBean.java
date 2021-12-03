@@ -190,6 +190,8 @@ public class CategoriaBean {
                 categories.clear();
                 loadCategories();
                 restartInsert();
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría registrada", "La categoría que creo ha sido registrada");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoria invalida", "Seleccione una categoria valida!");
                 PrimeFaces.current().dialog().showMessageDynamic(message);
@@ -206,6 +208,8 @@ public class CategoriaBean {
             categories.clear();
             loadCategories();
             restartUpdate();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría actualizada", "La categoría ha sido actualizada");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la categoria");
             PrimeFaces.current().dialog().showMessageDynamic(message);
@@ -218,6 +222,8 @@ public class CategoriaBean {
             categories.clear();
             loadCategories();
             restartDelete();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Categoría eliminada", "La categoría ha sido eliminada");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo eliminar la categoria");
             PrimeFaces.current().dialog().showMessageDynamic(message);

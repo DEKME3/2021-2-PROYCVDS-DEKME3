@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Date;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.chart.PieChartModel;
 
 import edu.eci.cvds.entities.Category;
@@ -203,7 +205,7 @@ public class needBean {
 		return pieModel;
 	}
 	
-	private void obtnerDatosUsuario() throws ExcepcionesSolidaridad {
+	private void obtenerDatosUsuario() throws ExcepcionesSolidaridad {
 		Subject currentUser = SecurityUtils.getSubject();
 		setNombreUsuarioLogin((String) currentUser.getSession().getAttribute("Nombre"));
 		setIdUserLogin(userServices.getIdUserByName(getNombreUsuarioLogin()));
@@ -211,38 +213,70 @@ public class needBean {
 	}
 		
     public void insertNeed() throws ExcepcionesSolidaridad{
-    	obtnerDatosUsuario();
+    	obtenerDatosUsuario();
         int totalNecesidades = needServices.getTotalNeedsOfUser(getIdUserLogin());
         int necesidadesUsuario = userServices.getNumero_necesidades(getIdUserLogin());
 		int idCategoria = categoryServices.getCategoryIdByName(category);
     	if((totalNecesidades < necesidadesUsuario) && getIdUserTypeLogin() == 2) {
-    		setCreationDate(new Date());
-    		setModificationDate(new Date());
-	        Need newNeed = new Need(name, description, new Date(), getStatus(), new Date() , urgency);
-	        needServices.insertNeed(newNeed, idCategoria, idUserLogin);
-	        needs.clear();
-			loadNeeds();
+			try {
+				setCreationDate(new Date());
+				setModificationDate(new Date());
+				Need newNeed = new Need(name, description, new Date(), getStatus(), new Date() , urgency);
+				needServices.insertNeed(newNeed, idCategoria, idUserLogin);
+				restartInsert();
+				needs.clear();
+				loadNeeds();
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad registrada", "La necesidad ha sido registrada");
+				PrimeFaces.current().dialog().showMessageDynamic(message);
+			} catch (Exception e) {
+				restartInsert();
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo insertar la necesidad");
+				PrimeFaces.current().dialog().showMessageDynamic(message);
+			}
     	}
+		else{
+			restartInsert();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo insertar la necesidad");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+		}
     }
 
     public void updateNeed() throws ExcepcionesSolidaridad{
-    	obtnerDatosUsuario();
-    	boolean banderaUpdate = false;
-		if((getIdUserTypeLogin() == 2 && (needServices.getIdUserByNeed(getIdNeed()) == getIdUserLogin() ) ) ||  getIdUserTypeLogin() == 1) {
-			banderaUpdate = true;
+    	obtenerDatosUsuario();
+		if (idNeed != 0) {
+			if((getIdUserTypeLogin() == 2 && (needServices.getIdUserByNeed(idNeed) == getIdUserLogin() ) ) ||  getIdUserTypeLogin() == 1) {
+				actualizarNecesidad();
+			}else{
+				restartUpdate();
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la necesidad");
+				PrimeFaces.current().dialog().showMessageDynamic(message);
+			}
+		} else {
+			restartUpdate();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la necesidad");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
 		}
 		
-    	if(banderaUpdate) {
-    		needServices.ActualizarNeed(idNeed, updateStatus);
+    }
+
+	private void actualizarNecesidad(){
+		try {
+			needServices.ActualizarNeed(idNeed, updateStatus);
+			restartUpdate();
 			needs.clear();
 			loadNeeds();
-    	}
-
-    }
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad actualizada", "La necesidad ha sido actualizada");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
+		} catch (Exception e) {
+			restartUpdate();
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la necesidad");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
+		}
+	}
     
     public void buscarPorUsuario(){
 		try {
-			obtnerDatosUsuario();
+			obtenerDatosUsuario();
 			ArrayList<Need> busquedaNecesidades = needServices.getNeedsResult(idUserLogin);
 			needs.clear();
 			needs.addAll(busquedaNecesidades);
@@ -264,24 +298,43 @@ public class needBean {
 
 	private void createPieModel() {
         pieModel = new PieChartModel();
-
-        int[] numerosCategorias = new int[categorias.size()];
+        int[] numerosEstados = new int[4];
 
         for (Need need : needs) {
-            for (int i = 0; i < categorias.size(); i++) {
-                if (need.getCategory().getName().equals(categorias.get(i).getName())) {
-                    numerosCategorias[i] += 1;
-                }
-            }
-        }
+			if (need.getStatus().equals("Activa")) {
+				numerosEstados[0] += 1;
+			}
+			else if(need.getStatus().equals("En proceso")){
+				numerosEstados[1] += 1;
+			}
+			else if(need.getStatus().equals("Resuelta")){
+				numerosEstados[2] += 1;
+			}
+			else if(need.getStatus().equals("Cerrada")){
+				numerosEstados[3] += 1;
+			}
+		}
 
-        for (int i = 0; i < categorias.size(); i++) {
-            pieModel.set(categorias.get(i).getName(), numerosCategorias[i]);
-        }
-
+		pieModel.set("Activa", numerosEstados[0]);
+		pieModel.set("En proceso", numerosEstados[1]);
+		pieModel.set("Resuelta", numerosEstados[2]);
+		pieModel.set("Cerrada", numerosEstados[3]);
         pieModel.setTitle("Necesidad");
         pieModel.setLegendPosition("w");
         pieModel.setShadow(false);
     }
+
+	private void restartInsert(){
+        name = "";
+		category = "";
+		description = "";
+		status = "";
+		urgency = "";
+    }
+
+	private void restartUpdate(){
+		idNeed = 0;
+		updateStatus = "";
+	}
 
 }

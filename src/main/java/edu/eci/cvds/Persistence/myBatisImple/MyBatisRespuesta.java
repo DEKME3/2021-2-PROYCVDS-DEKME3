@@ -16,12 +16,22 @@ public class MyBatisRespuesta implements RespuestaDao{
 
     @Override
     public void InsertResponseOffer(Respuesta respuesta) throws ExcepcionesSolidaridad {
-        respuestaMapper.InsertResponseOffer(respuesta);
+        if (!(respuesta.getName().equals("") || respuesta.getComments().equals("") || respuesta.getOffer() == null)) {
+            respuestaMapper.InsertResponseOffer(respuesta);
+        }
+        else{
+            throw new ExcepcionesSolidaridad("No se logro crear la nueva respuesta");
+        }
     }
 
     @Override
     public void InsertResponseNeed(Respuesta respuesta) throws ExcepcionesSolidaridad {
-        respuestaMapper.InsertResponseNeed(respuesta);
+        if (!(respuesta.getName().equals("") || respuesta.getComments().equals("") || respuesta.getNeed() == null)) {
+            respuestaMapper.InsertResponseNeed(respuesta);
+        }
+        else{
+            throw new ExcepcionesSolidaridad("No se logro crear la nueva respuesta");
+        }
     }
 
     @Override

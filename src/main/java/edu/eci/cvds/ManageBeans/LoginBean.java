@@ -74,7 +74,7 @@ public class LoginBean {
         try {
             logger.login(nombre,clave);
             setLogg(true);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("faces/menu.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/menu.xhtml");
         } catch (ExcepcionesSolidaridad | IOException e){
             FacesContext.getCurrentInstance().addMessage("shiro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario no encontrado", "Este Usuario no se encuentra en la base de datos."));
         }

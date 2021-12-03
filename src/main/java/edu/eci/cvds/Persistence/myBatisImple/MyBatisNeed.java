@@ -18,7 +18,13 @@ public class MyBatisNeed implements NeedDao{
 	@Override
 	public void insertNeed(Need need, int categoryId, int userId) throws ExcepcionesSolidaridad {
         try {
-        	needMappers.insertNeed(new Need(need.getName(), need.getDescription(), new Date(), need.getStatus(), new Date(), need.getUrgency() ), categoryId, userId);
+            if (!(need.getName().equals("") || need.getDescription().equals("") || need.getStatus().equals("") || categoryId == 0 || need.getUrgency().equals("") || userId == 0)) {
+                need.setCreationDate(new Date());
+                need.setModificationDate(new Date());
+                needMappers.insertNeed(need, categoryId, userId); 
+            } else {
+                throw new ExcepcionesSolidaridad("No se logro crear la nueva Necesidad");
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro crear la nueva Necesidad", e);
         }
@@ -36,7 +42,11 @@ public class MyBatisNeed implements NeedDao{
 	@Override
 	public void ActualizarNeed(int id, String status) throws ExcepcionesSolidaridad {
         try {
-        	needMappers.ActualizarNeed(id, status);
+            if (!(id == 0 || status.equals(""))) {
+                needMappers.ActualizarNeed(id, status);   
+            } else {
+                throw new ExcepcionesSolidaridad("No se logro actuañizar la necedidad con id: "+ id);
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro actuañizar la necedidad con id: "+ id, e);
         }

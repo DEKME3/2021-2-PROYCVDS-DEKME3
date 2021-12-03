@@ -17,7 +17,11 @@ public class MyBatisCategory implements CategoryDao{
     @Override
     public void InsertCategory(Category category) throws ExcepcionesSolidaridad {
         try {
-            categoryMapper.InsertCategory(category);
+            if (!(category.getName().equals("") || category.getDescription().equals("") || category.getStatus().equals(""))) {
+                categoryMapper.InsertCategory(category);
+            } else {
+                throw new ExcepcionesSolidaridad("No se logro insertar la nueva categoria.");
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se logro insertar la nueva categoria.", e);
         }
@@ -37,7 +41,11 @@ public class MyBatisCategory implements CategoryDao{
     public void ActualizarCategory(int id, String name, String description, String status)
             throws ExcepcionesSolidaridad {
         try {
-            categoryMapper.ActualizarCategory(id, name, description, status);
+            if (!(id == 0 || name.equals("") || description.equals("") || status.equals(""))) {
+                categoryMapper.ActualizarCategory(id, name, description, status);
+            } else {
+                throw new ExcepcionesSolidaridad("No se pudo actualizar la categoria");
+            }
         } catch (Exception e) {
             throw new ExcepcionesSolidaridad("No se pudo actualizar la categoria", e);
         }
@@ -60,7 +68,16 @@ public class MyBatisCategory implements CategoryDao{
 
     @Override
     public void deleteCategory(String name) throws ExcepcionesSolidaridad{
-        categoryMapper.deleteCategory(name); 
+        try {
+            if (!name.equals("")) {
+                categoryMapper.deleteCategory(name); 
+            } else {
+                throw new ExcepcionesSolidaridad("No se pudo obtener las categorias");
+            }
+        } catch (Exception e) {
+            throw new ExcepcionesSolidaridad("No se pudo obtener las categorias", e);
+        }
+        
     }
 
     @Override

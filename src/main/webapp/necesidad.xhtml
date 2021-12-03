@@ -19,7 +19,7 @@
         <div class="item2">
             <div>
                 <p class="textoDatos">Registrar necesidad</p>
-                <h:form>
+                <h:form id="insert_form">
                     <h4 class="titulo">Nombre:</h4>
                     <p:inputText name="name" value="#{needBean.name}"/>
                     <h4 class="titulo">Descripción:</h4>
@@ -39,12 +39,12 @@
                     <p:inputText name="urgency" value="#{needBean.urgency}"/>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{needBean.insertNeed}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla insert_form" icon="pi pi-check" iconPos="right" actionListener="#{needBean.insertNeed}" class="send"></p:commandButton>
                 </h:form>
             </div>
             <div>
                 <p class="textoDatos">Actualizar necesidad</p>
-                <h:form>
+                <h:form id="update_form">
                     <h4 class="titulo">ID:</h4>
                     <p:inputText name="id" value="#{needBean.idNeed}"/>
                     <h4 class="titulo">Estado:</h4>
@@ -56,7 +56,7 @@
                     </p:selectOneMenu>
                     <br></br>
                     <br></br>
-                    <p:commandButton value="Submit" update="tabla" icon="pi pi-check" iconPos="right" actionListener="#{needBean.updateNeed}" class="send"></p:commandButton>
+                    <p:commandButton value="Submit" update="tabla update_form" icon="pi pi-check" iconPos="right" actionListener="#{needBean.updateNeed}" class="send"></p:commandButton>
                 </h:form>
             </div>
         </div>
@@ -117,7 +117,7 @@
                 <p class="textoDatos">Registrar respuesta para una necesidad</p>
                 <div class="flex-respuesta">
                     <div>
-                        <h:form>
+                        <h:form id="respuesta">
                             <h4 class="titulo">Nombre:</h4>
                             <p:inputText name="nameR" value="#{respuestaBean.nameR}"/>
                             <h4 class="titulo">Necesidad:</h4>
@@ -126,7 +126,7 @@
                             <p:inputTextarea rows="4" cols="30" name="commentsR" value="#{respuestaBean.commentsR}"/>
                             <br></br>
                             <br></br>
-                            <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send" actionListener="#{respuestaBean.insertarRespuestaNeed}"></p:commandButton>
+                            <p:commandButton value="Submit" icon="pi pi-check" iconPos="right" class="send" actionListener="#{respuestaBean.insertarRespuestaNeed}" update="respuesta"></p:commandButton>
                         </h:form>
                     </div>
                 </div>
@@ -138,11 +138,11 @@
                         <h:form>
                             <h4 class="titulo">Id del Usuario:</h4> 
                             <div class="p-field p-col-12 p-md-4">
-                                <p:spinner id="basic" value="#{UserBeans.idName}"/>
+                                <p:spinner id="basic" value="#{UserBeans.idName}" min="2" max="100"/>
                             </div>
                             <h4 class="titulo">Numero necesidades:</h4>
                             <div class="p-field p-col-12 p-md-4">
-                                <p:spinner id="basic2" value="#{UserBeans.numeroNecesidades}"/>
+                                <p:spinner id="basic2" value="#{UserBeans.numeroNecesidades}" min="0" max="100"/>
                             </div>
                             <br></br>
                             <br></br>

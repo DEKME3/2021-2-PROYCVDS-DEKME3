@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import org.primefaces.PrimeFaces;
 
 import edu.eci.cvds.entities.Need;
 import edu.eci.cvds.entities.Offer;
@@ -117,10 +120,13 @@ public class respuestaBean {
             Offer ofertaR = ofertaServices.getOferta(offerR);
             Respuesta respuesta = new Respuesta(nameR, commentsR, new Date(), ofertaR);
             respuestaServices.InsertResponseOffer(respuesta);
+            restartInsertRespuesta();
             respuestas.clear();
             loadResponses();
         } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
+            restartInsertRespuesta();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo resgistrar la respuesta");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
 
@@ -129,11 +135,21 @@ public class respuestaBean {
             Need necesidad = needServices.getNeed(needR);
             Respuesta respuesta = new Respuesta(nameR, commentsR, new Date(), necesidad);
             respuestaServices.InsertResponseNeed(respuesta);
+            restartInsertRespuesta();
             respuestas.clear();
             loadResponses();
         } catch (ExcepcionesSolidaridad e) {
-            e.printStackTrace();
+            restartInsertRespuesta();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo resgistrar la respuesta");
+			PrimeFaces.current().dialog().showMessageDynamic(message);
         }
+    }
+
+    private void restartInsertRespuesta(){
+        nameR = "";
+        commentsR = "";
+        offerR = 0;
+        needR = 0;
     }
 
 }
