@@ -266,6 +266,21 @@ public class CategoriaBean {
         return model;
     }
 
+    public List<Category> exportarTabla1(){
+        loadCategories();
+        return categories;
+    }
+
+    public List<Category> exportarTabla2(){
+        loadTable2(categories);
+        return categoriesTable2;
+    }
+
+    public BarChartModel exportarBarChart(){
+        createBarModel();
+        return barChartModel;
+    }
+
     private void restartInsert(){
         name = "";
         description = "";

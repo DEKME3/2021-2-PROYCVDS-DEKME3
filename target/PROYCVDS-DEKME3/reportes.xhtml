@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/reportes.css"/>
+    <title>Reportes</title>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="item1">
+           <div class="subit1">
+               Reportes
+           </div>
+           <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+        </div>
+        <div class="item2">
+            <p class="textoDatos">Reporte categorías</p>
+            <h:form id="tabla2">
+                <p:dataTable id="dtCategoria2" var="categoria" value="#{categoryBean.exportarTabla2()}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{categoria.name}" />
+                        </p:column>
+                        <p:column headerText="Necesidades">
+                            <p:outputLabel value="#{categoria.cantidadNecesidades}" />
+                        </p:column>
+                        <p:column headerText="Ofertas">
+                            <p:outputLabel value="#{categoria.cantidadOfertas}" />
+                        </p:column>
+                        <p:column headerText="Total">
+                            <p:outputLabel value="#{categoria.totalOfertasNecesidades}" />
+                        </p:column>
+                </p:dataTable>
+                <br></br>
+            </h:form>
+            <div class="grafica">
+                <p:chart id="chart" type="bar" model="#{categoryBean.exportarBarChart()}"/>
+            </div>
+            <h:form>
+                <br></br>
+                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                    <p:commandButton value="PDF" ajax="false" style="width: 500px;">
+                            <p:dataExporter type="pdf" target=":tabla2:dtCategoria2" fileName="Categorias" widgetVar="categoryChart"/>
+                    </p:commandButton>
+                    <br></br>
+                    <p:commandButton value="Excel" ajax="false" style="width: 500px;">
+                            <p:dataExporter type="xls" target=":tabla2:dtCategoria2" fileName="Categorias" widgetVar="categoryChart"/>
+                    </p:commandButton>
+                </div>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

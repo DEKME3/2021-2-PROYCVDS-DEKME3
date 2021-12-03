@@ -124,12 +124,4 @@ public class LoginBean {
         String message = e.getMessage();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
-
-	// public void validarLogin(String nombre, String clave) throws excepciones {
-	// 	setNombre(nombre);
-	// 	setClave(clave);
-	// 	System.out.println(nombre);
-	// 	System.out.println(clave);
-	// 	login();
-	// }
 }

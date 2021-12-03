@@ -4,12 +4,14 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import edu.eci.cvds.entities.User;
+import edu.eci.cvds.entities.UserType;
 import edu.eci.cvds.exeptions.ExcepcionesSolidaridad;
 import edu.eci.cvds.services.ServicesFactory;
 import edu.eci.cvds.services.UserServices;
 import javax.faces.context.FacesContext;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresGuest;
 import org.apache.shiro.subject.Subject;
 import org.primefaces.PrimeFaces;
 
@@ -173,6 +175,24 @@ public class UserBeans {
             PrimeFaces.current().dialog().showMessageDynamic(message);	
 		}
     }
+
+	@RequiresGuest
+	public void redirigirReportes(){
+		try {
+			Subject currentUser = SecurityUtils.getSubject();
+			String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
+			int idUser = userServices.getIdUserByName(nombreUsuario);
+			int userType = userServices.getIdUserTypeByIdUser(idUser);
+			if (userType == 1) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/reportes.xhtml");
+			} else {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No puede acceder a los reportes ya que no cuenta con los permisos de administrador");
+            	PrimeFaces.current().dialog().showMessageDynamic(message);	
+			}
+		} catch (ExcepcionesSolidaridad | IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }
