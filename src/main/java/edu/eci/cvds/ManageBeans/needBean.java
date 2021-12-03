@@ -52,18 +52,36 @@ public class needBean {
 	public needBean() {
 		
 	}
-
+	
 	@PostConstruct
-    public void loadNeeds(){
+    public void loadNeeds2(){
         ArrayList<Need> needList;
         ArrayList<Category> categoriesList;
         try {
-            needList = needServices.getNeeds();
-			needs.clear();
+        	needList = needServices.getNeeds();
+    		needs.clear();
             needs.addAll(needList);
             categoriesList = categoryServices.getCategories();
             categorias.addAll(categoriesList);
-			createPieModel();
+            createPieModel();
+        } catch (ExcepcionesSolidaridad e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadNeeds() throws ExcepcionesSolidaridad{
+        ArrayList<Need> needList;
+        ArrayList<Category> categoriesList;
+        try {
+        	obtenerDatosUsuario();
+        	if(getIdUserTypeLogin() == 1) {
+                needList = needServices.getNeeds();
+    			needs.clear();
+                needs.addAll(needList);
+                categoriesList = categoryServices.getCategories();
+                categorias.addAll(categoriesList);
+    			createPieModel();
+        	}
         } catch (ExcepcionesSolidaridad e) {
             e.printStackTrace();
         }
@@ -225,7 +243,7 @@ public class needBean {
 				needServices.insertNeed(newNeed, idCategoria, idUserLogin);
 				restartInsert();
 				needs.clear();
-				loadNeeds();
+				loadNeeds2();
 				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad registrada", "La necesidad ha sido registrada");
 				PrimeFaces.current().dialog().showMessageDynamic(message);
 			} catch (Exception e) {
@@ -264,7 +282,7 @@ public class needBean {
 			needServices.ActualizarNeed(idNeed, updateStatus);
 			restartUpdate();
 			needs.clear();
-			loadNeeds();
+			loadNeeds2();
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Necesidad actualizada", "La necesidad ha sido actualizada");
 			PrimeFaces.current().dialog().showMessageDynamic(message);
 		} catch (Exception e) {
