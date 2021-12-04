@@ -20,7 +20,9 @@
             <div class="elemento">
                 <p class="subtitulo">Categoría</p>
                 <img src="img/categoria.jpg" alt="categoria"></img><br></br>
-                <p:commandButton value="Categoria" onclick="location.href='Categoria.xhtml'"></p:commandButton>
+                <h:form method="post">
+                    <p:commandButton value="Categorias" actionListener="#{UserBeans.redirigirCategoria}" class="send" style="width:100%"></p:commandButton>
+                </h:form>
             </div>
             <div class="elemento">
                 <p class="subtitulo">Necesidad</p>
@@ -31,11 +33,6 @@
                 <p class="subtitulo">Oferta</p>
                 <img src="img/oferta.jpg" alt="oferta"></img><br></br>
                 <p:commandButton value="Oferta" onclick="location.href='oferta.xhtml'"></p:commandButton>
-            </div>
-            <div class="elemento">
-                <p class="subtitulo">Respuesta</p>
-                <img src="img/respuesta.jpg" alt="respuesta"></img><br></br>
-                <p:commandButton value="Respuesta" onclick="location.href='respuesta.xhtml'"></p:commandButton>
             </div>
             <div class="elemento">
                 <p class="subtitulo">Reportes</p>

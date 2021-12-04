@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <link rel="stylesheet" type="text/css" href="css/oferta.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Oferta.css"/>
     <title>Oferta</title>
 </h:head>
 <h:body>
@@ -15,6 +15,7 @@
                Oferta
            </div>
            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+           <p:linkButton outcome="menu.xhtml" value="Volver a la Aplicación" style="margin-right:20px;" ></p:linkButton>
         </div>
         <div class="item2">
             <div>
@@ -92,19 +93,7 @@
                         </p:column>
                 </p:dataTable>
                 <br></br>
-                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <p:commandButton value="PDF" ajax="false" style="width: 500px;">
-                        <p:dataExporter type="pdf" target="dtoferta" fileName="Ofertas" widgetVar="ofertChart"/>
-                    </p:commandButton>
-                    <br></br>
-                    <p:commandButton value="Excel" ajax="false" style="width: 500px;">
-                        <p:dataExporter type="xls" target="dtoferta" fileName="Ofertas" widgetVar="ofertChart"/>
-                    </p:commandButton>
-                </div>
             </h:form>
-        </div>
-        <div class="item5">
-            <p:chart id="chart" type="pie" model="#{offerBean.pieModel}"/>
         </div>
         <div class="item6">
             <p class="textoDatos">Registrar respuesta para una oferta</p>

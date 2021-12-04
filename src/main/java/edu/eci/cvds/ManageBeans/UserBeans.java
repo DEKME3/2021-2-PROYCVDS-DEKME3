@@ -194,5 +194,23 @@ public class UserBeans {
 		}
 	}
 
+	@RequiresGuest
+	public void redirigirCategoria(){
+		try {
+			Subject currentUser = SecurityUtils.getSubject();
+			String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
+			int idUser = userServices.getIdUserByName(nombreUsuario);
+			int userType = userServices.getIdUserTypeByIdUser(idUser);
+			if (userType == 1) {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("/faces/Categoria.xhtml");
+			} else {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No puede acceder a categoria ya que no cuenta con los permisos de administrador");
+            	PrimeFaces.current().dialog().showMessageDynamic(message);	
+			}
+		} catch (ExcepcionesSolidaridad | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 }

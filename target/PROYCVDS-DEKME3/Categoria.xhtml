@@ -15,6 +15,7 @@
                Categoría
            </div>
            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+           <p:linkButton outcome="menu.xhtml" value="Volver a la Aplicación" style="margin-right:20px;" ></p:linkButton>
         </div>
         <div class="item2">
             <div>
@@ -73,39 +74,6 @@
                         </p:column>
                 </p:dataTable>
             </h:form>
-        </div>
-        <div class="item4">
-            <h:form id="tabla2">
-                <p:dataTable id="dtCategoria2" var="categoria" value="#{categoryBean.categoriesTable2}" paginator="true" paginatorPosition="bottom" rows="4" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                rowsPerPageTemplate="4,10,{ShowAll|'All'}">
-                        <p:column headerText="Nombre">
-                            <p:outputLabel value="#{categoria.name}" />
-                        </p:column>
-                        <p:column headerText="Necesidades">
-                            <p:outputLabel value="#{categoria.cantidadNecesidades}" />
-                        </p:column>
-                        <p:column headerText="Ofertas">
-                            <p:outputLabel value="#{categoria.cantidadOfertas}" />
-                        </p:column>
-                        <p:column headerText="Total">
-                            <p:outputLabel value="#{categoria.totalOfertasNecesidades}" />
-                        </p:column>
-                </p:dataTable>
-                <br></br>
-                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                    <p:commandButton value="PDF" ajax="false" style="width: 500px;">
-                            <p:dataExporter type="pdf" target="dtCategoria2" fileName="Categorias" widgetVar="categoryChart"/>
-                    </p:commandButton>
-                    <br></br>
-                    <p:commandButton value="Excel" ajax="false" style="width: 500px;">
-                            <p:dataExporter type="xls" target="dtCategoria2" fileName="Categorias" widgetVar="categoryChart"/>
-                    </p:commandButton>
-                </div>
-            </h:form>
-        </div>
-        <div class="item5">
-            <p:chart id="chart" type="bar" model="#{categoryBean.barChartModel}"/>
         </div>
         <div class="item6">
             <p class="textoDatos">Ingrese el nombre de la categoría que desea eliminar</p>

@@ -15,6 +15,7 @@
                Necesidad
            </div>
            <p:commandButton class="logout" value="Cerrar sesión" styleClass="ui-button-success" actionListener="#{LoginBean.logout}"></p:commandButton>
+           <p:linkButton outcome="menu.xhtml" value="Volver a la Aplicación" style="margin-right:20px;" ></p:linkButton>
         </div>
         <div class="item2">
             <div>
@@ -109,9 +110,6 @@
                 <p:commandButton value="Cargar todas las necesidades" update="tabla" actionListener="#{needBean.loadNeeds}" class="send"></p:commandButton>
             </h:form>
         </div>
-        <div class="item5">
-            <p:chart id="chart" type="pie" model="#{needBean.pieModel}"/>
-        </div>
         <div class="item6">
             <div class="subitem2">
                 <p class="textoDatos">Registrar respuesta para una necesidad</p>
@@ -150,49 +148,6 @@
                         </h:form>
                     </div>
                 </div>
-            </div>
-            <div class="subitem4">
-                <p class="textoDatos">Generar reporte de necesidades</p>
-                <h:form id="tabla2">
-                    <p:dataTable id="dtnecesidad" var="necesidad" value="#{needBean.needs}" paginator="true" paginatorPosition="bottom" rows="3" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
-                    rowsPerPageTemplate="3,9,{ShowAll|'All'}">
-                            <p:column headerText="ID">
-                                <p:outputLabel value="#{necesidad.id}" />
-                            </p:column>
-                            <p:column headerText="Categoria">
-                                <p:outputLabel value="#{necesidad.category.name}"/>
-                            </p:column>
-                            <p:column headerText="Nombre">
-                                <p:outputLabel value="#{necesidad.name}" />
-                            </p:column>
-                            <p:column headerText="Descripcion">
-                                <p:outputLabel value="#{necesidad.description}"/>
-                            </p:column>
-                            <p:column headerText="Fecha de creación">
-                                <p:outputLabel value="#{necesidad.creationDate}"/>
-                            </p:column>
-                            <p:column headerText="Estado">
-                                <p:outputLabel value="#{necesidad.status}"/>
-                            </p:column>
-                            <p:column headerText="Fecha de modificacion">
-                                <p:outputLabel value="#{necesidad.modificationDate}"/>
-                            </p:column>
-                            <p:column headerText="Usuario">
-                                <p:outputLabel value="#{necesidad.usuario.name}"/>
-                            </p:column>
-                    </p:dataTable>
-                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                        <br></br>
-                        <p:commandButton value="PDF" ajax="false" style="width: 500px;">
-                            <p:dataExporter type="pdf" target="dtnecesidad" fileName="Necesidades" widgetVar="needChart"/>
-                        </p:commandButton>
-                        <br></br>
-                        <p:commandButton value="Excel" ajax="false" style="width: 500px;">
-                            <p:dataExporter type="xls" target="dtnecesidad" fileName="Necesidades" widgetVar="needChart"/>
-                        </p:commandButton>
-                    </div>
-                </h:form>
             </div>
         </div>
     </div>
