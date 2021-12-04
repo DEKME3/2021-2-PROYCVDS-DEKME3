@@ -49,5 +49,10 @@ public class OfferServicesImpl implements OfferServices{
     public int countCategories(int category) throws ExcepcionesSolidaridad {
         return offerDao.countCategories(category);
     }
-    
+
+    @Override
+    public int getIdUserByOffer(int id) throws ExcepcionesSolidaridad {
+        return offerDao.getIdUserByOffer(id);
+    }
+
 }

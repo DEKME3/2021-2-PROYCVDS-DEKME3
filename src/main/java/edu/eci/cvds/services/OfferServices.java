@@ -13,4 +13,5 @@ public interface OfferServices {
     public int getOfferIdByName(String name) throws ExcepcionesSolidaridad;
     public int getTotalOfferOfUser(int id) throws ExcepcionesSolidaridad;
     public int countCategories(int category) throws ExcepcionesSolidaridad;
+    public int getIdUserByOffer(int id) throws ExcepcionesSolidaridad;
 }

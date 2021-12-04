@@ -109,6 +109,13 @@
         WHERE name=#{name}
     </select>
 
+    <select id="getIdUserByOffer" parameterType="map" resultType="int">
+        SELECT
+        o.usuario
+        FROM offers o
+        WHERE id=#{id}
+    </select>
+
     <update parameterType="map" id="ActualizarOffer">
         UPDATE Offers
         SET status=#{status},

@@ -46,6 +46,12 @@ public class offerBean {
     private UserServices userServices = ServicesFactory.getInstance().getUserServices();
     private CategoryServices categoryServices = ServicesFactory.getInstance().getCategoryServices();
     private PieChartModel pieModel;
+    private String nombreUsuarioLogin;
+    public void setNombreUsuarioLogin(String nombreUsuarioLogin) {
+        this.nombreUsuarioLogin = nombreUsuarioLogin;
+    }
+    private int idUserLogin;
+    private int idUserTypeLogin;
 
     public offerBean() {
     }
@@ -153,32 +159,86 @@ public class offerBean {
         this.offers = offers;
     }
 
+    public String getNombreUsuarioLogin() {
+        return nombreUsuarioLogin;
+    }
+
+    public int getIdUserLogin() {
+        return idUserLogin;
+    }
+
+    public void setIdUserLogin(int idUserLogin) {
+        this.idUserLogin = idUserLogin;
+    }
+
+    public int getIdUserTypeLogin() {
+        return idUserTypeLogin;
+    }
+
+    public void setIdUserTypeLogin(int idUserType) {
+        this.idUserTypeLogin = idUserType;
+    }
+
+
+    private void obtenerDatosUsuario() throws ExcepcionesSolidaridad {
+        Subject currentUser = SecurityUtils.getSubject();
+        setNombreUsuarioLogin((String) currentUser.getSession().getAttribute("Nombre"));
+        setIdUserLogin(userServices.getIdUserByName(getNombreUsuarioLogin()));
+        setIdUserTypeLogin(userServices.getIdUserTypeByIdUser(getIdUserLogin()));
+    }
+
     public void insertOffer() {
         Offer newOffer = new Offer(name, description, new Date(), status, new Date());
         Subject currentUser = SecurityUtils.getSubject();
         String nombreUsuario = (String) currentUser.getSession().getAttribute("Nombre");
         try {
+            obtenerDatosUsuario();
             User usuario = userServices.getUser(nombreUsuario);
             newOffer.setUsuario(usuario);
             int idUsuario = usuario.getId();
             int idCategoria = categoryServices.getCategoryIdByName(category);
             int ofertasUsuario = userServices.getNumero_ofertas(idUsuario);
             int totalOfertas = offerServices.getTotalOfferOfUser(idUsuario);
-            if (totalOfertas < ofertasUsuario) {
+            if (totalOfertas < ofertasUsuario && getIdUserTypeLogin() == 2) {
                 offerServices.insertarOferta(newOffer, idCategoria, idUsuario);
                 offers.clear();
                 loadOffers();
                 restartInsert();
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta registrada", "La oferta ha sido registrada");
-			    PrimeFaces.current().dialog().showMessageDynamic(message);
+                PrimeFaces.current().dialog().showMessageDynamic(message);
+            }
+            else{
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La oferta no se ha podido registrar");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
             }
         } catch (ExcepcionesSolidaridad e) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La oferta no se ha podido registrar");
-			PrimeFaces.current().dialog().showMessageDynamic(message);
+            PrimeFaces.current().dialog().showMessageDynamic(message);
         }
     }
 
-    public void updateOffer(){
+
+    public void updateOffer() throws ExcepcionesSolidaridad{
+        obtenerDatosUsuario();
+        if (updateId != 0) {
+            if((getIdUserTypeLogin() == 2 && (offerServices.getIdUserByOffer(updateId) == getIdUserLogin() ) ) ||  getIdUserTypeLogin() == 1) {
+                actualizaroffer();
+            }else{
+                restartUpdate();
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la necesidad");
+                PrimeFaces.current().dialog().showMessageDynamic(message);
+            }
+        }
+        else {
+            restartUpdate();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se pudo actualizar la necesidad");
+            PrimeFaces.current().dialog().showMessageDynamic(message);
+        }
+
+    }
+
+
+    public void actualizaroffer(){
         try {
             offerServices.actualizarOferta(updateId, updateStatus);
             offers.clear();
@@ -187,6 +247,7 @@ public class offerBean {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Oferta actualizada", "La oferta ha sido actualizada");
 			PrimeFaces.current().dialog().showMessageDynamic(message);
         } catch (ExcepcionesSolidaridad e) {
+            restartUpdate();
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "La oferta no se ha podido actualizar");
 			PrimeFaces.current().dialog().showMessageDynamic(message);
         }
@@ -214,15 +275,6 @@ public class offerBean {
         pieModel.setShadow(false);
     }
 
-    public List<Offer> exportOffers(){
-        loadOffers();
-        return offers;
-    }
-
-    public PieChartModel exportPieChart(){
-        return pieModel;
-    }
-
     private void restartInsert(){
         name = "";
         category = "";
@@ -235,4 +287,12 @@ public class offerBean {
         updateStatus = "";
     }
 
+    public List<Offer> exportOffers(){
+        loadOffers();
+        return offers;
+    }
+
+    public PieChartModel exportPieChart(){
+        return pieModel;
+    }
 }

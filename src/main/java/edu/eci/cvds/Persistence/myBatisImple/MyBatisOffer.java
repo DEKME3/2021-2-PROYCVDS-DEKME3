@@ -69,4 +69,13 @@ public class MyBatisOffer implements OfferDao {
         return offerMapper.countCategories(category);
     }
 
+    @Override
+    public int getIdUserByOffer(int id) throws ExcepcionesSolidaridad {
+        try {
+            return offerMapper.getIdUserByOffer(id);
+        } catch (Exception e) {
+            throw new ExcepcionesSolidaridad("No se logro obtener el id del usuario dado el id de la oferta: : "+ id, e);
+        }
+    }
+
 }
