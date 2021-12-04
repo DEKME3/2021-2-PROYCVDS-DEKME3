@@ -53,7 +53,6 @@ public class needBean {
 		
 	}
 	
-	@PostConstruct
     public void loadNeeds2(){
         ArrayList<Need> needList;
         ArrayList<Category> categoriesList;
@@ -274,6 +273,7 @@ public class needBean {
 		}
 	}
     
+	@PostConstruct
     public void buscarPorUsuario(){
 		try {
 			obtenerDatosUsuario();
